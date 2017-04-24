@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////
-///  \file opticalsystem.h
+///     \file opticalsystem.h
 ///  \brief include file for class Surface
 ///  \date 07.04.2017
 ///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
