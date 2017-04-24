@@ -1,0 +1,264 @@
+\hypertarget{classParameter}{}\section{Parameter$<$ Type $>$ Class Template Reference}
+\label{classParameter}\index{Parameter$<$ Type $>$@{Parameter$<$ Type $>$}}
+
+
+\hyperlink{classParameter}{Parameter} manages changeable Parameters (e.\+g. for optimization)  
+
+
+
+
+{\ttfamily \#include $<$parameter.\+h$>$}
+
+
+
+Collaboration diagram for Parameter$<$ Type $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{classParameter__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classParameter_a6000e8cd47acceb8748300e8c82657a3}{Parameter} ()\hypertarget{classParameter_a6000e8cd47acceb8748300e8c82657a3}{}\label{classParameter_a6000e8cd47acceb8748300e8c82657a3}
+
+\begin{DoxyCompactList}\small\item\em std ctor \end{DoxyCompactList}\item 
+\hyperlink{classParameter_a55f791445b9a159d7b5f1ce0b4f786b9}{Parameter} (Type x)
+\begin{DoxyCompactList}\small\item\em construction with global coordinates \end{DoxyCompactList}\item 
+void \hyperlink{classParameter_a9013b47b1190dbb977df02dcf5101d6d}{set\+Value} (Type x)
+\begin{DoxyCompactList}\small\item\em set Value to x \end{DoxyCompactList}\item 
+Type \hyperlink{classParameter_ac20cb89fbbc4cb6dfdc9779a473659b8}{get\+Value} () const 
+\begin{DoxyCompactList}\small\item\em get the Value \end{DoxyCompactList}\item 
+void \hyperlink{classParameter_af4017adaebcb220cfcb046bfc9f2005b}{set\+Minimum} (Type x)
+\begin{DoxyCompactList}\small\item\em set the minimum value to x \end{DoxyCompactList}\item 
+Type \hyperlink{classParameter_a47b69ec50b78a9202ba470ec79282f2b}{get\+Minimum} () const 
+\begin{DoxyCompactList}\small\item\em get the minimum Value \end{DoxyCompactList}\item 
+void \hyperlink{classParameter_a9148818a721c6b20e25aaa981c932974}{set\+Maximum} (Type x)
+\begin{DoxyCompactList}\small\item\em set the maximum value to x \end{DoxyCompactList}\item 
+Type \hyperlink{classParameter_a4bff89ddd1c3a3e8ebac73c907cb432e}{get\+Maximum} () const 
+\begin{DoxyCompactList}\small\item\em get the maximum Value \end{DoxyCompactList}\item 
+void \hyperlink{classParameter_a85ecc82055bbb4e7724d82ccff6bf3b6}{set\+Std\+Dev} (Type x)
+\begin{DoxyCompactList}\small\item\em set the standard deviation of Value \end{DoxyCompactList}\item 
+Type \hyperlink{classParameter_a01d2bff5f7ad0d99a3bf3a907421ffee}{get\+Std\+Dev} () const 
+\begin{DoxyCompactList}\small\item\em get the standard deviation of Value \end{DoxyCompactList}\item 
+void \hyperlink{classParameter_a4030a197e21b6f2a968047b6da958138}{set\+Modifier} (type\+Modifier x)
+\begin{DoxyCompactList}\small\item\em set the modifier \end{DoxyCompactList}\item 
+type\+Modifier \hyperlink{classParameter_aa6f79e36bd16f49c33302181fe5131d8}{get\+Modifier} () const 
+\begin{DoxyCompactList}\small\item\em get the modifier \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Type \hyperlink{classParameter_a631a80711abe692a1ce7af67abc0a097}{m\+Value}\hypertarget{classParameter_a631a80711abe692a1ce7af67abc0a097}{}\label{classParameter_a631a80711abe692a1ce7af67abc0a097}
+
+\begin{DoxyCompactList}\small\item\em (mean) value of parameter \end{DoxyCompactList}\item 
+Type \hyperlink{classParameter_a725584b7a8af84b3e5f811b27b12615f}{m\+Min}\hypertarget{classParameter_a725584b7a8af84b3e5f811b27b12615f}{}\label{classParameter_a725584b7a8af84b3e5f811b27b12615f}
+
+\begin{DoxyCompactList}\small\item\em minimum allowed value of paramter \end{DoxyCompactList}\item 
+Type \hyperlink{classParameter_a67920b1bd3610cc8fcb43f1811d31e4b}{m\+Max}\hypertarget{classParameter_a67920b1bd3610cc8fcb43f1811d31e4b}{}\label{classParameter_a67920b1bd3610cc8fcb43f1811d31e4b}
+
+\begin{DoxyCompactList}\small\item\em maximum allowed value of paramter \end{DoxyCompactList}\item 
+Type \hyperlink{classParameter_a23b648958657c9949667af624bcac95b}{m\+Std\+Dev}\hypertarget{classParameter_a23b648958657c9949667af624bcac95b}{}\label{classParameter_a23b648958657c9949667af624bcac95b}
+
+\begin{DoxyCompactList}\small\item\em standard deviation of parameter (for tolerancing) \end{DoxyCompactList}\item 
+type\+Modifier \hyperlink{classParameter_a8e555cfec6a44778d4d04a81831c445e}{m\+Modifier}\hypertarget{classParameter_a8e555cfec6a44778d4d04a81831c445e}{}\label{classParameter_a8e555cfec6a44778d4d04a81831c445e}
+
+\begin{DoxyCompactList}\small\item\em is this a variable or fixed or pickup \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class Type$>$\\*
+class Parameter$<$ Type $>$}
+
+\hyperlink{classParameter}{Parameter} manages changeable Parameters (e.\+g. for optimization) 
+
+The template class stores the actual or mean value together with the allowed variation (given as a standard deviation) and allowed minimum and maximum value. This is used e.\+g. for tolerancing and optimization
+
+The parameters minimum, maximum, std\+Dev in principle only make sense for numerical parameters. However, we also will have the case that parameters can vary based on some discrete values (e.\+g. internal index number in glass catalog) out of a list of certain parameters. the main application is responsible to make the translation in this case from integer values to certain usable parameters. (If this is necessary at not only a few places in the code, we might add in the future an additional helper class to handle this translation)
+
+class should be instantiated for real(double), int, string
+
+\begin{DoxyDate}{Date}
+07.\+4.\+2017 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Tobias Haist (\href{mailto:haist@ito.uni-stuttgart.de}{\tt haist@ito.\+uni-\/stuttgart.\+de}) 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Parameter@{Parameter}!Parameter@{Parameter}}
+\index{Parameter@{Parameter}!Parameter@{Parameter}}
+\subsubsection[{\texorpdfstring{Parameter(\+Type x)}{Parameter(Type x)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type$>$ {\bf Parameter}$<$ Type $>$\+::{\bf Parameter} (
+\begin{DoxyParamCaption}
+\item[{Type}]{x}
+\end{DoxyParamCaption}
+)}\hypertarget{classParameter_a55f791445b9a159d7b5f1ce0b4f786b9}{}\label{classParameter_a55f791445b9a159d7b5f1ce0b4f786b9}
+
+
+construction with global coordinates 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Value to be set \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Parameter@{Parameter}!get\+Maximum@{get\+Maximum}}
+\index{get\+Maximum@{get\+Maximum}!Parameter@{Parameter}}
+\subsubsection[{\texorpdfstring{get\+Maximum() const }{getMaximum() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ Type {\bf Parameter}$<$ Type $>$\+::get\+Maximum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classParameter_a4bff89ddd1c3a3e8ebac73c907cb432e}{}\label{classParameter_a4bff89ddd1c3a3e8ebac73c907cb432e}
+
+
+get the maximum Value 
+
+\begin{DoxyReturn}{Returns}
+current Value 
+\end{DoxyReturn}
+\index{Parameter@{Parameter}!get\+Minimum@{get\+Minimum}}
+\index{get\+Minimum@{get\+Minimum}!Parameter@{Parameter}}
+\subsubsection[{\texorpdfstring{get\+Minimum() const }{getMinimum() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ Type {\bf Parameter}$<$ Type $>$\+::get\+Minimum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classParameter_a47b69ec50b78a9202ba470ec79282f2b}{}\label{classParameter_a47b69ec50b78a9202ba470ec79282f2b}
+
+
+get the minimum Value 
+
+\begin{DoxyReturn}{Returns}
+current Value 
+\end{DoxyReturn}
+\index{Parameter@{Parameter}!get\+Modifier@{get\+Modifier}}
+\index{get\+Modifier@{get\+Modifier}!Parameter@{Parameter}}
+\subsubsection[{\texorpdfstring{get\+Modifier() const }{getModifier() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ type\+Modifier {\bf Parameter}$<$ Type $>$\+::get\+Modifier (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classParameter_aa6f79e36bd16f49c33302181fe5131d8}{}\label{classParameter_aa6f79e36bd16f49c33302181fe5131d8}
+
+
+get the modifier 
+
+\begin{DoxyReturn}{Returns}
+current Value 
+\end{DoxyReturn}
+\index{Parameter@{Parameter}!get\+Std\+Dev@{get\+Std\+Dev}}
+\index{get\+Std\+Dev@{get\+Std\+Dev}!Parameter@{Parameter}}
+\subsubsection[{\texorpdfstring{get\+Std\+Dev() const }{getStdDev() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ Type {\bf Parameter}$<$ Type $>$\+::get\+Std\+Dev (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classParameter_a01d2bff5f7ad0d99a3bf3a907421ffee}{}\label{classParameter_a01d2bff5f7ad0d99a3bf3a907421ffee}
+
+
+get the standard deviation of Value 
+
+\begin{DoxyReturn}{Returns}
+current Value 
+\end{DoxyReturn}
+\index{Parameter@{Parameter}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!Parameter@{Parameter}}
+\subsubsection[{\texorpdfstring{get\+Value() const }{getValue() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ Type {\bf Parameter}$<$ Type $>$\+::get\+Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classParameter_ac20cb89fbbc4cb6dfdc9779a473659b8}{}\label{classParameter_ac20cb89fbbc4cb6dfdc9779a473659b8}
+
+
+get the Value 
+
+\begin{DoxyReturn}{Returns}
+current Value 
+\end{DoxyReturn}
+\index{Parameter@{Parameter}!set\+Maximum@{set\+Maximum}}
+\index{set\+Maximum@{set\+Maximum}!Parameter@{Parameter}}
+\subsubsection[{\texorpdfstring{set\+Maximum(\+Type x)}{setMaximum(Type x)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type$>$ void {\bf Parameter}$<$ Type $>$\+::set\+Maximum (
+\begin{DoxyParamCaption}
+\item[{Type}]{x}
+\end{DoxyParamCaption}
+)}\hypertarget{classParameter_a9148818a721c6b20e25aaa981c932974}{}\label{classParameter_a9148818a721c6b20e25aaa981c932974}
+
+
+set the maximum value to x 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Value to be set \\
+\hline
+\end{DoxyParams}
+\index{Parameter@{Parameter}!set\+Minimum@{set\+Minimum}}
+\index{set\+Minimum@{set\+Minimum}!Parameter@{Parameter}}
+\subsubsection[{\texorpdfstring{set\+Minimum(\+Type x)}{setMinimum(Type x)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type$>$ void {\bf Parameter}$<$ Type $>$\+::set\+Minimum (
+\begin{DoxyParamCaption}
+\item[{Type}]{x}
+\end{DoxyParamCaption}
+)}\hypertarget{classParameter_af4017adaebcb220cfcb046bfc9f2005b}{}\label{classParameter_af4017adaebcb220cfcb046bfc9f2005b}
+
+
+set the minimum value to x 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Value to be set \\
+\hline
+\end{DoxyParams}
+\index{Parameter@{Parameter}!set\+Modifier@{set\+Modifier}}
+\index{set\+Modifier@{set\+Modifier}!Parameter@{Parameter}}
+\subsubsection[{\texorpdfstring{set\+Modifier(type\+Modifier x)}{setModifier(typeModifier x)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ void {\bf Parameter}$<$ Type $>$\+::set\+Modifier (
+\begin{DoxyParamCaption}
+\item[{type\+Modifier}]{x}
+\end{DoxyParamCaption}
+)}\hypertarget{classParameter_a4030a197e21b6f2a968047b6da958138}{}\label{classParameter_a4030a197e21b6f2a968047b6da958138}
+
+
+set the modifier 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Value to be set \\
+\hline
+\end{DoxyParams}
+\index{Parameter@{Parameter}!set\+Std\+Dev@{set\+Std\+Dev}}
+\index{set\+Std\+Dev@{set\+Std\+Dev}!Parameter@{Parameter}}
+\subsubsection[{\texorpdfstring{set\+Std\+Dev(\+Type x)}{setStdDev(Type x)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type$>$ void {\bf Parameter}$<$ Type $>$\+::set\+Std\+Dev (
+\begin{DoxyParamCaption}
+\item[{Type}]{x}
+\end{DoxyParamCaption}
+)}\hypertarget{classParameter_a85ecc82055bbb4e7724d82ccff6bf3b6}{}\label{classParameter_a85ecc82055bbb4e7724d82ccff6bf3b6}
+
+
+set the standard deviation of Value 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Value to be set \\
+\hline
+\end{DoxyParams}
+\index{Parameter@{Parameter}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Parameter@{Parameter}}
+\subsubsection[{\texorpdfstring{set\+Value(\+Type x)}{setValue(Type x)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type$>$ void {\bf Parameter}$<$ Type $>$\+::set\+Value (
+\begin{DoxyParamCaption}
+\item[{Type}]{x}
+\end{DoxyParamCaption}
+)}\hypertarget{classParameter_a9013b47b1190dbb977df02dcf5101d6d}{}\label{classParameter_a9013b47b1190dbb977df02dcf5101d6d}
+
+
+set Value to x 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Value to be set \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{parameter_8h}{parameter.\+h}\item 
+parameter.\+cc\end{DoxyCompactItemize}

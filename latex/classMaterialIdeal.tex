@@ -1,0 +1,125 @@
+\hypertarget{classMaterialIdeal}{}\section{Material\+Ideal Class Reference}
+\label{classMaterialIdeal}\index{Material\+Ideal@{Material\+Ideal}}
+
+
+\hyperlink{classMaterialIdeal}{Material\+Ideal} represents all ideal Materials.  
+
+
+
+
+{\ttfamily \#include $<$materialideal.\+h$>$}
+
+
+
+Inheritance diagram for Material\+Ideal\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=152pt]{classMaterialIdeal__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Material\+Ideal\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{classMaterialIdeal__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMaterialIdeal_a81f6c27aef2251e7d810fa4d9521d9e4}{Material\+Ideal} (std\+::string name, \hyperlink{classEnvironment}{Environment} $\ast$env, real n, real dispersion=0, real absorption=0)
+\begin{DoxyCompactList}\small\item\em ctor \end{DoxyCompactList}\item 
+virtual real \hyperlink{classMaterialIdeal_a21833d3f466424ee62ee70e02de1ee49}{get\+Refractive\+Index} (real wavelength, std\+::complex$<$ real $>$ ex, std\+::complex$<$ real $>$ ey, std\+::complex$<$ real $>$ ez)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classParameter}{Parameter}$<$ real $>$ \hyperlink{classMaterialIdeal_aa2a06bb4e433a2c039714e85f5e777c1}{mN}\hypertarget{classMaterialIdeal_aa2a06bb4e433a2c039714e85f5e777c1}{}\label{classMaterialIdeal_aa2a06bb4e433a2c039714e85f5e777c1}
+
+\begin{DoxyCompactList}\small\item\em refractive index \end{DoxyCompactList}\item 
+\hyperlink{classParameter}{Parameter}$<$ real $>$ \hyperlink{classMaterialIdeal_a1e1974c42234bddf7c7e2ba52cf316a0}{m\+Dispersion}\hypertarget{classMaterialIdeal_a1e1974c42234bddf7c7e2ba52cf316a0}{}\label{classMaterialIdeal_a1e1974c42234bddf7c7e2ba52cf316a0}
+
+\begin{DoxyCompactList}\small\item\em Dispersion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classMaterialIdeal}{Material\+Ideal} represents all ideal Materials. 
+
+Subclasses have to derived
+
+In the future we will derive classes (e.\+g. metamaterials) from this class. However\+: We have to deeply think about the interface then !
+
+Refractive Index and Reflection -\/ Wavelength
+\begin{DoxyItemize}
+\item Polarization
+\item Orientation of \hyperlink{classMaterial}{Material}
+\end{DoxyItemize}
+
+We also need Subclasses for
+\begin{DoxyItemize}
+\item \hyperlink{classMaterialIdeal}{Material\+Ideal} (perfect mirrors, Glass with given refractive index etc..)
+\item Materials that need different equations for different spectral regimes
+\end{DoxyItemize}
+
+in General\+: we should have a look at optical material in General to get the right (very general) interface 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Material\+Ideal@{Material\+Ideal}!Material\+Ideal@{Material\+Ideal}}
+\index{Material\+Ideal@{Material\+Ideal}!Material\+Ideal@{Material\+Ideal}}
+\subsubsection[{\texorpdfstring{Material\+Ideal(std\+::string name, Environment $\ast$env, real n, real dispersion=0, real absorption=0)}{MaterialIdeal(std::string name, Environment *env, real n, real dispersion=0, real absorption=0)}}]{\setlength{\rightskip}{0pt plus 5cm}Material\+Ideal\+::\+Material\+Ideal (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{name, }
+\item[{{\bf Environment} $\ast$}]{env, }
+\item[{real}]{n, }
+\item[{real}]{dispersion = {\ttfamily 0}, }
+\item[{real}]{absorption = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classMaterialIdeal_a81f6c27aef2251e7d810fa4d9521d9e4}{}\label{classMaterialIdeal_a81f6c27aef2251e7d810fa4d9521d9e4}
+
+
+ctor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & refractive index \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Material\+Ideal@{Material\+Ideal}!get\+Refractive\+Index@{get\+Refractive\+Index}}
+\index{get\+Refractive\+Index@{get\+Refractive\+Index}!Material\+Ideal@{Material\+Ideal}}
+\subsubsection[{\texorpdfstring{get\+Refractive\+Index(real wavelength, std\+::complex$<$ real $>$ ex, std\+::complex$<$ real $>$ ey, std\+::complex$<$ real $>$ ez)}{getRefractiveIndex(real wavelength, std::complex< real > ex, std::complex< real > ey, std::complex< real > ez)}}]{\setlength{\rightskip}{0pt plus 5cm}real Material\+Ideal\+::get\+Refractive\+Index (
+\begin{DoxyParamCaption}
+\item[{real}]{wavelength, }
+\item[{std\+::complex$<$ real $>$}]{ex, }
+\item[{std\+::complex$<$ real $>$}]{ey, }
+\item[{std\+::complex$<$ real $>$}]{ez}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classMaterialIdeal_a21833d3f466424ee62ee70e02de1ee49}{}\label{classMaterialIdeal_a21833d3f466424ee62ee70e02de1ee49}
+
+\begin{DoxyParams}{Parameters}
+{\em wavelength} & wavelength in m \\
+\hline
+{\em ex} & polarization electrical field in x direction in global coordinates \\
+\hline
+{\em ey} & polarization electrical field in x direction in global coordinates \\
+\hline
+{\em ez} & polarization electrical field in x direction in global coordinates \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classMaterial_a8994560db37896679e16161a7a7cb75b}{Material}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{materialideal_8h}{materialideal.\+h}\item 
+materialideal.\+cc\end{DoxyCompactItemize}

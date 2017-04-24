@@ -1,0 +1,125 @@
+\hypertarget{classOpticalSystem}{}\section{Optical\+System Class Reference}
+\label{classOpticalSystem}\index{Optical\+System@{Optical\+System}}
+
+
+Describes the complete optical system.  
+
+
+
+
+{\ttfamily \#include $<$opticalsystem.\+h$>$}
+
+
+
+Collaboration diagram for Optical\+System\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{classOpticalSystem__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classOpticalSystem_a9ea225f3366e3f6794985173be3f42ba}{add\+Element} (\hyperlink{classElement}{Element} $\ast$const e)
+\begin{DoxyCompactList}\small\item\em add one \hyperlink{classElement}{Element} at the end of the system \end{DoxyCompactList}\item 
+int \hyperlink{classOpticalSystem_a097a1fe0bbddacebab645c5f0dc09361}{set\+Element} (\hyperlink{classElement}{Element} $\ast$const e, int nr)
+\begin{DoxyCompactList}\small\item\em replace \hyperlink{classElement}{Element} number n \end{DoxyCompactList}\item 
+\hyperlink{classElement}{Element} $\ast$const \hyperlink{classOpticalSystem_a66d8de4ccd5ae4301db88f232f435081}{get\+Element} (int nr) const 
+\begin{DoxyCompactList}\small\item\em set the \hyperlink{classElement}{Element} number n \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \hyperlink{classElement}{Element} $\ast$ $>$ \hyperlink{classOpticalSystem_a631ce48d96804db9cffcc0820bd58c09}{m\+Elements}\hypertarget{classOpticalSystem_a631ce48d96804db9cffcc0820bd58c09}{}\label{classOpticalSystem_a631ce48d96804db9cffcc0820bd58c09}
+
+\begin{DoxyCompactList}\small\item\em Here, the elements are stored. \end{DoxyCompactList}\item 
+\hyperlink{classParameter}{Parameter}$<$ double $>$ \hyperlink{classOpticalSystem_ae27cdbd3c25a95204813bc0f8da69bd3}{m\+Price}\hypertarget{classOpticalSystem_ae27cdbd3c25a95204813bc0f8da69bd3}{}\label{classOpticalSystem_ae27cdbd3c25a95204813bc0f8da69bd3}
+
+\begin{DoxyCompactList}\small\item\em Price of the optical system. \end{DoxyCompactList}\item 
+\hyperlink{classSurface}{Surface} $\ast$ \hyperlink{classOpticalSystem_a98b21335a43785df339f04c7e05100d5}{m\+Stop}\hypertarget{classOpticalSystem_a98b21335a43785df339f04c7e05100d5}{}\label{classOpticalSystem_a98b21335a43785df339f04c7e05100d5}
+
+\begin{DoxyCompactList}\small\item\em for classic optical design we need a stop S\+U\+R\+F\+A\+CE \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Describes the complete optical system. 
+
+We trace light through optical systems. During the trace different components are encountered by the light. These things are handled in the propagation and interaction classes. However, the hardware of the whole optical system (consisting of lenses, surfaces, materials etc. is stored and managed in this class (and the important subclass \hyperlink{classElement}{Element}).
+
+Mainly the optical system consists of Elements (and additional information) And of course, Elements consist of Surfaces, Materials, Coatings etc.
+
+The class never creates or destructs elements (or surfaces) (otherwise we would have to use smartpointer or something similar)
+
+\begin{DoxyDate}{Date}
+07.\+4.\+2017 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Tobias Haist (\href{mailto:haist@ito.uni-stuttgart.de}{\tt haist@ito.\+uni-\/stuttgart.\+de}) 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\index{Optical\+System@{Optical\+System}!add\+Element@{add\+Element}}
+\index{add\+Element@{add\+Element}!Optical\+System@{Optical\+System}}
+\subsubsection[{\texorpdfstring{add\+Element(\+Element $\ast$const e)}{addElement(Element *const e)}}]{\setlength{\rightskip}{0pt plus 5cm}void Optical\+System\+::add\+Element (
+\begin{DoxyParamCaption}
+\item[{{\bf Element} $\ast$const}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{classOpticalSystem_a9ea225f3366e3f6794985173be3f42ba}{}\label{classOpticalSystem_a9ea225f3366e3f6794985173be3f42ba}
+
+
+add one \hyperlink{classElement}{Element} at the end of the system 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Pointer to \hyperlink{classElement}{Element} to be added to end of list \\
+\hline
+\end{DoxyParams}
+\index{Optical\+System@{Optical\+System}!get\+Element@{get\+Element}}
+\index{get\+Element@{get\+Element}!Optical\+System@{Optical\+System}}
+\subsubsection[{\texorpdfstring{get\+Element(int nr) const }{getElement(int nr) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Element} $\ast$const Optical\+System\+::get\+Element (
+\begin{DoxyParamCaption}
+\item[{int}]{nr}
+\end{DoxyParamCaption}
+) const}\hypertarget{classOpticalSystem_a66d8de4ccd5ae4301db88f232f435081}{}\label{classOpticalSystem_a66d8de4ccd5ae4301db88f232f435081}
+
+
+set the \hyperlink{classElement}{Element} number n 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nr} & index (0 ... size) of element of the optical system \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to \hyperlink{classElement}{Element} number nr 
+\end{DoxyReturn}
+\index{Optical\+System@{Optical\+System}!set\+Element@{set\+Element}}
+\index{set\+Element@{set\+Element}!Optical\+System@{Optical\+System}}
+\subsubsection[{\texorpdfstring{set\+Element(\+Element $\ast$const e, int nr)}{setElement(Element *const e, int nr)}}]{\setlength{\rightskip}{0pt plus 5cm}int Optical\+System\+::set\+Element (
+\begin{DoxyParamCaption}
+\item[{{\bf Element} $\ast$const}]{e, }
+\item[{int}]{nr}
+\end{DoxyParamCaption}
+)}\hypertarget{classOpticalSystem_a097a1fe0bbddacebab645c5f0dc09361}{}\label{classOpticalSystem_a097a1fe0bbddacebab645c5f0dc09361}
+
+
+replace \hyperlink{classElement}{Element} number n 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nr} & index (0 ... size) of element of the optical system \\
+\hline
+{\em Pointer} & to \hyperlink{classElement}{Element} number nr \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 if index is out of bounds, otherwise\+: nr 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{opticalsystem_8h}{opticalsystem.\+h}\item 
+\hyperlink{opticalsystem_8cc}{opticalsystem.\+cc}\end{DoxyCompactItemize}

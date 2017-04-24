@@ -1,0 +1,55 @@
+////////////////////////////////////////////////////////////
+/// \file tracing.cc
+/// \brief class Tracing
+///  \date 15.04.2017
+///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
+///  Institute of Applied Optics, University of Stuttgart ITO 
+///  Paffenwaldring 9
+///  70569 Stuttgart
+///  Germany
+/// 
+
+#include "tracing.h"
+#include "refraction.h"
+#include "logging.h"
+
+
+
+//////////////////////////////////////////////////////////////////////
+Tracing::Tracing()
+{
+  mInteraction = new Interaction;
+}
+
+//////////////////////////////////////////////////////////////////////
+Tracing::~Tracing()
+{
+  delete mInteraction;
+}
+
+
+//////////////////////////////////////////////////////////////////////
+/// \param l light to be traced
+/// \param s optical system through which we want to trace
+//////////////////////////////////////////////////////////////////////
+void Tracing::trace(Light* light, OpticalSystem* const osystem) const
+{
+  LOG("Tracing starts");
+  mInteraction->mRefraction->perform(light, osystem->getElement(0));
+}
+
+//////////////////////////////////////////////////////////////////////
+/// \param l light based on which all interactions are to be set
+//////////////////////////////////////////////////////////////////////
+void Tracing::init(Light* const light)
+{
+  mInteraction->setGlobalInteractions(light);
+}
+
+//////////////////////////////////////////////////////////////////////
+/// \param i interaction that will be used for tracing through
+//////////////////////////////////////////////////////////////////////
+void Tracing::setInteraction(Interaction* const i)
+{
+  mInteraction = i;
+};

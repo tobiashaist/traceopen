@@ -1,0 +1,70 @@
+\hypertarget{classElement}{}\section{Element Class Reference}
+\label{classElement}\index{Element@{Element}}
+
+
+\hyperlink{classElement}{Element} represents an element/component of an optical system.  
+
+
+
+
+{\ttfamily \#include $<$element.\+h$>$}
+
+
+
+Inheritance diagram for Element\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{classElement__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Element\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{classElement__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classElement_ab0d0e20be9a36ae676202db753faeec9}{Element} ()\hypertarget{classElement_ab0d0e20be9a36ae676202db753faeec9}{}\label{classElement_ab0d0e20be9a36ae676202db753faeec9}
+
+\begin{DoxyCompactList}\small\item\em ctor \end{DoxyCompactList}\item 
+virtual \hyperlink{classElement_a13d54ba9c08b6bec651402f1c2bb002c}{$\sim$\+Element} ()\hypertarget{classElement_a13d54ba9c08b6bec651402f1c2bb002c}{}\label{classElement_a13d54ba9c08b6bec651402f1c2bb002c}
+
+\begin{DoxyCompactList}\small\item\em dtor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classParameter}{Parameter}$<$ real $>$ \hyperlink{classElement_a69ec3816139f3e3664ddc8ee7686406d}{m\+Weight}\hypertarget{classElement_a69ec3816139f3e3664ddc8ee7686406d}{}\label{classElement_a69ec3816139f3e3664ddc8ee7686406d}
+
+\begin{DoxyCompactList}\small\item\em Weight of element in g. \end{DoxyCompactList}\item 
+\hyperlink{classParameter}{Parameter}$<$ real $>$ \hyperlink{classElement_a0ba80b79bb7b1280510eb9f66eda786b}{m\+Price}\hypertarget{classElement_a0ba80b79bb7b1280510eb9f66eda786b}{}\label{classElement_a0ba80b79bb7b1280510eb9f66eda786b}
+
+\begin{DoxyCompactList}\small\item\em Price of element in Euro. \end{DoxyCompactList}\item 
+\hyperlink{classJonesMatrix}{Jones\+Matrix} $\ast$ \hyperlink{classElement_a62fb95690c351f1adb1bb642f8f6d150}{m\+Jones\+Matrix}\hypertarget{classElement_a62fb95690c351f1adb1bb642f8f6d150}{}\label{classElement_a62fb95690c351f1adb1bb642f8f6d150}
+
+\begin{DoxyCompactList}\small\item\em Pointer to a Jones Matrix or N\+U\+LL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classElement}{Element} represents an element/component of an optical system. 
+
+In Trace\+Open Elements are the building blocks of optical systems. A typical element might be a lens which might consist of multiple surfaces. An element might also be a \char`\"{}group\char`\"{} of lenses or other things like a scattering volume.
+
+\begin{DoxyDate}{Date}
+07.\+4.\+2017 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Tobias Haist (\href{mailto:haist@ito.uni-stuttgart.de}{\tt haist@ito.\+uni-\/stuttgart.\+de}) 
+\end{DoxyAuthor}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{element_8h}{element.\+h}\item 
+\hyperlink{element_8cc}{element.\+cc}\end{DoxyCompactItemize}

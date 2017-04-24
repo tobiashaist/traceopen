@@ -1,0 +1,117 @@
+\hypertarget{classMaterial}{}\section{Material Class Reference}
+\label{classMaterial}\index{Material@{Material}}
+
+
+\hyperlink{classMaterial}{Material} is an abstract base calls that represents all Materials.  
+
+
+
+
+{\ttfamily \#include $<$material.\+h$>$}
+
+
+
+Inheritance diagram for Material\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=152pt]{classMaterial__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Material\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=257pt]{classMaterial__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMaterial_a6ae071c7815f931869131bba5414cefd}{Material} (std\+::string name, \hyperlink{classEnvironment}{Environment} $\ast$env=0, real specificic\+Weight=0)
+\begin{DoxyCompactList}\small\item\em ctor \end{DoxyCompactList}\item 
+virtual \hyperlink{classMaterial_a2c19452d71f54075df8f5405b03129f4}{$\sim$\+Material} ()
+\begin{DoxyCompactList}\small\item\em dtor \end{DoxyCompactList}\item 
+virtual real \hyperlink{classMaterial_a8994560db37896679e16161a7a7cb75b}{get\+Refractive\+Index} (real wavelength, std\+::complex$<$ real $>$ ex, std\+::complex$<$ real $>$ ey, std\+::complex$<$ real $>$ ez)=0\hypertarget{classMaterial_a8994560db37896679e16161a7a7cb75b}{}\label{classMaterial_a8994560db37896679e16161a7a7cb75b}
+
+\begin{DoxyCompactList}\small\item\em get refractive\+Index \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{classMaterial_a4dc85b2e88aa30c51dda6a54f1bd2f30}{m\+Name}\hypertarget{classMaterial_a4dc85b2e88aa30c51dda6a54f1bd2f30}{}\label{classMaterial_a4dc85b2e88aa30c51dda6a54f1bd2f30}
+
+\begin{DoxyCompactList}\small\item\em name of \hyperlink{classMaterial}{Material} \end{DoxyCompactList}\item 
+\hyperlink{classParameter}{Parameter}$<$ real $>$ \hyperlink{classMaterial_a8d6bf3cf727dd81b4eac1726e0df36b0}{m\+Specific\+Weight}\hypertarget{classMaterial_a8d6bf3cf727dd81b4eac1726e0df36b0}{}\label{classMaterial_a8d6bf3cf727dd81b4eac1726e0df36b0}
+
+\begin{DoxyCompactList}\small\item\em Dispersion. \end{DoxyCompactList}\item 
+\hyperlink{classEnvironment}{Environment} $\ast$ \hyperlink{classMaterial_adb3c2440c55d8b32a19d9c246450179a}{m\+Environment}\hypertarget{classMaterial_adb3c2440c55d8b32a19d9c246450179a}{}\label{classMaterial_adb3c2440c55d8b32a19d9c246450179a}
+
+\begin{DoxyCompactList}\small\item\em Enviromental conditions (e.\+g. Temperature) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classMaterial}{Material} is an abstract base calls that represents all Materials. 
+
+Subclasses have to derived
+
+In the future we will derive classes (e.\+g. metamaterials) from this class. However\+: We have to deeply think about the interface then !
+
+Refractive Index and Reflection -\/ Wavelength
+\begin{DoxyItemize}
+\item Polarization
+\item Orientation of \hyperlink{classMaterial}{Material}
+\end{DoxyItemize}
+
+We also need Subclasses for
+\begin{DoxyItemize}
+\item \hyperlink{classMaterialIdeal}{Material\+Ideal} (perfect mirrors, Glass with given refractive index etc..)
+\item Materials that need different equations for different spectral regimes
+\end{DoxyItemize}
+
+in General\+: we should have a look at optical material in General to get the right (very general) interface 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Material@{Material}!Material@{Material}}
+\index{Material@{Material}!Material@{Material}}
+\subsubsection[{\texorpdfstring{Material(std\+::string name, Environment $\ast$env=0, real specificic\+Weight=0)}{Material(std::string name, Environment *env=0, real specificicWeight=0)}}]{\setlength{\rightskip}{0pt plus 5cm}Material\+::\+Material (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{name, }
+\item[{{\bf Environment} $\ast$}]{env = {\ttfamily 0}, }
+\item[{real}]{specific\+Weight = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classMaterial_a6ae071c7815f931869131bba5414cefd}{}\label{classMaterial_a6ae071c7815f931869131bba5414cefd}
+
+
+ctor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & refractive index \\
+\hline
+\end{DoxyParams}
+\index{Material@{Material}!````~Material@{$\sim$\+Material}}
+\index{````~Material@{$\sim$\+Material}!Material@{Material}}
+\subsubsection[{\texorpdfstring{$\sim$\+Material()}{~Material()}}]{\setlength{\rightskip}{0pt plus 5cm}Material\+::$\sim$\+Material (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classMaterial_a2c19452d71f54075df8f5405b03129f4}{}\label{classMaterial_a2c19452d71f54075df8f5405b03129f4}
+
+
+dtor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & refractive index \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{material_8h}{material.\+h}\item 
+\hyperlink{material_8cc}{material.\+cc}\end{DoxyCompactItemize}

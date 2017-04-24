@@ -1,0 +1,49 @@
+////////////////////////////////////////////////////////////
+/// \file direction.h
+/// \brief include file for class Direction
+///  \date 07.04.2017
+///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
+///  Institute of Applied Optics, University of Stuttgart ITO 
+///  Paffenwaldring 9
+///  70569 Stuttgart
+///  Germany
+/// 
+
+#ifndef DIRECTION_HPP 
+#define DIRECTION_HPP
+
+#include "basicdefinitions.h"
+#include "parameter.h"
+
+#include <iostream>
+
+
+////////////////////////////////////////////////////////////
+///  \brief Direction manages Directions/Orientations in Space
+////////////////////////////////////////////////////////////
+///  
+///  This is the basic class for representing the direction (e.g. of a ray).
+///  The direction can be given, of course, in different coordinate systems and
+///  with different representations which have different advantages.
+///  However, it is internally stored in "the" one and only global coordinate system.
+///  in the direction cosine way. 
+///  Methods for obtaining the direction in other systems and other
+///  representation are given.
+///  Angles are given in radians.
+///
+///  \date 07.4.2017
+///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
+////////////////////////////////////////////////////////////
+class Direction {
+
+public:
+  Direction(real alpha=0, real beta=0, real gamma=0);  ///< construction with global coordinates
+  //  Direction(Direction& dir);  ///< Copy Constructor
+  
+protected:
+  Parameter<real> mDirCosX;    ///< direction cosine x-axis in global coordinate system
+  Parameter<real> mDirCosY;    ///< direction cosine y-axis in global coordinate system
+  Parameter<real> mDirCosZ;    ///< direction cosine z-axis in global coordinate system 
+};
+
+#endif

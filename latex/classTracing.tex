@@ -1,0 +1,114 @@
+\hypertarget{classTracing}{}\section{Tracing Class Reference}
+\label{classTracing}\index{Tracing@{Tracing}}
+
+
+Most optical components are made out of Surfaces.  
+
+
+
+
+{\ttfamily \#include $<$tracing.\+h$>$}
+
+
+
+Collaboration diagram for Tracing\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{classTracing__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTracing_aa1207cbaf59ba3f2c200a80cd137b216}{Tracing} ()\hypertarget{classTracing_aa1207cbaf59ba3f2c200a80cd137b216}{}\label{classTracing_aa1207cbaf59ba3f2c200a80cd137b216}
+
+\begin{DoxyCompactList}\small\item\em ctor \end{DoxyCompactList}\item 
+\hyperlink{classTracing_a699e507b9d71ca86ff4759798f67a58b}{$\sim$\+Tracing} ()\hypertarget{classTracing_a699e507b9d71ca86ff4759798f67a58b}{}\label{classTracing_a699e507b9d71ca86ff4759798f67a58b}
+
+\begin{DoxyCompactList}\small\item\em dtor \end{DoxyCompactList}\item 
+void \hyperlink{classTracing_a0d1449364b93a2fab5d9a8f4a10f5a3a}{set\+Interaction} (\hyperlink{classInteraction}{Interaction} $\ast$const i)
+\begin{DoxyCompactList}\small\item\em set the interation to i \end{DoxyCompactList}\item 
+void \hyperlink{classTracing_aa347dfabff1a62e587004b671e570844}{trace} (\hyperlink{classLight}{Light} $\ast$l, \hyperlink{classOpticalSystem}{Optical\+System} $\ast$const s) const 
+\begin{DoxyCompactList}\small\item\em trace light through a complete system \end{DoxyCompactList}\item 
+void \hyperlink{classTracing_af01d7dd435e2ce61fdd0b3c56da8b001}{init} (\hyperlink{classLight}{Light} $\ast$const l)
+\begin{DoxyCompactList}\small\item\em init the interactions based on light model \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classInteraction}{Interaction} $\ast$ \hyperlink{classTracing_a5f7a022b92a31067dd44c908196bbc16}{m\+Interaction}\hypertarget{classTracing_a5f7a022b92a31067dd44c908196bbc16}{}\label{classTracing_a5f7a022b92a31067dd44c908196bbc16}
+
+\begin{DoxyCompactList}\small\item\em This is used for handling interactions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Most optical components are made out of Surfaces. 
+
+/// The abstract base class \hyperlink{classTracing}{Tracing} is the main container for propagation and interaction.
+
+\begin{DoxyDate}{Date}
+15.\+4.\+2017 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Tobias Haist (\href{mailto:haist@ito.uni-stuttgart.de}{\tt haist@ito.\+uni-\/stuttgart.\+de}) 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\index{Tracing@{Tracing}!init@{init}}
+\index{init@{init}!Tracing@{Tracing}}
+\subsubsection[{\texorpdfstring{init(\+Light $\ast$const l)}{init(Light *const l)}}]{\setlength{\rightskip}{0pt plus 5cm}void Tracing\+::init (
+\begin{DoxyParamCaption}
+\item[{{\bf Light} $\ast$const}]{l}
+\end{DoxyParamCaption}
+)}\hypertarget{classTracing_af01d7dd435e2ce61fdd0b3c56da8b001}{}\label{classTracing_af01d7dd435e2ce61fdd0b3c56da8b001}
+
+
+init the interactions based on light model 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & light based on which all interactions are to be set \\
+\hline
+\end{DoxyParams}
+\index{Tracing@{Tracing}!set\+Interaction@{set\+Interaction}}
+\index{set\+Interaction@{set\+Interaction}!Tracing@{Tracing}}
+\subsubsection[{\texorpdfstring{set\+Interaction(\+Interaction $\ast$const i)}{setInteraction(Interaction *const i)}}]{\setlength{\rightskip}{0pt plus 5cm}void Tracing\+::set\+Interaction (
+\begin{DoxyParamCaption}
+\item[{{\bf Interaction} $\ast$const}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{classTracing_a0d1449364b93a2fab5d9a8f4a10f5a3a}{}\label{classTracing_a0d1449364b93a2fab5d9a8f4a10f5a3a}
+
+
+set the interation to i 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & interaction that will be used for tracing through \\
+\hline
+\end{DoxyParams}
+\index{Tracing@{Tracing}!trace@{trace}}
+\index{trace@{trace}!Tracing@{Tracing}}
+\subsubsection[{\texorpdfstring{trace(\+Light $\ast$l, Optical\+System $\ast$const s) const }{trace(Light *l, OpticalSystem *const s) const }}]{\setlength{\rightskip}{0pt plus 5cm}void Tracing\+::trace (
+\begin{DoxyParamCaption}
+\item[{{\bf Light} $\ast$}]{l, }
+\item[{{\bf Optical\+System} $\ast$const}]{s}
+\end{DoxyParamCaption}
+) const}\hypertarget{classTracing_aa347dfabff1a62e587004b671e570844}{}\label{classTracing_aa347dfabff1a62e587004b671e570844}
+
+
+trace light through a complete system 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & light to be traced \\
+\hline
+{\em s} & optical system through which we want to trace \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{tracing_8h}{tracing.\+h}\item 
+\hyperlink{tracing_8cc}{tracing.\+cc}\end{DoxyCompactItemize}

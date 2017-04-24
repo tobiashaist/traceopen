@@ -1,0 +1,102 @@
+\hypertarget{classLight}{}\section{Light Class Reference}
+\label{classLight}\index{Light@{Light}}
+
+
+Inheritance diagram for Light\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{classLight__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Light\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{classLight__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLight_aa3c2e043724b07ece1e11732472b9520}{Light} (\hyperlink{light_8h_a6dc57eac1ae8b19466de554123d5c6c3}{type\+Light} type, real lambda, real intensity)
+\begin{DoxyCompactList}\small\item\em ctor \end{DoxyCompactList}\item 
+void \hyperlink{classLight_ad23d1727356fae1075d82f5e9596f886}{set\+Position} (\hyperlink{classPoint}{Point} p)\hypertarget{classLight_ad23d1727356fae1075d82f5e9596f886}{}\label{classLight_ad23d1727356fae1075d82f5e9596f886}
+
+\begin{DoxyCompactList}\small\item\em sets the startposition of the light \end{DoxyCompactList}\item 
+\hyperlink{light_8h_a6dc57eac1ae8b19466de554123d5c6c3}{type\+Light} {\bfseries get\+Type} () const \hypertarget{classLight_a8571ce69ae09c26937733d435c0d0276}{}\label{classLight_a8571ce69ae09c26937733d435c0d0276}
+
+\item 
+bool \hyperlink{classLight_aa5371398a56853b58e9eaf87ca418bac}{is\+Alive} () const 
+\begin{DoxyCompactList}\small\item\em true -\/$>$ \hyperlink{classLight}{Light} is still alive (not vignetted) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{light_8h_a6dc57eac1ae8b19466de554123d5c6c3}{type\+Light} \hyperlink{classLight_aee4380e879fac1a8687c8dc4a8401d8d}{m\+Light\+Type}\hypertarget{classLight_aee4380e879fac1a8687c8dc4a8401d8d}{}\label{classLight_aee4380e879fac1a8687c8dc4a8401d8d}
+
+\begin{DoxyCompactList}\small\item\em what kind of \hyperlink{classLight}{Light} (subclass) \end{DoxyCompactList}\item 
+\hyperlink{classParameter}{Parameter}$<$ real $>$ \hyperlink{classLight_a6bcf65e42bbe7525e704edd9b22892f8}{m\+Lambda}\hypertarget{classLight_a6bcf65e42bbe7525e704edd9b22892f8}{}\label{classLight_a6bcf65e42bbe7525e704edd9b22892f8}
+
+\begin{DoxyCompactList}\small\item\em Wavelength in m. \end{DoxyCompactList}\item 
+\hyperlink{classParameter}{Parameter}$<$ real $>$ \hyperlink{classLight_a67e9a5774841ce868a7cf5b9312c6850}{m\+Coherence\+Length}\hypertarget{classLight_a67e9a5774841ce868a7cf5b9312c6850}{}\label{classLight_a67e9a5774841ce868a7cf5b9312c6850}
+
+\begin{DoxyCompactList}\small\item\em coherence length in m \end{DoxyCompactList}\item 
+\hyperlink{classParameter}{Parameter}$<$ real $>$ \hyperlink{classLight_accb9c61fcc083de4cd5a33e02347712b}{m\+Intensity}\hypertarget{classLight_accb9c61fcc083de4cd5a33e02347712b}{}\label{classLight_accb9c61fcc083de4cd5a33e02347712b}
+
+\begin{DoxyCompactList}\small\item\em power per m$^\wedge$2 = intensity in W/m$^\wedge$2 \end{DoxyCompactList}\item 
+\hyperlink{classParameter}{Parameter}$<$ real $>$ \hyperlink{classLight_a6de046378d4fa3eac06bf4cb3549e95e}{m\+O\+PD}\hypertarget{classLight_a6de046378d4fa3eac06bf4cb3549e95e}{}\label{classLight_a6de046378d4fa3eac06bf4cb3549e95e}
+
+\begin{DoxyCompactList}\small\item\em optical path difference \end{DoxyCompactList}\item 
+bool \hyperlink{classLight_a5769177ada731b92c917853ea2eb52f5}{m\+Alive}\hypertarget{classLight_a5769177ada731b92c917853ea2eb52f5}{}\label{classLight_a5769177ada731b92c917853ea2eb52f5}
+
+\begin{DoxyCompactList}\small\item\em true -\/$>$ light still alive \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Light@{Light}!Light@{Light}}
+\index{Light@{Light}!Light@{Light}}
+\subsubsection[{\texorpdfstring{Light(type\+Light type, real lambda, real intensity)}{Light(typeLight type, real lambda, real intensity)}}]{\setlength{\rightskip}{0pt plus 5cm}Light\+::\+Light (
+\begin{DoxyParamCaption}
+\item[{{\bf type\+Light}}]{type, }
+\item[{real}]{lambda, }
+\item[{real}]{intensity}
+\end{DoxyParamCaption}
+)}\hypertarget{classLight_aa3c2e043724b07ece1e11732472b9520}{}\label{classLight_aa3c2e043724b07ece1e11732472b9520}
+
+
+ctor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & type of light \\
+\hline
+{\em lambda} & wavelength (in m) \\
+\hline
+{\em intensity} & intesity in W/m$^\wedge$2 \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Light@{Light}!is\+Alive@{is\+Alive}}
+\index{is\+Alive@{is\+Alive}!Light@{Light}}
+\subsubsection[{\texorpdfstring{is\+Alive() const }{isAlive() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Light\+::is\+Alive (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classLight_aa5371398a56853b58e9eaf87ca418bac}{}\label{classLight_aa5371398a56853b58e9eaf87ca418bac}
+
+
+true -\/$>$ \hyperlink{classLight}{Light} is still alive (not vignetted) 
+
+\begin{DoxyReturn}{Returns}
+true -\/$>$ ray is alive (not vignetted) 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{light_8h}{light.\+h}\item 
+\hyperlink{light_8cc}{light.\+cc}\end{DoxyCompactItemize}

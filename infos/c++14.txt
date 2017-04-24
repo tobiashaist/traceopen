@@ -1,0 +1,54 @@
+for ( auto ii = collection.begin() ; ...
+
+This code is still completely typesafe — the compiler knows what type
+begin() returns in that context, so there is no question about what
+type ii is, and that will be checked every place it is used.
+
+There several good reasons why deducing the return type is a plus for
+your C++ programs. First, there are times when you need to return a
+fairly complex type, such as an iterator, perhaps when searching into
+a standard library container. The auto return type makes the function
+easier to write properly, and easier to read. A second (maybe less
+obvious) reason is that using an auto return type enhances your
+ability to refactor. As an example, consider this program: 
+
+
+Lambda:
+
+Anyone can pass a function into the findMatchingAddresses that
+contains logic for finding a particular function. If the function
+returns true, when given a particular address, the address will be
+returned. This kind of approach was OK in earlier version of C++, but
+it suffered from one fatal flaw: it wasn't quite convenient enough to
+create functions. You had to go define it somewhere else, just to be
+able to pass it in for one simple use. That's where lambdas come in. 
+
+int main()
+{
+    auto func = [] () { cout << "Hello world"; };
+    func(); // now call the function
+}
+
+Weiteres Beispiel für STL (da machts besonders Sinn)
+
+vector<int> v;
+v.push_back( 1 );
+v.push_back( 2 );
+//...
+for_each( v.begin(), v.end(), [] (int val)
+{
+    cout << val;
+} );
+
+That's pretty good looking code if you ask me--it reads, and is
+structured, like a normal loop, but you're suddenly able to take
+advantage of the goodness that for_each provides over a regular for
+loop--for example, guarantees that you have the right end
+condition. Now, you might wonder, won't this kill performance? Well,
+here's the kicker: it turns out that for_each has about the same
+performance, and is sometimes even faster than a regular for loop. ( 
+
+
+STL:
+http://www.cprogramming.com/tutorial/stl/stlintro.html
+http://www.cplusplus.com/reference/chrono/

@@ -1,0 +1,80 @@
+\hypertarget{classRefractionRays}{}\section{Refraction\+Rays Class Reference}
+\label{classRefractionRays}\index{Refraction\+Rays@{Refraction\+Rays}}
+
+
+Most optical components are made out of Surfaces.  
+
+
+
+
+{\ttfamily \#include $<$refractionrays.\+h$>$}
+
+
+
+Inheritance diagram for Refraction\+Rays\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{classRefractionRays__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Refraction\+Rays\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{classRefractionRays__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classRefractionRays_a275736609454ec99eb9557415ab4f8bd}{perform} (\hyperlink{classLight}{Light} $\ast$light, \hyperlink{classElement}{Element} $\ast$const element)
+\begin{DoxyCompactList}\small\item\em perform refraction of rays through element \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Most optical components are made out of Surfaces. 
+
+The abstract base class \hyperlink{classRefraction}{Refraction} is the main class that is responsible for the special interaction refraction
+
+\begin{DoxyDate}{Date}
+15.\+4.\+2017 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Tobias Haist (\href{mailto:haist@ito.uni-stuttgart.de}{\tt haist@ito.\+uni-\/stuttgart.\+de}) 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\index{Refraction\+Rays@{Refraction\+Rays}!perform@{perform}}
+\index{perform@{perform}!Refraction\+Rays@{Refraction\+Rays}}
+\subsubsection[{\texorpdfstring{perform(\+Light $\ast$light, Element $\ast$const element)}{perform(Light *light, Element *const element)}}]{\setlength{\rightskip}{0pt plus 5cm}void Refraction\+Rays\+::perform (
+\begin{DoxyParamCaption}
+\item[{{\bf Light} $\ast$}]{light, }
+\item[{{\bf Element} $\ast$const}]{element}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRefractionRays_a275736609454ec99eb9557415ab4f8bd}{}\label{classRefractionRays_a275736609454ec99eb9557415ab4f8bd}
+
+
+perform refraction of rays through element 
+
+
+\begin{DoxyParams}{Parameters}
+{\em light} & light to be traced through. Beware\+: S\+H\+O\+U\+LD BE Rays \\
+\hline
+{\em element} & the element we wish to trace through. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classRefraction}{Refraction}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{refractionrays_8h}{refractionrays.\+h}\item 
+\hyperlink{refractionrays_8cc}{refractionrays.\+cc}\end{DoxyCompactItemize}

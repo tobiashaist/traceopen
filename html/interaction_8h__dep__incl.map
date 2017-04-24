@@ -1,0 +1,11 @@
+<map id="interaction.h" name="interaction.h">
+<area shape="rect" id="node2" href="$interaction_8cc.html" title="class Interaction " alt="" coords="5,229,105,256"/>
+<area shape="rect" id="node3" href="$refraction_8h.html" title="include file for class Interaction " alt="" coords="245,80,332,107"/>
+<area shape="rect" id="node10" href="$tracing_8h.html" title="include file for class Tracing " alt="" coords="429,80,501,107"/>
+<area shape="rect" id="node4" href="$refractionrays_8h.html" title="include file for class Interaction " alt="" coords="325,155,437,181"/>
+<area shape="rect" id="node6" href="$refractionwaves_8h.html" title="include file for class RefractionWaves " alt="" coords="55,155,181,181"/>
+<area shape="rect" id="node8" href="$refraction_8cc.html" title="class Refraction " alt="" coords="205,155,300,181"/>
+<area shape="rect" id="node9" href="$tracing_8cc.html" title="class Tracing " alt="" coords="461,155,540,181"/>
+<area shape="rect" id="node5" href="$refractionrays_8cc.html" title="class RefractionRays " alt="" coords="321,229,440,256"/>
+<area shape="rect" id="node7" href="$refractionwaves_8cc.html" title="class RefractionRays " alt="" coords="129,229,261,256"/>
+</map>

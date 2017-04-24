@@ -1,0 +1,82 @@
+\hypertarget{classDirection}{}\section{Direction Class Reference}
+\label{classDirection}\index{Direction@{Direction}}
+
+
+\hyperlink{classDirection}{Direction} manages Directions/\+Orientations in Space.  
+
+
+
+
+{\ttfamily \#include $<$direction.\+h$>$}
+
+
+
+Collaboration diagram for Direction\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=177pt]{classDirection__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDirection_a735f451ae07927d4bb8b4631b5e53c0a}{Direction} (real alpha=0, real beta=0, real gamma=0)
+\begin{DoxyCompactList}\small\item\em construction with global coordinates \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classParameter}{Parameter}$<$ real $>$ \hyperlink{classDirection_a796f5d3ab9275f9711e8454c1852e8a3}{m\+Dir\+CosX}\hypertarget{classDirection_a796f5d3ab9275f9711e8454c1852e8a3}{}\label{classDirection_a796f5d3ab9275f9711e8454c1852e8a3}
+
+\begin{DoxyCompactList}\small\item\em direction cosine x-\/axis in global coordinate system \end{DoxyCompactList}\item 
+\hyperlink{classParameter}{Parameter}$<$ real $>$ \hyperlink{classDirection_a7a857846b71b40148a2058deeedd7c56}{m\+Dir\+CosY}\hypertarget{classDirection_a7a857846b71b40148a2058deeedd7c56}{}\label{classDirection_a7a857846b71b40148a2058deeedd7c56}
+
+\begin{DoxyCompactList}\small\item\em direction cosine y-\/axis in global coordinate system \end{DoxyCompactList}\item 
+\hyperlink{classParameter}{Parameter}$<$ real $>$ \hyperlink{classDirection_a15cd63604eccaaec032691871a316396}{m\+Dir\+CosZ}\hypertarget{classDirection_a15cd63604eccaaec032691871a316396}{}\label{classDirection_a15cd63604eccaaec032691871a316396}
+
+\begin{DoxyCompactList}\small\item\em direction cosine z-\/axis in global coordinate system \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classDirection}{Direction} manages Directions/\+Orientations in Space. 
+
+This is the basic class for representing the direction (e.\+g. of a ray). The direction can be given, of course, in different coordinate systems and with different representations which have different advantages. However, it is internally stored in \char`\"{}the\char`\"{} one and only global coordinate system. in the direction cosine way. Methods for obtaining the direction in other systems and other representation are given. Angles are given in radians.
+
+\begin{DoxyDate}{Date}
+07.\+4.\+2017 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Tobias Haist (\href{mailto:haist@ito.uni-stuttgart.de}{\tt haist@ito.\+uni-\/stuttgart.\+de}) 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Direction@{Direction}!Direction@{Direction}}
+\index{Direction@{Direction}!Direction@{Direction}}
+\subsubsection[{\texorpdfstring{Direction(real alpha=0, real beta=0, real gamma=0)}{Direction(real alpha=0, real beta=0, real gamma=0)}}]{\setlength{\rightskip}{0pt plus 5cm}Direction\+::\+Direction (
+\begin{DoxyParamCaption}
+\item[{real}]{alpha = {\ttfamily 0}, }
+\item[{real}]{beta = {\ttfamily 0}, }
+\item[{real}]{gamma = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classDirection_a735f451ae07927d4bb8b4631b5e53c0a}{}\label{classDirection_a735f451ae07927d4bb8b4631b5e53c0a}
+
+
+construction with global coordinates 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & global direction cosine with respect to x axis \\
+\hline
+{\em b} & global direction cosine with respect to y axis \\
+\hline
+{\em c} & global direction cosine with respect to z axis \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{direction_8h}{direction.\+h}\item 
+direction.\+cc\end{DoxyCompactItemize}

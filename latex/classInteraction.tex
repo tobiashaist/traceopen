@@ -1,0 +1,84 @@
+\hypertarget{classInteraction}{}\section{Interaction Class Reference}
+\label{classInteraction}\index{Interaction@{Interaction}}
+
+
+Most optical components are made out of Surfaces.  
+
+
+
+
+{\ttfamily \#include $<$interaction.\+h$>$}
+
+
+
+Inheritance diagram for Interaction\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{classInteraction__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Interaction\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{classInteraction__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classInteraction_aadfd0e254296043c26508d47090ace76}{Interaction} ()\hypertarget{classInteraction_aadfd0e254296043c26508d47090ace76}{}\label{classInteraction_aadfd0e254296043c26508d47090ace76}
+
+\begin{DoxyCompactList}\small\item\em dtor \end{DoxyCompactList}\item 
+virtual \hyperlink{classInteraction_a6610199fedc7fae617003cb2f397c825}{$\sim$\+Interaction} ()\hypertarget{classInteraction_a6610199fedc7fae617003cb2f397c825}{}\label{classInteraction_a6610199fedc7fae617003cb2f397c825}
+
+\begin{DoxyCompactList}\small\item\em dtor \end{DoxyCompactList}\item 
+void \hyperlink{classInteraction_a97cbbf080cda868a35f80cfbe7e673f5}{set\+Global\+Interactions} (\hyperlink{classLight}{Light} $\ast$const light)
+\begin{DoxyCompactList}\small\item\em set global interactions according to light modell \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRefraction}{Refraction} $\ast$ \hyperlink{classInteraction_a80f9aba433c1c701b1e1545372c25c20}{m\+Refraction}\hypertarget{classInteraction_a80f9aba433c1c701b1e1545372c25c20}{}\label{classInteraction_a80f9aba433c1c701b1e1545372c25c20}
+
+\begin{DoxyCompactList}\small\item\em this is what we call when refraction occurs \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Most optical components are made out of Surfaces. 
+
+The abstract base class \hyperlink{classInteraction}{Interaction} is the main class that is responsible for interactions like refraction, refraction etc.
+
+\begin{DoxyDate}{Date}
+15.\+4.\+2017 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Tobias Haist (\href{mailto:haist@ito.uni-stuttgart.de}{\tt haist@ito.\+uni-\/stuttgart.\+de}) 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\index{Interaction@{Interaction}!set\+Global\+Interactions@{set\+Global\+Interactions}}
+\index{set\+Global\+Interactions@{set\+Global\+Interactions}!Interaction@{Interaction}}
+\subsubsection[{\texorpdfstring{set\+Global\+Interactions(\+Light $\ast$const light)}{setGlobalInteractions(Light *const light)}}]{\setlength{\rightskip}{0pt plus 5cm}void Interaction\+::set\+Global\+Interactions (
+\begin{DoxyParamCaption}
+\item[{{\bf Light} $\ast$const}]{light}
+\end{DoxyParamCaption}
+)}\hypertarget{classInteraction_a97cbbf080cda868a35f80cfbe7e673f5}{}\label{classInteraction_a97cbbf080cda868a35f80cfbe7e673f5}
+
+
+set global interactions according to light modell 
+
+
+\begin{DoxyParams}{Parameters}
+{\em light} & light model to be used for global interactions \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{interaction_8h}{interaction.\+h}\item 
+\hyperlink{interaction_8cc}{interaction.\+cc}\end{DoxyCompactItemize}

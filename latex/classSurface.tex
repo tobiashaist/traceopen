@@ -1,0 +1,96 @@
+\hypertarget{classSurface}{}\section{Surface Class Reference}
+\label{classSurface}\index{Surface@{Surface}}
+
+
+Most optical components are made out of Surfaces.  
+
+
+
+
+{\ttfamily \#include $<$surface.\+h$>$}
+
+
+
+Inheritance diagram for Surface\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=171pt]{classSurface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Surface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{classSurface__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSurface_ac3d233e717ad7177f340765f07b4e7cb}{Surface} (\hyperlink{classPoint}{Point} pos, \hyperlink{classDirection}{Direction} dir, real diameter)
+\begin{DoxyCompactList}\small\item\em ctor \end{DoxyCompactList}\item 
+virtual \hyperlink{classSurface_a89de75c95cb550d432f3ea4ed1429db0}{$\sim$\+Surface} ()\hypertarget{classSurface_a89de75c95cb550d432f3ea4ed1429db0}{}\label{classSurface_a89de75c95cb550d432f3ea4ed1429db0}
+
+\begin{DoxyCompactList}\small\item\em dtor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPoint}{Point} \hyperlink{classSurface_aedc39cb43d82a98b61eb45844de57658}{m\+Position}\hypertarget{classSurface_aedc39cb43d82a98b61eb45844de57658}{}\label{classSurface_aedc39cb43d82a98b61eb45844de57658}
+
+\begin{DoxyCompactList}\small\item\em Position in Space (global coordinates) \end{DoxyCompactList}\item 
+\hyperlink{classDirection}{Direction} \hyperlink{classSurface_a11e958be47f8f0aec30dac7526311507}{m\+Orientation}\hypertarget{classSurface_a11e958be47f8f0aec30dac7526311507}{}\label{classSurface_a11e958be47f8f0aec30dac7526311507}
+
+\begin{DoxyCompactList}\small\item\em orientation in Space (global coordinates) \end{DoxyCompactList}\item 
+\hyperlink{classParameter}{Parameter}$<$ real $>$ \hyperlink{classSurface_ae00d3ff70c7fd76b99c405f5c0196ebf}{m\+Diameter}\hypertarget{classSurface_ae00d3ff70c7fd76b99c405f5c0196ebf}{}\label{classSurface_ae00d3ff70c7fd76b99c405f5c0196ebf}
+
+\begin{DoxyCompactList}\small\item\em Diameter of usable surface (inner circle) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Most optical components are made out of Surfaces. 
+
+Most often, elements are lenses or mirrors. These elements are \char`\"{}elements with (or consisting of) surfaces\char`\"{}.
+
+The abstract base class \hyperlink{classSurface}{Surface} is the core for the implementation of all kinds of surfaces.
+
+\begin{DoxyDate}{Date}
+07.\+4.\+2017 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Tobias Haist (\href{mailto:haist@ito.uni-stuttgart.de}{\tt haist@ito.\+uni-\/stuttgart.\+de}) 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Surface@{Surface}!Surface@{Surface}}
+\index{Surface@{Surface}!Surface@{Surface}}
+\subsubsection[{\texorpdfstring{Surface(\+Point pos, Direction dir, real diameter)}{Surface(Point pos, Direction dir, real diameter)}}]{\setlength{\rightskip}{0pt plus 5cm}Surface\+::\+Surface (
+\begin{DoxyParamCaption}
+\item[{{\bf Point}}]{pos, }
+\item[{{\bf Direction}}]{dir, }
+\item[{real}]{diameter}
+\end{DoxyParamCaption}
+)}\hypertarget{classSurface_ac3d233e717ad7177f340765f07b4e7cb}{}\label{classSurface_ac3d233e717ad7177f340765f07b4e7cb}
+
+
+ctor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Position of \hyperlink{classSurface}{Surface} in global coordinates \\
+\hline
+{\em dir} & orientation of \hyperlink{classSurface}{Surface} with respect to global coordinate system \\
+\hline
+{\em diameter} & diameter of surface \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{surface_8h}{surface.\+h}\item 
+\hyperlink{surface_8cc}{surface.\+cc}\end{DoxyCompactItemize}

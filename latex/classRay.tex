@@ -1,0 +1,112 @@
+\hypertarget{classRay}{}\section{Ray Class Reference}
+\label{classRay}\index{Ray@{Ray}}
+
+
+\hyperlink{classRay}{Ray} manages optical (polarized or unpolarized) Rays.  
+
+
+
+
+{\ttfamily \#include $<$ray.\+h$>$}
+
+
+
+Inheritance diagram for Ray\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=118pt]{classRay__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ray\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classRay__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRay_abe7c9d6bfd243e256a5a69f5ab9ade39}{Ray} (real lambda=500e-\/9, real intensity=1)
+\begin{DoxyCompactList}\small\item\em ctor \end{DoxyCompactList}\item 
+\hyperlink{classRay_a248f18e16b380a3518608f23c7f3f82f}{Ray} (real lambda, real intensity, \hyperlink{classPoint}{Point} $\ast$const p, \hyperlink{classDirection}{Direction} $\ast$const dir)
+\begin{DoxyCompactList}\small\item\em construction with global coordinates \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPoint}{Point} \hyperlink{classRay_a9665b2e2fccaffdcc4c7b682d578153b}{m\+Point}\hypertarget{classRay_a9665b2e2fccaffdcc4c7b682d578153b}{}\label{classRay_a9665b2e2fccaffdcc4c7b682d578153b}
+
+\begin{DoxyCompactList}\small\item\em start point \end{DoxyCompactList}\item 
+\hyperlink{classDirection}{Direction} \hyperlink{classRay_aebcf4d0d29d676055973101739e2261b}{m\+Direction}\hypertarget{classRay_aebcf4d0d29d676055973101739e2261b}{}\label{classRay_aebcf4d0d29d676055973101739e2261b}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDirection}{Direction} cosines. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classRay}{Ray} manages optical (polarized or unpolarized) Rays. 
+
+This is the basic class for representing light in the geometrical model. The concept of the ray is an idealized one. The ray has zero extension and divergence. Our ray is polarized (Jones Vector) or unpolarized, has one specific wavelength and energy.
+
+\begin{DoxyDate}{Date}
+07.\+4.\+2017 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Tobias Haist (\href{mailto:haist@ito.uni-stuttgart.de}{\tt haist@ito.\+uni-\/stuttgart.\+de}) 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Ray@{Ray}!Ray@{Ray}}
+\index{Ray@{Ray}!Ray@{Ray}}
+\subsubsection[{\texorpdfstring{Ray(real lambda=500e-\/9, real intensity=1)}{Ray(real lambda=500e-9, real intensity=1)}}]{\setlength{\rightskip}{0pt plus 5cm}Ray\+::\+Ray (
+\begin{DoxyParamCaption}
+\item[{real}]{lambda = {\ttfamily 500e-\/9}, }
+\item[{real}]{intensity = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\hypertarget{classRay_abe7c9d6bfd243e256a5a69f5ab9ade39}{}\label{classRay_abe7c9d6bfd243e256a5a69f5ab9ade39}
+
+
+ctor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lambda} & wavelength (in m) \\
+\hline
+{\em intensity} & intesity in W/m$^\wedge$2 \\
+\hline
+\end{DoxyParams}
+\index{Ray@{Ray}!Ray@{Ray}}
+\index{Ray@{Ray}!Ray@{Ray}}
+\subsubsection[{\texorpdfstring{Ray(real lambda, real intensity, Point $\ast$const p, Direction $\ast$const dir)}{Ray(real lambda, real intensity, Point *const p, Direction *const dir)}}]{\setlength{\rightskip}{0pt plus 5cm}Ray\+::\+Ray (
+\begin{DoxyParamCaption}
+\item[{real}]{lambda, }
+\item[{real}]{intensity, }
+\item[{{\bf Point} $\ast$const}]{p, }
+\item[{{\bf Direction} $\ast$const}]{dir}
+\end{DoxyParamCaption}
+)}\hypertarget{classRay_a248f18e16b380a3518608f23c7f3f82f}{}\label{classRay_a248f18e16b380a3518608f23c7f3f82f}
+
+
+construction with global coordinates 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lambda} & wavelength (in m) \\
+\hline
+{\em intensity} & intesity in W/m$^\wedge$2 \\
+\hline
+{\em p} & start point of the ray (pointer due to efficiency) \\
+\hline
+{\em dir} & start direction of the ray (pointer due to efficiency) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ray_8h}{ray.\+h}\item 
+\hyperlink{ray_8cc}{ray.\+cc}\end{DoxyCompactItemize}

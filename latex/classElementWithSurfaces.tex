@@ -1,0 +1,165 @@
+\hypertarget{classElementWithSurfaces}{}\section{Element\+With\+Surfaces Class Reference}
+\label{classElementWithSurfaces}\index{Element\+With\+Surfaces@{Element\+With\+Surfaces}}
+
+
+\hyperlink{classElementWithSurfaces}{Element\+With\+Surfaces} represents things like typical lenses.  
+
+
+
+
+{\ttfamily \#include $<$elementwithsurfaces.\+h$>$}
+
+
+
+Inheritance diagram for Element\+With\+Surfaces\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{classElementWithSurfaces__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Element\+With\+Surfaces\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{classElementWithSurfaces__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classElementWithSurfaces_a0d27f004d13a2b81a8ee2b8adba48ea0}{Element\+With\+Surfaces} ()\hypertarget{classElementWithSurfaces_a0d27f004d13a2b81a8ee2b8adba48ea0}{}\label{classElementWithSurfaces_a0d27f004d13a2b81a8ee2b8adba48ea0}
+
+\begin{DoxyCompactList}\small\item\em ctor \end{DoxyCompactList}\item 
+\hyperlink{classElementWithSurfaces_a361ebb826758c49bf2de1671bcc861ec}{$\sim$\+Element\+With\+Surfaces} ()\hypertarget{classElementWithSurfaces_a361ebb826758c49bf2de1671bcc861ec}{}\label{classElementWithSurfaces_a361ebb826758c49bf2de1671bcc861ec}
+
+\begin{DoxyCompactList}\small\item\em dtor \end{DoxyCompactList}\item 
+void \hyperlink{classElementWithSurfaces_aa884a6c58261c3fb4143785b9bec613e}{add\+Surface} (\hyperlink{classSurface}{Surface} $\ast$const s, \hyperlink{classMaterial}{Material} $\ast$const m)
+\begin{DoxyCompactList}\small\item\em add a surface at the end of m\+Surfaces \end{DoxyCompactList}\item 
+void \hyperlink{classElementWithSurfaces_a1a80e23ffdde5afe3ae94c105bb0b1ba}{standard\+Lens} (real r1, real r2, real thickness, \hyperlink{classMaterial}{Material} $\ast$const material, real diameter=0)
+\begin{DoxyCompactList}\small\item\em create a standard lens \end{DoxyCompactList}\item 
+void \hyperlink{classElementWithSurfaces_a32df06ede6cfea6425e68037b69c4dab}{achromat} (real r1, real r2, real r3, real thickness1, real thickness2, \hyperlink{classMaterial}{Material} $\ast$const m1, \hyperlink{classMaterial}{Material} $\ast$const m2, real diameter=0)
+\begin{DoxyCompactList}\small\item\em create an achromat \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classElementWithSurfaces_a86e3872cf6bd9b6bb3d5d9b504dbbaa8}{m\+Cnt\+Surfaces}\hypertarget{classElementWithSurfaces_a86e3872cf6bd9b6bb3d5d9b504dbbaa8}{}\label{classElementWithSurfaces_a86e3872cf6bd9b6bb3d5d9b504dbbaa8}
+
+\begin{DoxyCompactList}\small\item\em number of surfaces \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classSurface}{Surface} $\ast$ $>$ \hyperlink{classElementWithSurfaces_a3fb5888bb6ec5de9d7fe81bbbc2d2afd}{m\+Surfaces}\hypertarget{classElementWithSurfaces_a3fb5888bb6ec5de9d7fe81bbbc2d2afd}{}\label{classElementWithSurfaces_a3fb5888bb6ec5de9d7fe81bbbc2d2afd}
+
+\begin{DoxyCompactList}\small\item\em All surfaces that make the element. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classMaterial}{Material} $\ast$ $>$ \hyperlink{classElementWithSurfaces_af2900bba23d0aa0bdc38f69dcc00e086}{m\+Materials}\hypertarget{classElementWithSurfaces_af2900bba23d0aa0bdc38f69dcc00e086}{}\label{classElementWithSurfaces_af2900bba23d0aa0bdc38f69dcc00e086}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classMaterial}{Material} between successive surfaces. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classElementWithSurfaces}{Element\+With\+Surfaces} represents things like typical lenses. 
+
+Most often, elements are lenses or mirrors. These elements are \char`\"{}elements with (or consisting of) surfaces\char`\"{}.
+
+We might in the future have elements with L\+O\+TS of surfaces, e.\+g. in order to simulate quasi continuos changes. Therefore, it would not be memory efficient to always have an \hyperlink{classArray}{Array} (of pointers) e.\+g. with 10.\+000 entries for every \hyperlink{classElementWithSurfaces}{Element\+With\+Surfaces}. Therefore we use a container ( vector$<$\+Surface$\ast$$>$ )(
+
+\begin{DoxyDate}{Date}
+07.\+4.\+2017 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Tobias Haist (\href{mailto:haist@ito.uni-stuttgart.de}{\tt haist@ito.\+uni-\/stuttgart.\+de}) 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\index{Element\+With\+Surfaces@{Element\+With\+Surfaces}!achromat@{achromat}}
+\index{achromat@{achromat}!Element\+With\+Surfaces@{Element\+With\+Surfaces}}
+\subsubsection[{\texorpdfstring{achromat(real r1, real r2, real r3, real thickness1, real thickness2, Material $\ast$const m1, Material $\ast$const m2, real diameter=0)}{achromat(real r1, real r2, real r3, real thickness1, real thickness2, Material *const m1, Material *const m2, real diameter=0)}}]{\setlength{\rightskip}{0pt plus 5cm}void Element\+With\+Surfaces\+::achromat (
+\begin{DoxyParamCaption}
+\item[{real}]{r1, }
+\item[{real}]{r2, }
+\item[{real}]{r3, }
+\item[{real}]{thickness1, }
+\item[{real}]{thickness2, }
+\item[{{\bf Material} $\ast$const}]{m1, }
+\item[{{\bf Material} $\ast$const}]{m2, }
+\item[{real}]{diameter = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classElementWithSurfaces_a32df06ede6cfea6425e68037b69c4dab}{}\label{classElementWithSurfaces_a32df06ede6cfea6425e68037b69c4dab}
+
+
+create an achromat 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r1} & radius of curvature surface 1 \\
+\hline
+{\em r2} & radius of curvature surface 2 \\
+\hline
+{\em r3} & radius of curvature surface 3 \\
+\hline
+{\em thickness1} & thickness between surface 1 and 2 \\
+\hline
+{\em thickness2} & thickness between surface 2 and 3 \\
+\hline
+{\em m1} & Pointer to material 1 \\
+\hline
+{\em mw} & Pointer to material 2 \\
+\hline
+{\em diameter} & lens diameter \\
+\hline
+\end{DoxyParams}
+\index{Element\+With\+Surfaces@{Element\+With\+Surfaces}!add\+Surface@{add\+Surface}}
+\index{add\+Surface@{add\+Surface}!Element\+With\+Surfaces@{Element\+With\+Surfaces}}
+\subsubsection[{\texorpdfstring{add\+Surface(\+Surface $\ast$const s, Material $\ast$const m)}{addSurface(Surface *const s, Material *const m)}}]{\setlength{\rightskip}{0pt plus 5cm}void Element\+With\+Surfaces\+::add\+Surface (
+\begin{DoxyParamCaption}
+\item[{{\bf Surface} $\ast$const}]{s, }
+\item[{{\bf Material} $\ast$const}]{m}
+\end{DoxyParamCaption}
+)}\hypertarget{classElementWithSurfaces_aa884a6c58261c3fb4143785b9bec613e}{}\label{classElementWithSurfaces_aa884a6c58261c3fb4143785b9bec613e}
+
+
+add a surface at the end of m\+Surfaces 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Pointer to surface \\
+\hline
+{\em m} & Pointer to material \\
+\hline
+\end{DoxyParams}
+\index{Element\+With\+Surfaces@{Element\+With\+Surfaces}!standard\+Lens@{standard\+Lens}}
+\index{standard\+Lens@{standard\+Lens}!Element\+With\+Surfaces@{Element\+With\+Surfaces}}
+\subsubsection[{\texorpdfstring{standard\+Lens(real r1, real r2, real thickness, Material $\ast$const material, real diameter=0)}{standardLens(real r1, real r2, real thickness, Material *const material, real diameter=0)}}]{\setlength{\rightskip}{0pt plus 5cm}void Element\+With\+Surfaces\+::standard\+Lens (
+\begin{DoxyParamCaption}
+\item[{real}]{r1, }
+\item[{real}]{r2, }
+\item[{real}]{thickness, }
+\item[{{\bf Material} $\ast$const}]{material, }
+\item[{real}]{diameter = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classElementWithSurfaces_a1a80e23ffdde5afe3ae94c105bb0b1ba}{}\label{classElementWithSurfaces_a1a80e23ffdde5afe3ae94c105bb0b1ba}
+
+
+create a standard lens 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r1} & radius of curvature surface 1 \\
+\hline
+{\em r2} & radius of curvature surface 2 \\
+\hline
+{\em thickness} & thickness between surface 1 and 2 \\
+\hline
+{\em material} & Pointer to material \\
+\hline
+{\em diameter} & lens diameter \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{elementwithsurfaces_8h}{elementwithsurfaces.\+h}\item 
+\hyperlink{elementwithsurfaces_8cc}{elementwithsurfaces.\+cc}\end{DoxyCompactItemize}

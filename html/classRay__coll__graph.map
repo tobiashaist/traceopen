@@ -1,0 +1,6 @@
+<map id="Ray" name="Ray">
+<area shape="rect" id="node2" href="$classLight.html" title="Light" alt="" coords="5,139,56,165"/>
+<area shape="rect" id="node3" href="$classParameter.html" title="Parameter\&lt; real \&gt;" alt="" coords="87,5,214,32"/>
+<area shape="rect" id="node4" href="$classDirection.html" title="Direction manages Directions/Orientations in Space. " alt="" coords="112,139,187,165"/>
+<area shape="rect" id="node5" href="$classPoint.html" title="Point manages Points/Positions in Space. " alt="" coords="221,139,273,165"/>
+</map>

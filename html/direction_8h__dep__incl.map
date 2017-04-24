@@ -1,0 +1,17 @@
+<map id="direction.h" name="direction.h">
+<area shape="rect" id="node2" href="$surface_8h.html" title="include file for class Surface " alt="" coords="371,80,447,107"/>
+<area shape="rect" id="node13" href="$ray_8h.html" title="include file for class Ray " alt="" coords="601,80,652,107"/>
+<area shape="rect" id="node15" href="$wave_8h.html" title="include file for class Wave (scalar wave) " alt="" coords="680,80,744,107"/>
+<area shape="rect" id="node3" href="$elementwithsurfaces_8h.html" title="include file for class ElementWithSurfaces " alt="" coords="11,155,165,181"/>
+<area shape="rect" id="node5" href="$surfacespherical_8h.html" title="include file for class SurfaceSpherical " alt="" coords="193,155,321,181"/>
+<area shape="rect" id="node7" href="$opticalsystem_8h.html" title="include file for class Surface " alt="" coords="352,155,467,181"/>
+<area shape="rect" id="node12" href="$surface_8cc.html" title="class Element " alt="" coords="491,155,573,181"/>
+<area shape="rect" id="node4" href="$elementwithsurfaces_8cc.html" title="class ElementWithSurfaces " alt="" coords="5,229,165,256"/>
+<area shape="rect" id="node6" href="$surfacespherical_8cc.html" title="class Element " alt="" coords="190,229,325,256"/>
+<area shape="rect" id="node8" href="$opticalsystem_8cc.html" title="class OpticalSystem " alt="" coords="349,229,470,256"/>
+<area shape="rect" id="node9" href="$rayaiming_8h.html" title="include file for class RayAiming " alt="" coords="494,229,583,256"/>
+<area shape="rect" id="node10" href="$tracing_8h.html" title="include file for class Tracing " alt="" coords="608,229,680,256"/>
+<area shape="rect" id="node11" href="$tracing_8cc.html" title="class Tracing " alt="" coords="605,304,683,331"/>
+<area shape="rect" id="node14" href="$ray_8cc.html" title="class Ray " alt="" coords="597,155,656,181"/>
+<area shape="rect" id="node16" href="$wave_8cc.html" title="class Wave " alt="" coords="681,155,751,181"/>
+</map>

@@ -1,0 +1,1101 @@
+\hypertarget{classArray}{}\section{Array$<$ Type $>$ Class Template Reference}
+\label{classArray}\index{Array$<$ Type $>$@{Array$<$ Type $>$}}
+
+
+Management of a 2D (and 1D) Arrays of different Type.  
+
+
+
+
+{\ttfamily \#include $<$array.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classArray_aab6b745706965870b8dc792a3548c08a}{Array} ()\hypertarget{classArray_aab6b745706965870b8dc792a3548c08a}{}\label{classArray_aab6b745706965870b8dc792a3548c08a}
+
+\begin{DoxyCompactList}\small\item\em construction with S\+T\+D\+IN with an 8\+Bit binary P\+GM File \end{DoxyCompactList}\item 
+\hyperlink{classArray_acc6e46777c942b641f6161e886ee8081}{Array} (int c\+\_\+sx, int c\+\_\+sy)
+\begin{DoxyCompactList}\small\item\em construction with given size \end{DoxyCompactList}\item 
+\hyperlink{classArray_a6274021517cb79fdb76c5f8f56c1d844}{Array} (char $\ast$)
+\begin{DoxyCompactList}\small\item\em construction with a 8\+Bit binary P\+GM File \end{DoxyCompactList}\item 
+\hyperlink{classArray_a07e3948a01b88fab831944214c497769}{Array} (\hyperlink{classArray}{Array}$<$ Type $>$ \&)
+\begin{DoxyCompactList}\small\item\em construction with another \hyperlink{classArray}{Array} \end{DoxyCompactList}\item 
+\hyperlink{classArray_acea4f44bbc891745b92b19ceca891746}{$\sim$\+Array} ()\hypertarget{classArray_acea4f44bbc891745b92b19ceca891746}{}\label{classArray_acea4f44bbc891745b92b19ceca891746}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+Type \& \hyperlink{classArray_ab64d3faf9a308906538129bb30c6c214}{operator\mbox{[}$\,$\mbox{]}} (int c\+\_\+ix)
+\begin{DoxyCompactList}\small\item\em get element i \end{DoxyCompactList}\item 
+Type \& \hyperlink{classArray_a7ac413ecea1ef9e6912ac301d66cfe4e}{\+\_\+} (int c\+\_\+x, int c\+\_\+y)
+\begin{DoxyCompactList}\small\item\em get element (x,y) \end{DoxyCompactList}\item 
+int \hyperlink{classArray_a820344192c51e35ad883910386221f63}{get\+SizeX} (void)\hypertarget{classArray_a820344192c51e35ad883910386221f63}{}\label{classArray_a820344192c51e35ad883910386221f63}
+
+\begin{DoxyCompactList}\small\item\em return the horizonal size (\# of columns) \end{DoxyCompactList}\item 
+int \hyperlink{classArray_ac9885e1bcca8a05fadc5c45acbc4244b}{get\+SizeY} (void)\hypertarget{classArray_ac9885e1bcca8a05fadc5c45acbc4244b}{}\label{classArray_ac9885e1bcca8a05fadc5c45acbc4244b}
+
+\begin{DoxyCompactList}\small\item\em return the verticall size (\# of rows) \end{DoxyCompactList}\item 
+Type $\ast$ \hyperlink{classArray_a137d3275412d90f0430daed3f720e2e1}{get\+Address} (void)\hypertarget{classArray_a137d3275412d90f0430daed3f720e2e1}{}\label{classArray_a137d3275412d90f0430daed3f720e2e1}
+
+\begin{DoxyCompactList}\small\item\em return address of the data block \end{DoxyCompactList}\item 
+void \hyperlink{classArray_a1179285b483948cc3066f2f1981d2f3c}{load} (const char $\ast$)
+\begin{DoxyCompactList}\small\item\em load a 8 Bit greyscale binary P\+GM file \end{DoxyCompactList}\item 
+void \hyperlink{classArray_af6f8d0bcd627b53e7d2d783a0193c881}{save} (const char $\ast$)
+\begin{DoxyCompactList}\small\item\em save a 8 Bit greyscale binary P\+GM file \end{DoxyCompactList}\item 
+void \hyperlink{classArray_a033557644e78114216ac412e0ffde2d1}{set} (Type)
+\begin{DoxyCompactList}\small\item\em set all values of the \hyperlink{classArray}{Array} to a constant \end{DoxyCompactList}\item 
+\hyperlink{classArray}{Array} \& \hyperlink{classArray_a3a2db5a07afd46ed5fe5df6d1e503013}{operator=} (\hyperlink{classArray}{Array} \&)
+\begin{DoxyCompactList}\small\item\em assignment operator \end{DoxyCompactList}\item 
+\hyperlink{classArray}{Array} \& \hyperlink{classArray_a4663604d9585d88761c34d0740ffb339}{operator+} (\hyperlink{classArray}{Array} \&)
+\begin{DoxyCompactList}\small\item\em pointwise + \end{DoxyCompactList}\item 
+\hyperlink{classArray}{Array} \& \hyperlink{classArray_a1da46a893e5ffbdd6d65e5c07b6497ba}{operator+=} (\hyperlink{classArray}{Array} \&)
+\begin{DoxyCompactList}\small\item\em pointwise += \end{DoxyCompactList}\item 
+\hyperlink{classArray}{Array} \& \hyperlink{classArray_a2dba5effaa07efb01b47cd62883a6337}{operator-\/} (\hyperlink{classArray}{Array} \&)
+\begin{DoxyCompactList}\small\item\em pointwise -\/ \end{DoxyCompactList}\item 
+\hyperlink{classArray}{Array} \& \hyperlink{classArray_a60b31bebcb2ea8e4e8c70da979fbe48e}{operator-\/=} (\hyperlink{classArray}{Array} \&)
+\begin{DoxyCompactList}\small\item\em pointwise -\/= \end{DoxyCompactList}\item 
+\hyperlink{classArray}{Array} \& \hyperlink{classArray_a3a8a0359626414c9e53d897d33ca4e0d}{operator$\ast$} (\hyperlink{classArray}{Array} \&)
+\begin{DoxyCompactList}\small\item\em pointwise $\ast$ \end{DoxyCompactList}\item 
+\hyperlink{classArray}{Array} \& \hyperlink{classArray_aa63e2841203811594d9f3f9bc086c8b2}{operator$\ast$=} (\hyperlink{classArray}{Array} \&)
+\begin{DoxyCompactList}\small\item\em pointwise $\ast$= \end{DoxyCompactList}\item 
+\hyperlink{classArray}{Array} \& \hyperlink{classArray_a39139dd796db274a9da2864e784d3117}{operator/} (\hyperlink{classArray}{Array} \&)
+\begin{DoxyCompactList}\small\item\em pointwise / \end{DoxyCompactList}\item 
+\hyperlink{classArray}{Array} \& \hyperlink{classArray_a35dacf0d8b2138970462d772e2bd65a6}{operator/=} (\hyperlink{classArray}{Array} \&)
+\begin{DoxyCompactList}\small\item\em pointwise /= \end{DoxyCompactList}\item 
+\hyperlink{classArray}{Array} \& \hyperlink{classArray_afbbf77d0248e4169e4156f00805374e1}{operator+=} (Type)
+\begin{DoxyCompactList}\small\item\em pointwise += \end{DoxyCompactList}\item 
+\hyperlink{classArray}{Array} \& \hyperlink{classArray_aecba86a93bde548784c4e8c4e16d5790}{operator+} (Type)
+\begin{DoxyCompactList}\small\item\em pointwise + \end{DoxyCompactList}\item 
+\hyperlink{classArray}{Array} \& \hyperlink{classArray_ae8be026d3f586ff175b0b19a9e412caa}{operator-\/=} (Type)
+\begin{DoxyCompactList}\small\item\em pointwise -\/= \end{DoxyCompactList}\item 
+\hyperlink{classArray}{Array} \& \hyperlink{classArray_ab79d13b63a3c2a0a9b05d793db6e0f19}{operator-\/} (Type)
+\begin{DoxyCompactList}\small\item\em pointwise -\/ \end{DoxyCompactList}\item 
+\hyperlink{classArray}{Array} \& \hyperlink{classArray_a1917ff6f982774fac9e0260277cd2474}{operator$\ast$=} (Type)
+\begin{DoxyCompactList}\small\item\em pointwise $\ast$= \end{DoxyCompactList}\item 
+\hyperlink{classArray}{Array} \& \hyperlink{classArray_a3ae0d0caee49cb848a94ed753fa9d23f}{operator$\ast$} (Type)
+\begin{DoxyCompactList}\small\item\em pointwise $\ast$ \end{DoxyCompactList}\item 
+\hyperlink{classArray}{Array} \& \hyperlink{classArray_ac686fec60cb024adfab21557d214f021}{operator/=} (Type)
+\begin{DoxyCompactList}\small\item\em pointwise /= \end{DoxyCompactList}\item 
+\hyperlink{classArray}{Array} \& \hyperlink{classArray_a1a610f57d0269bea54602fef3c00ce93}{operator/} (Type)
+\begin{DoxyCompactList}\small\item\em pointwise / \end{DoxyCompactList}\item 
+void \hyperlink{classArray_a230b05e9bdd732391269ea50e8e189b7}{show} (int x0=0, int y0=0, int xe=0, int ye=0)
+\begin{DoxyCompactList}\small\item\em show numerically the data of the array \end{DoxyCompactList}\item 
+void \hyperlink{classArray_ab72b95e6c465232e6704b00c0bc3f981}{norm} (double)
+\begin{DoxyCompactList}\small\item\em normalisation with max and min \end{DoxyCompactList}\item 
+void \hyperlink{classArray_ae665ee475059fe98b5e8f7a1d63efd6e}{norm\+High} (double)
+\begin{DoxyCompactList}\small\item\em normalisation with max and min \end{DoxyCompactList}\item 
+void \hyperlink{classArray_a899d6e0ae0758c1d6bfce45428215fbe}{paste} (\hyperlink{classArray}{Array}$<$ Type $>$ \&largearray, int topleftX, int topleftY)
+\begin{DoxyCompactList}\small\item\em copy into a larger array \end{DoxyCompactList}\item 
+Type \hyperlink{classArray_ab86f2cd9006ea12400a1fe3ecc70b507}{maxmin} (Type $\ast$mini)
+\begin{DoxyCompactList}\small\item\em search maximum and minimum of the array \end{DoxyCompactList}\item 
+void \hyperlink{classArray_a0fba9420565845ed9a2c0c64c58cf83e}{random} (Type maximum)
+\begin{DoxyCompactList}\small\item\em fill the array with random values \end{DoxyCompactList}\item 
+void \hyperlink{classArray_a4ee10b16eaa6c7c52704e43943ef38c8}{smooth} (int halfwidthx, int halfwidthy)
+\begin{DoxyCompactList}\small\item\em simple constant smoothing window \end{DoxyCompactList}\item 
+void \hyperlink{classArray_a121e8b26d85e237bdc46375178e6cab2}{smooth\+Fast} (int halfwidthx, int halfwidthy)
+\begin{DoxyCompactList}\small\item\em simple constant smoothing window \end{DoxyCompactList}\item 
+void \hyperlink{classArray_a5c24e55bdcdb23ce73c95b80aac8961d}{logical\+Or} (\hyperlink{classArray}{Array} \&data2)
+\begin{DoxyCompactList}\small\item\em binary or of two images \end{DoxyCompactList}\item 
+\hyperlink{classArray}{Array} \& \hyperlink{classArray_a9ec322b5cf0d30954781058862788cd7}{resize} (int n)
+\begin{DoxyCompactList}\small\item\em zooming image by a constant factor \end{DoxyCompactList}\item 
+void \hyperlink{classArray_a866ce141491864de6db4e4cfd69dae22}{global\+Threshold} (Type threshold, Type value1, Type value2)
+\begin{DoxyCompactList}\small\item\em global Threshold \end{DoxyCompactList}\item 
+void \hyperlink{classArray_aaa437aa4996fb20c5c43f4cae0d6a9e9}{bernsen} (int halfwidthx, int halfwidthy)
+\begin{DoxyCompactList}\small\item\em local binarization according to Bernsen \end{DoxyCompactList}\item 
+void \hyperlink{classArray_afb0c07cf4de7b1092fc4053b1aafa015}{local} (int halfwidthx, int halfwidthy)
+\begin{DoxyCompactList}\small\item\em local binarization \end{DoxyCompactList}\item 
+void \hyperlink{classArray_a5e017adb9aa1e7c0b058f48d8cfcf8cf}{center\+Of\+Gravity} (Type threshold, double $\ast$centerX, double $\ast$centerY)
+\begin{DoxyCompactList}\small\item\em center of gravity \end{DoxyCompactList}\item 
+double \hyperlink{classArray_ad7db5c43fcfd2040ea242b12982a1c78}{mean} ()
+\begin{DoxyCompactList}\small\item\em mean value of the array \end{DoxyCompactList}\item 
+void \hyperlink{classArray_a1ef2f1a2b4e681d6a1c208c4a6994bf7}{cut\+Circle} (int cx, int cy, int r, Type value)
+\begin{DoxyCompactList}\small\item\em set circular area to value \end{DoxyCompactList}\item 
+void \hyperlink{classArray_a88a795239689944e12870e4d182b2407}{zero\+Pad\+To} (int newsize)
+\begin{DoxyCompactList}\small\item\em Zero\+Pad to a new size for quadratic Arrays. \end{DoxyCompactList}\item 
+void \hyperlink{classArray_a0771ab62914ae3723784815751d7a2c9}{set\+Checked} (int x, int y, Type value)
+\item 
+{\footnotesize template$<$$>$ }\\\hyperlink{classArray_a2de93fd0717cb71fab6b087888f9c998}{Array} ()
+\item 
+{\footnotesize template$<$$>$ }\\{\bfseries Array} (char $\ast$c\+\_\+filename)\hypertarget{classArray_a5f3bcbe4231e7dc212ccc1179f617fa5}{}\label{classArray_a5f3bcbe4231e7dc212ccc1179f617fa5}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Type $\ast$ \hyperlink{classArray_affb319cd36f1fd11f2ecab60cd0a8c7d}{m\+Array}\hypertarget{classArray_affb319cd36f1fd11f2ecab60cd0a8c7d}{}\label{classArray_affb319cd36f1fd11f2ecab60cd0a8c7d}
+
+\begin{DoxyCompactList}\small\item\em Data. \end{DoxyCompactList}\item 
+int \hyperlink{classArray_a0004de2d1c6d20947fe38ea637896463}{m\+SizeX}\hypertarget{classArray_a0004de2d1c6d20947fe38ea637896463}{}\label{classArray_a0004de2d1c6d20947fe38ea637896463}
+
+\begin{DoxyCompactList}\small\item\em width in pixel (\# of columns) \end{DoxyCompactList}\item 
+int \hyperlink{classArray_a6a2d93b9ef89333a15d988c786c23644}{m\+SizeY}\hypertarget{classArray_a6a2d93b9ef89333a15d988c786c23644}{}\label{classArray_a6a2d93b9ef89333a15d988c786c23644}
+
+\begin{DoxyCompactList}\small\item\em height in pixel (\# of rows) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class Type$>$\\*
+class Array$<$ Type $>$}
+
+Management of a 2D (and 1D) Arrays of different Type. 
+
+This is the main class/basic building block for representing images (greyscale), light fields and related data structures. Also some simple and often used methods are implemented.
+
+This is a rewrite of one of my very old classes (programmed in 1999). \begin{DoxyDate}{Date}
+27.\+5.\+2007 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Tobias Haist (\href{mailto:haist@ito.uni-stuttgart.de}{\tt haist@ito.\+uni-\/stuttgart.\+de}) 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Array@{Array}!Array@{Array}}
+\index{Array@{Array}!Array@{Array}}
+\subsubsection[{\texorpdfstring{Array(int c\+\_\+sx, int c\+\_\+sy)}{Array(int c_sx, int c_sy)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Array}$<$ Type $>$\+::{\bf Array} (
+\begin{DoxyParamCaption}
+\item[{int}]{c\+\_\+sx, }
+\item[{int}]{c\+\_\+sy}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_acc6e46777c942b641f6161e886ee8081}{}\label{classArray_acc6e46777c942b641f6161e886ee8081}
+
+
+construction with given size 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c\+\_\+sx} & width \\
+\hline
+{\em c\+\_\+sy} & height \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em bad\+\_\+alloc} & \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyWarning}{Warning}
+\+: No initialization 
+\end{DoxyWarning}
+\index{Array@{Array}!Array@{Array}}
+\index{Array@{Array}!Array@{Array}}
+\subsubsection[{\texorpdfstring{Array(char $\ast$)}{Array(char *)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Array}$<$ Type $>$\+::{\bf Array} (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{c\+\_\+filename}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a6274021517cb79fdb76c5f8f56c1d844}{}\label{classArray_a6274021517cb79fdb76c5f8f56c1d844}
+
+
+construction with a 8\+Bit binary P\+GM File 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c\+\_\+filename} & filename with path of the P\+GM file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+might not work with all correct binary pgms ! 
+
+only works with 8 Bit images 
+
+\+: inefficient for uchar because data is first copied to a temp buffer (replace with specialization for uchar) 
+\end{DoxyWarning}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em bad\+\_\+alloc} & or E\+R\+R\+OR with E\+R\+R\+O\+R\+F\+I\+LE \\
+\hline
+\end{DoxyExceptions}
+\index{Array@{Array}!Array@{Array}}
+\index{Array@{Array}!Array@{Array}}
+\subsubsection[{\texorpdfstring{Array(\+Array$<$ Type $>$ \&)}{Array(Array< Type > &)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Array}$<$ Type $>$\+::{\bf Array} (
+\begin{DoxyParamCaption}
+\item[{{\bf Array}$<$ Type $>$ \&}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a07e3948a01b88fab831944214c497769}{}\label{classArray_a07e3948a01b88fab831944214c497769}
+
+
+construction with another \hyperlink{classArray}{Array} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & the \hyperlink{classArray}{Array} to be copied \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em bad\+\_\+alloc} & \\
+\hline
+\end{DoxyExceptions}
+\index{Array@{Array}!Array@{Array}}
+\index{Array@{Array}!Array@{Array}}
+\subsubsection[{\texorpdfstring{Array()}{Array()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ {\bf Array}$<$ unsigned char $>$\+::{\bf Array} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a2de93fd0717cb71fab6b087888f9c998}{}\label{classArray_a2de93fd0717cb71fab6b087888f9c998}
+\begin{DoxyWarning}{Warning}
+might not work with all correct binary pgms ! 
+
+only works with 8 Bit images 
+\end{DoxyWarning}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Error} & with E\+R\+R\+O\+R\+F\+I\+LE or bad\+\_\+alloc \\
+\hline
+\end{DoxyExceptions}
+
+
+\subsection{Member Function Documentation}
+\index{Array@{Array}!\+\_\+@{\+\_\+}}
+\index{\+\_\+@{\+\_\+}!Array@{Array}}
+\subsubsection[{\texorpdfstring{\+\_\+(int c\+\_\+x, int c\+\_\+y)}{_(int c_x, int c_y)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ Type \& {\bf Array}$<$ Type $>$\+::\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int}]{c\+\_\+x, }
+\item[{int}]{c\+\_\+y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classArray_a7ac413ecea1ef9e6912ac301d66cfe4e}{}\label{classArray_a7ac413ecea1ef9e6912ac301d66cfe4e}
+
+
+get element (x,y) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c\+\_\+x} & index within the array x \\
+\hline
+{\em c\+\_\+y} & index within the array y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+reference to element 
+\end{DoxyReturn}
+\index{Array@{Array}!bernsen@{bernsen}}
+\index{bernsen@{bernsen}!Array@{Array}}
+\subsubsection[{\texorpdfstring{bernsen(int halfwidthx, int halfwidthy)}{bernsen(int halfwidthx, int halfwidthy)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ void {\bf Array}$<$ Type $>$\+::bernsen (
+\begin{DoxyParamCaption}
+\item[{int}]{halfwidthx, }
+\item[{int}]{halfwidthy}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_aaa437aa4996fb20c5c43f4cae0d6a9e9}{}\label{classArray_aaa437aa4996fb20c5c43f4cae0d6a9e9}
+
+
+local binarization according to Bernsen 
+
+
+\begin{DoxyParams}{Parameters}
+{\em halfwidthx} & window widthX = halfwidthx $\ast$ 2 +1 \\
+\hline
+{\em halfwidthy} & window widthY = halfwidthy $\ast$ 2 +1 \\
+\hline
+\end{DoxyParams}
+\index{Array@{Array}!center\+Of\+Gravity@{center\+Of\+Gravity}}
+\index{center\+Of\+Gravity@{center\+Of\+Gravity}!Array@{Array}}
+\subsubsection[{\texorpdfstring{center\+Of\+Gravity(\+Type threshold, double $\ast$center\+X, double $\ast$center\+Y)}{centerOfGravity(Type threshold, double *centerX, double *centerY)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ void {\bf Array}$<$ Type $>$\+::center\+Of\+Gravity (
+\begin{DoxyParamCaption}
+\item[{Type}]{threshold, }
+\item[{double $\ast$}]{centerX, }
+\item[{double $\ast$}]{centerY}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a5e017adb9aa1e7c0b058f48d8cfcf8cf}{}\label{classArray_a5e017adb9aa1e7c0b058f48d8cfcf8cf}
+
+
+center of gravity 
+
+
+\begin{DoxyParams}{Parameters}
+{\em threshold} & only use pixels larger than threshold \\
+\hline
+{\em centerX} & result x position \\
+\hline
+{\em centerY} & result y position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000005}{Todo}]only in local region \end{DoxyRefDesc}
+\index{Array@{Array}!cut\+Circle@{cut\+Circle}}
+\index{cut\+Circle@{cut\+Circle}!Array@{Array}}
+\subsubsection[{\texorpdfstring{cut\+Circle(int cx, int cy, int r, Type value)}{cutCircle(int cx, int cy, int r, Type value)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ void {\bf Array}$<$ Type $>$\+::cut\+Circle (
+\begin{DoxyParamCaption}
+\item[{int}]{cx, }
+\item[{int}]{cy, }
+\item[{int}]{r, }
+\item[{Type}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a1ef2f1a2b4e681d6a1c208c4a6994bf7}{}\label{classArray_a1ef2f1a2b4e681d6a1c208c4a6994bf7}
+
+
+set circular area to value 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cx} & center circle position x \\
+\hline
+{\em cy} & center circle position y \\
+\hline
+{\em r} & radius of circle \\
+\hline
+{\em value} & value to set in the circular area \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+very uneffective for large Arrays 
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em value} & set circular area to value \\
+\hline
+\end{DoxyParams}
+\index{Array@{Array}!global\+Threshold@{global\+Threshold}}
+\index{global\+Threshold@{global\+Threshold}!Array@{Array}}
+\subsubsection[{\texorpdfstring{global\+Threshold(\+Type threshold, Type value1, Type value2)}{globalThreshold(Type threshold, Type value1, Type value2)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ void {\bf Array}$<$ Type $>$\+::global\+Threshold (
+\begin{DoxyParamCaption}
+\item[{Type}]{threshold, }
+\item[{Type}]{value1, }
+\item[{Type}]{value2}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a866ce141491864de6db4e4cfd69dae22}{}\label{classArray_a866ce141491864de6db4e4cfd69dae22}
+
+
+global Threshold 
+
+
+\begin{DoxyParams}{Parameters}
+{\em threshold} & threshold value \\
+\hline
+{\em value1} & lower value \\
+\hline
+{\em value2} & higher value \\
+\hline
+\end{DoxyParams}
+\index{Array@{Array}!load@{load}}
+\index{load@{load}!Array@{Array}}
+\subsubsection[{\texorpdfstring{load(const char $\ast$)}{load(const char *)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ void {\bf Array}$<$ Type $>$\+::load (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{c\+\_\+filename}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a1179285b483948cc3066f2f1981d2f3c}{}\label{classArray_a1179285b483948cc3066f2f1981d2f3c}
+
+
+load a 8 Bit greyscale binary P\+GM file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c\+\_\+filename} & the filename of the pgm file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+\+: inefficient because data is first copied to a temp buffer (replace with specialization for uchar) 
+\end{DoxyWarning}
+\index{Array@{Array}!local@{local}}
+\index{local@{local}!Array@{Array}}
+\subsubsection[{\texorpdfstring{local(int halfwidthx, int halfwidthy)}{local(int halfwidthx, int halfwidthy)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ void {\bf Array}$<$ Type $>$\+::local (
+\begin{DoxyParamCaption}
+\item[{int}]{halfwidthx, }
+\item[{int}]{halfwidthy}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_afb0c07cf4de7b1092fc4053b1aafa015}{}\label{classArray_afb0c07cf4de7b1092fc4053b1aafa015}
+
+
+local binarization 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Image \\
+\hline
+{\em halfwidthx} & window widthX = halfwidthx $\ast$ 2 +1 \\
+\hline
+{\em halfwidthy} & window widthY = halfwidthy $\ast$ 2 +1 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em bad\+\_\+alloc} & \\
+\hline
+\end{DoxyExceptions}
+\index{Array@{Array}!logical\+Or@{logical\+Or}}
+\index{logical\+Or@{logical\+Or}!Array@{Array}}
+\subsubsection[{\texorpdfstring{logical\+Or(\+Array \&data2)}{logicalOr(Array &data2)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ void {\bf Array}$<$ Type $>$\+::logical\+Or (
+\begin{DoxyParamCaption}
+\item[{{\bf Array}$<$ Type $>$ \&}]{data2}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a5c24e55bdcdb23ce73c95b80aac8961d}{}\label{classArray_a5c24e55bdcdb23ce73c95b80aac8961d}
+
+
+binary or of two images 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data2} & = input. Every pixel that is $>$ 0 is assumed to be T\+R\+UE \\
+\hline
+\end{DoxyParams}
+\index{Array@{Array}!maxmin@{maxmin}}
+\index{maxmin@{maxmin}!Array@{Array}}
+\subsubsection[{\texorpdfstring{maxmin(\+Type $\ast$mini)}{maxmin(Type *mini)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ Type {\bf Array}$<$ Type $>$\+::maxmin (
+\begin{DoxyParamCaption}
+\item[{Type $\ast$}]{mini}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_ab86f2cd9006ea12400a1fe3ecc70b507}{}\label{classArray_ab86f2cd9006ea12400a1fe3ecc70b507}
+
+
+search maximum and minimum of the array 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$mini} & pointer to the minimum (result 1) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+maximum (result2) 
+\end{DoxyReturn}
+\index{Array@{Array}!mean@{mean}}
+\index{mean@{mean}!Array@{Array}}
+\subsubsection[{\texorpdfstring{mean()}{mean()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ double {\bf Array}$<$ Type $>$\+::mean (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_ad7db5c43fcfd2040ea242b12982a1c78}{}\label{classArray_ad7db5c43fcfd2040ea242b12982a1c78}
+
+
+mean value of the array 
+
+\begin{DoxyReturn}{Returns}
+mean value 
+\end{DoxyReturn}
+\index{Array@{Array}!norm@{norm}}
+\index{norm@{norm}!Array@{Array}}
+\subsubsection[{\texorpdfstring{norm(double)}{norm(double)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ void {\bf Array}$<$ Type $>$\+::norm (
+\begin{DoxyParamCaption}
+\item[{double}]{newmax}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_ab72b95e6c465232e6704b00c0bc3f981}{}\label{classArray_ab72b95e6c465232e6704b00c0bc3f981}
+
+
+normalisation with max and min 
+
+
+\begin{DoxyParams}{Parameters}
+{\em newmax} & new maximum value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000001}{Todo}]\+: constant 1e31 should be avoided 
+
+if all values = 0 -\/$>$ no change; all values the same -\/$>$ all newmax \end{DoxyRefDesc}
+\begin{DoxyWarning}{Warning}
+scaling greater than 100000 times is not performed ! 
+
+if maximum-\/minimum $<$ 10$^\wedge$-\/31 (\hyperlink{classArray}{Array} is constant) the value will be set to newmax for the whole \hyperlink{classArray}{Array} 
+\end{DoxyWarning}
+\index{Array@{Array}!norm\+High@{norm\+High}}
+\index{norm\+High@{norm\+High}!Array@{Array}}
+\subsubsection[{\texorpdfstring{norm\+High(double)}{normHigh(double)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ void {\bf Array}$<$ Type $>$\+::norm\+High (
+\begin{DoxyParamCaption}
+\item[{double}]{newmax}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_ae665ee475059fe98b5e8f7a1d63efd6e}{}\label{classArray_ae665ee475059fe98b5e8f7a1d63efd6e}
+
+
+normalisation with max and min 
+
+
+\begin{DoxyParams}{Parameters}
+{\em newmax} & new maximum value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000002}{Todo}]\+: constant 1e31 should be avoided 
+
+if all values = 0 -\/$>$ no change; all values the same -\/$>$ all newmax \end{DoxyRefDesc}
+\begin{DoxyWarning}{Warning}
+scaling greater than 100000 times is not performed ! 
+
+if maximum-\/minimum $<$ 10$^\wedge$-\/31 (\hyperlink{classArray}{Array} is constant) the value will be set to newmax for the whole \hyperlink{classArray}{Array} 
+\end{DoxyWarning}
+\index{Array@{Array}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Array@{Array}}
+\subsubsection[{\texorpdfstring{operator$\ast$(\+Array \&)}{operator*(Array &)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Array}$<$ Type $>$ \& {\bf Array}$<$ Type $>$\+::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{{\bf Array}$<$ Type $>$ \&}]{source}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a3a8a0359626414c9e53d897d33ca4e0d}{}\label{classArray_a3a8a0359626414c9e53d897d33ca4e0d}
+
+
+pointwise $\ast$ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & source data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+time consuming 
+\end{DoxyWarning}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Error} & \char`\"{}\+Array Size ! != Array Size 2\char`\"{} or bad\+\_\+alloc \\
+\hline
+\end{DoxyExceptions}
+\index{Array@{Array}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Array@{Array}}
+\subsubsection[{\texorpdfstring{operator$\ast$(\+Type)}{operator*(Type)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Array}$<$ Type $>$ \& {\bf Array}$<$ Type $>$\+::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{Type}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a3ae0d0caee49cb848a94ed753fa9d23f}{}\label{classArray_a3ae0d0caee49cb848a94ed753fa9d23f}
+
+
+pointwise $\ast$ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & scalar value \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em bad\+\_\+alloc} & \\
+\hline
+\end{DoxyExceptions}
+\index{Array@{Array}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!Array@{Array}}
+\subsubsection[{\texorpdfstring{operator$\ast$=(\+Array \&)}{operator*=(Array &)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Array}$<$ Type $>$ \& {\bf Array}$<$ Type $>$\+::operator$\ast$= (
+\begin{DoxyParamCaption}
+\item[{{\bf Array}$<$ Type $>$ \&}]{source}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_aa63e2841203811594d9f3f9bc086c8b2}{}\label{classArray_aa63e2841203811594d9f3f9bc086c8b2}
+
+
+pointwise $\ast$= 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & source data \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Error} & \char`\"{}\+Array Size ! != Array Size 2\char`\"{} \\
+\hline
+\end{DoxyExceptions}
+\index{Array@{Array}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!Array@{Array}}
+\subsubsection[{\texorpdfstring{operator$\ast$=(\+Type)}{operator*=(Type)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Array}$<$ Type $>$ \& {\bf Array}$<$ Type $>$\+::operator$\ast$= (
+\begin{DoxyParamCaption}
+\item[{Type}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a1917ff6f982774fac9e0260277cd2474}{}\label{classArray_a1917ff6f982774fac9e0260277cd2474}
+
+
+pointwise $\ast$= 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & scalar value \\
+\hline
+\end{DoxyParams}
+\index{Array@{Array}!operator+@{operator+}}
+\index{operator+@{operator+}!Array@{Array}}
+\subsubsection[{\texorpdfstring{operator+(\+Array \&)}{operator+(Array &)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Array}$<$ Type $>$ \& {\bf Array}$<$ Type $>$\+::operator+ (
+\begin{DoxyParamCaption}
+\item[{{\bf Array}$<$ Type $>$ \&}]{source}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a4663604d9585d88761c34d0740ffb339}{}\label{classArray_a4663604d9585d88761c34d0740ffb339}
+
+
+pointwise + 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & source data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+time consuming 
+\end{DoxyWarning}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Error} & \char`\"{}\+Array Size ! != Array Size 2\char`\"{} or bad\+\_\+alloc \\
+\hline
+\end{DoxyExceptions}
+\index{Array@{Array}!operator+@{operator+}}
+\index{operator+@{operator+}!Array@{Array}}
+\subsubsection[{\texorpdfstring{operator+(\+Type)}{operator+(Type)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Array}$<$ Type $>$ \& {\bf Array}$<$ Type $>$\+::operator+ (
+\begin{DoxyParamCaption}
+\item[{Type}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_aecba86a93bde548784c4e8c4e16d5790}{}\label{classArray_aecba86a93bde548784c4e8c4e16d5790}
+
+
+pointwise + 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & scalar value \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em bad\+\_\+alloc} & \\
+\hline
+\end{DoxyExceptions}
+\index{Array@{Array}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Array@{Array}}
+\subsubsection[{\texorpdfstring{operator+=(\+Array \&)}{operator+=(Array &)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Array}$<$ Type $>$ \& {\bf Array}$<$ Type $>$\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{{\bf Array}$<$ Type $>$ \&}]{source}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a1da46a893e5ffbdd6d65e5c07b6497ba}{}\label{classArray_a1da46a893e5ffbdd6d65e5c07b6497ba}
+
+
+pointwise += 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & source data \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Error} & \char`\"{}\+Array Size 1 != Array Size 2\char`\"{} \\
+\hline
+\end{DoxyExceptions}
+\index{Array@{Array}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Array@{Array}}
+\subsubsection[{\texorpdfstring{operator+=(\+Type)}{operator+=(Type)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Array}$<$ Type $>$ \& {\bf Array}$<$ Type $>$\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{Type}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_afbbf77d0248e4169e4156f00805374e1}{}\label{classArray_afbbf77d0248e4169e4156f00805374e1}
+
+
+pointwise += 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & scalar value \\
+\hline
+\end{DoxyParams}
+\index{Array@{Array}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Array@{Array}}
+\subsubsection[{\texorpdfstring{operator-\/(\+Array \&)}{operator-(Array &)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Array}$<$ Type $>$ \& {\bf Array}$<$ Type $>$\+::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{{\bf Array}$<$ Type $>$ \&}]{source}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a2dba5effaa07efb01b47cd62883a6337}{}\label{classArray_a2dba5effaa07efb01b47cd62883a6337}
+
+
+pointwise -\/ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & source \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+time consuming 
+\end{DoxyWarning}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Error} & \char`\"{}\+Array Size ! != Array Size 2\char`\"{} or bad\+\_\+alloc \\
+\hline
+\end{DoxyExceptions}
+\index{Array@{Array}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Array@{Array}}
+\subsubsection[{\texorpdfstring{operator-\/(\+Type)}{operator-(Type)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Array}$<$ Type $>$ \& {\bf Array}$<$ Type $>$\+::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{Type}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_ab79d13b63a3c2a0a9b05d793db6e0f19}{}\label{classArray_ab79d13b63a3c2a0a9b05d793db6e0f19}
+
+
+pointwise -\/ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & scalar value \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em bad\+\_\+alloc} & \\
+\hline
+\end{DoxyExceptions}
+\index{Array@{Array}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!Array@{Array}}
+\subsubsection[{\texorpdfstring{operator-\/=(\+Array \&)}{operator-=(Array &)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Array}$<$ Type $>$ \& {\bf Array}$<$ Type $>$\+::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{{\bf Array}$<$ Type $>$ \&}]{source}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a60b31bebcb2ea8e4e8c70da979fbe48e}{}\label{classArray_a60b31bebcb2ea8e4e8c70da979fbe48e}
+
+
+pointwise -\/= 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & source data \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Error} & \char`\"{}\+Array Size ! != Array Size 2\char`\"{} \\
+\hline
+\end{DoxyExceptions}
+\index{Array@{Array}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!Array@{Array}}
+\subsubsection[{\texorpdfstring{operator-\/=(\+Type)}{operator-=(Type)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Array}$<$ Type $>$ \& {\bf Array}$<$ Type $>$\+::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{Type}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_ae8be026d3f586ff175b0b19a9e412caa}{}\label{classArray_ae8be026d3f586ff175b0b19a9e412caa}
+
+
+pointwise -\/= 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & scalar value \\
+\hline
+\end{DoxyParams}
+\index{Array@{Array}!operator/@{operator/}}
+\index{operator/@{operator/}!Array@{Array}}
+\subsubsection[{\texorpdfstring{operator/(\+Array \&)}{operator/(Array &)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Array}$<$ Type $>$ \& {\bf Array}$<$ Type $>$\+::operator/ (
+\begin{DoxyParamCaption}
+\item[{{\bf Array}$<$ Type $>$ \&}]{source}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a39139dd796db274a9da2864e784d3117}{}\label{classArray_a39139dd796db274a9da2864e784d3117}
+
+
+pointwise / 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & source data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+time consuming 
+\end{DoxyWarning}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Error} & \char`\"{}\+Array Size ! != Array Size 2\char`\"{} or bad\+\_\+alloc \\
+\hline
+\end{DoxyExceptions}
+\index{Array@{Array}!operator/@{operator/}}
+\index{operator/@{operator/}!Array@{Array}}
+\subsubsection[{\texorpdfstring{operator/(\+Type)}{operator/(Type)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Array}$<$ Type $>$ \& {\bf Array}$<$ Type $>$\+::operator/ (
+\begin{DoxyParamCaption}
+\item[{Type}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a1a610f57d0269bea54602fef3c00ce93}{}\label{classArray_a1a610f57d0269bea54602fef3c00ce93}
+
+
+pointwise / 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & scalar value \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em bad\+\_\+alloc} & \\
+\hline
+\end{DoxyExceptions}
+\index{Array@{Array}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!Array@{Array}}
+\subsubsection[{\texorpdfstring{operator/=(\+Array \&)}{operator/=(Array &)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Array}$<$ Type $>$ \& {\bf Array}$<$ Type $>$\+::operator/= (
+\begin{DoxyParamCaption}
+\item[{{\bf Array}$<$ Type $>$ \&}]{source}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a35dacf0d8b2138970462d772e2bd65a6}{}\label{classArray_a35dacf0d8b2138970462d772e2bd65a6}
+
+
+pointwise /= 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & source data \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Error} & \char`\"{}\+Array Size ! != Array Size 2\char`\"{} \\
+\hline
+\end{DoxyExceptions}
+\index{Array@{Array}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!Array@{Array}}
+\subsubsection[{\texorpdfstring{operator/=(\+Type)}{operator/=(Type)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Array}$<$ Type $>$ \& {\bf Array}$<$ Type $>$\+::operator/= (
+\begin{DoxyParamCaption}
+\item[{Type}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_ac686fec60cb024adfab21557d214f021}{}\label{classArray_ac686fec60cb024adfab21557d214f021}
+
+
+pointwise /= 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & scalar value \\
+\hline
+\end{DoxyParams}
+\index{Array@{Array}!operator=@{operator=}}
+\index{operator=@{operator=}!Array@{Array}}
+\subsubsection[{\texorpdfstring{operator=(\+Array \&)}{operator=(Array &)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Array}$<$ Type $>$ \& {\bf Array}$<$ Type $>$\+::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf Array}$<$ Type $>$ \&}]{quelle}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a3a2db5a07afd46ed5fe5df6d1e503013}{}\label{classArray_a3a2db5a07afd46ed5fe5df6d1e503013}
+
+
+assignment operator 
+
+
+\begin{DoxyParams}{Parameters}
+{\em quelle} & source \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+should also work with arrays of different size, but N\+OT W\+E\+LL T\+E\+S\+T\+ED yet 
+\end{DoxyWarning}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em bad\+\_\+alloc} & \\
+\hline
+\end{DoxyExceptions}
+\index{Array@{Array}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!Array@{Array}}
+\subsubsection[{\texorpdfstring{operator[](int c\+\_\+ix)}{operator[](int c_ix)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ Type \& {\bf Array}$<$ Type $>$\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{int}]{c\+\_\+ix}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classArray_ab64d3faf9a308906538129bb30c6c214}{}\label{classArray_ab64d3faf9a308906538129bb30c6c214}
+
+
+get element i 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c\+\_\+ix} & index within the array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+reference to element 
+\end{DoxyReturn}
+\index{Array@{Array}!paste@{paste}}
+\index{paste@{paste}!Array@{Array}}
+\subsubsection[{\texorpdfstring{paste(\+Array$<$ Type $>$ \&largearray, int topleft\+X, int topleft\+Y)}{paste(Array< Type > &largearray, int topleftX, int topleftY)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ void {\bf Array}$<$ Type $>$\+::paste (
+\begin{DoxyParamCaption}
+\item[{{\bf Array}$<$ Type $>$ \&}]{smallarray, }
+\item[{int}]{c\+\_\+topleftX, }
+\item[{int}]{c\+\_\+topleftY}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a899d6e0ae0758c1d6bfce45428215fbe}{}\label{classArray_a899d6e0ae0758c1d6bfce45428215fbe}
+
+
+copy into a larger array 
+
+
+\begin{DoxyParams}{Parameters}
+{\em smaller} & array \\
+\hline
+{\em X} & coordinate of top left corner where smaller array shall be placed \\
+\hline
+{\em Y} & coordinate of top left corner where smaller array shall be placed \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Error} & with E\+R\+R\+O\+R\+A\+R\+R\+AY \\
+\hline
+\end{DoxyExceptions}
+\index{Array@{Array}!random@{random}}
+\index{random@{random}!Array@{Array}}
+\subsubsection[{\texorpdfstring{random(\+Type maximum)}{random(Type maximum)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ void {\bf Array}$<$ Type $>$\+::random (
+\begin{DoxyParamCaption}
+\item[{Type}]{maximum}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a0fba9420565845ed9a2c0c64c58cf83e}{}\label{classArray_a0fba9420565845ed9a2c0c64c58cf83e}
+
+
+fill the array with random values 
+
+
+\begin{DoxyParams}{Parameters}
+{\em maximum} & maximum value of the random data \\
+\hline
+\end{DoxyParams}
+\index{Array@{Array}!resize@{resize}}
+\index{resize@{resize}!Array@{Array}}
+\subsubsection[{\texorpdfstring{resize(int n)}{resize(int n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Array}$<$ Type $>$ \& {\bf Array}$<$ Type $>$\+::resize (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a9ec322b5cf0d30954781058862788cd7}{}\label{classArray_a9ec322b5cf0d30954781058862788cd7}
+
+
+zooming image by a constant factor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & zoom factor, positive -\/$>$ zoom in, negative -\/$>$ zoom out \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em bad\+\_\+allox} & \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyWarning}{Warning}
+no deletion of the original object that data pointed to 
+\end{DoxyWarning}
+\index{Array@{Array}!save@{save}}
+\index{save@{save}!Array@{Array}}
+\subsubsection[{\texorpdfstring{save(const char $\ast$)}{save(const char *)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ void {\bf Array}$<$ Type $>$\+::save (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{c\+\_\+filename}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_af6f8d0bcd627b53e7d2d783a0193c881}{}\label{classArray_af6f8d0bcd627b53e7d2d783a0193c881}
+
+
+save a 8 Bit greyscale binary P\+GM file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c\+\_\+filename} & Filename with path of the pgm file \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em bad\+\_\+alloc} & or E\+R\+R\+OR with E\+R\+R\+O\+R\+F\+I\+LE \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyWarning}{Warning}
+\+: inefficient for uchar because data is first copied to a temp buffer (replace with specialization for uchar) 
+\end{DoxyWarning}
+\index{Array@{Array}!set@{set}}
+\index{set@{set}!Array@{Array}}
+\subsubsection[{\texorpdfstring{set(\+Type)}{set(Type)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ void {\bf Array}$<$ Type $>$\+::set (
+\begin{DoxyParamCaption}
+\item[{Type}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a033557644e78114216ac412e0ffde2d1}{}\label{classArray_a033557644e78114216ac412e0ffde2d1}
+
+
+set all values of the \hyperlink{classArray}{Array} to a constant 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & of the constant \\
+\hline
+\end{DoxyParams}
+\index{Array@{Array}!set\+Checked@{set\+Checked}}
+\index{set\+Checked@{set\+Checked}!Array@{Array}}
+\subsubsection[{\texorpdfstring{set\+Checked(int x, int y, Type value)}{setChecked(int x, int y, Type value)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ void {\bf Array}$<$ Type $>$\+::set\+Checked (
+\begin{DoxyParamCaption}
+\item[{int}]{c\+\_\+x, }
+\item[{int}]{c\+\_\+y, }
+\item[{Type}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classArray_a0771ab62914ae3723784815751d7a2c9}{}\label{classArray_a0771ab62914ae3723784815751d7a2c9}
+
+\begin{DoxyParams}{Parameters}
+{\em c\+\_\+x} & index within the array x \\
+\hline
+{\em c\+\_\+y} & index within the array y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+reference to element 
+\end{DoxyReturn}
+\index{Array@{Array}!show@{show}}
+\index{show@{show}!Array@{Array}}
+\subsubsection[{\texorpdfstring{show(int x0=0, int y0=0, int xe=0, int ye=0)}{show(int x0=0, int y0=0, int xe=0, int ye=0)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ void {\bf Array}$<$ Type $>$\+::show (
+\begin{DoxyParamCaption}
+\item[{int}]{x0 = {\ttfamily 0}, }
+\item[{int}]{y0 = {\ttfamily 0}, }
+\item[{int}]{xe = {\ttfamily 0}, }
+\item[{int}]{ye = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a230b05e9bdd732391269ea50e8e189b7}{}\label{classArray_a230b05e9bdd732391269ea50e8e189b7}
+
+
+show numerically the data of the array 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & of the ant \\
+\hline
+\end{DoxyParams}
+\index{Array@{Array}!smooth@{smooth}}
+\index{smooth@{smooth}!Array@{Array}}
+\subsubsection[{\texorpdfstring{smooth(int halfwidthx, int halfwidthy)}{smooth(int halfwidthx, int halfwidthy)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ void {\bf Array}$<$ Type $>$\+::smooth (
+\begin{DoxyParamCaption}
+\item[{int}]{halfwidthx, }
+\item[{int}]{halfwidthy}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a4ee10b16eaa6c7c52704e43943ef38c8}{}\label{classArray_a4ee10b16eaa6c7c52704e43943ef38c8}
+
+
+simple constant smoothing window 
+
+
+\begin{DoxyParams}{Parameters}
+{\em halfwidthx} & filter kernel width \\
+\hline
+{\em halfwidthy} & filter kernel height \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+border will not be processed 
+\end{DoxyWarning}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000003}{Todo}]\+: iir 
+
+\+: more efficient memory management \end{DoxyRefDesc}
+\index{Array@{Array}!smooth\+Fast@{smooth\+Fast}}
+\index{smooth\+Fast@{smooth\+Fast}!Array@{Array}}
+\subsubsection[{\texorpdfstring{smooth\+Fast(int halfwidthx, int halfwidthy)}{smoothFast(int halfwidthx, int halfwidthy)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ void {\bf Array}$<$ Type $>$\+::smooth\+Fast (
+\begin{DoxyParamCaption}
+\item[{int}]{halfwidthx, }
+\item[{int}]{halfwidthy}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a121e8b26d85e237bdc46375178e6cab2}{}\label{classArray_a121e8b26d85e237bdc46375178e6cab2}
+
+
+simple constant smoothing window 
+
+simple rectangular smoothing window
+
+
+\begin{DoxyParams}{Parameters}
+{\em halfwidthx} & filter kernel width \\
+\hline
+{\em halfwidthy} & filter kernel height \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+border will not be processed 
+\end{DoxyWarning}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000004}{Todo}]\+: more efficient memory management \end{DoxyRefDesc}
+\index{Array@{Array}!zero\+Pad\+To@{zero\+Pad\+To}}
+\index{zero\+Pad\+To@{zero\+Pad\+To}!Array@{Array}}
+\subsubsection[{\texorpdfstring{zero\+Pad\+To(int newsize)}{zeroPadTo(int newsize)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ void {\bf Array}$<$ Type $>$\+::zero\+Pad\+To (
+\begin{DoxyParamCaption}
+\item[{int}]{newsize}
+\end{DoxyParamCaption}
+)}\hypertarget{classArray_a88a795239689944e12870e4d182b2407}{}\label{classArray_a88a795239689944e12870e4d182b2407}
+
+
+Zero\+Pad to a new size for quadratic Arrays. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em newsize} & new size for the array (quadratic array !) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{array_8h}{array.\+h}\item 
+\hyperlink{array_8cc}{array.\+cc}\end{DoxyCompactItemize}
