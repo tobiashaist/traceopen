@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////
-/// \file opticalsystem.h
-/// \brief include file for class Surface
+///  \file opticalsystem.h
+///  \brief include file for class Surface
 ///  \date 07.04.2017
 ///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
 ///  Institute of Applied Optics, University of Stuttgart ITO 
