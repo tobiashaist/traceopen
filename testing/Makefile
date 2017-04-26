@@ -1,4 +1,4 @@
-OBJS := test_0001.o ../element.o ../parameter.o ../light.o ../surface.o ../surfacespherical.o ../refraction.o ../refractionrays.o ../interaction.o ../tracing.o ../refractionwaves.o ../ray.o ../opticalsystem.o ../elementwithsurfaces.o ../wave.o ../point.o ../direction.o ../material.o ../jonesmatrix.o ../logging.o ../materialideal.o ../enviroment.o totest.o
+OBJS := test_0001.o ../element.o ../parameter.o ../light.o ../surface.o ../surfacespherical.o ../refraction.o ../refractionrays.o ../interaction.o ../tracing.o ../refractionwaves.o ../ray.o ../opticalsystem.o ../elementwithsurfaces.o ../wave.o ../point.o ../direction.o ../material.o ../jonesmatrix.o ../logging.o ../materialideal.o ../environment.o totest.o
 
 # link
 proggie: $(OBJS)

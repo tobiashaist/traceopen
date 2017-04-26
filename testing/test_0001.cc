@@ -44,7 +44,7 @@ int main(int argc, char* agrv[])
   // ---------------------------------------------------------------------------
  catch(TraceOpenError& e)
    {
-     std::cout << "Exception "<< e.what() << " ErrNo = " << e.errno << std::endl;
+     std::cout << "Exception "<< " ErrNo = " << e.mErrno << std::endl;
      test.mCntErrors++;
    }
  catch(std::exception& e)
