@@ -18,6 +18,8 @@
 
 #include <iostream>
 
+enum typeRayAiming {typeRayAimingNone, typeRayAimingParaxial, typeRayAimingExact};
+
 ////////////////////////////////////////////////////////////
 ///  \brief RayAiming implements rayaiming :)  
 ////////////////////////////////////////////////////////////
@@ -38,10 +40,13 @@ class RayAiming
 {
 
 public:
-  void aim(Light* light, OpticalSystem* system, Point* p); ///< aim for the point p
   
-protected:
+  void aim(Light* light, OpticalSystem* system, Point* p); ///< aim for the point p
+  void setType(typeRayAiming);				   ///< set the RayAiming Type
+  typeRayAiming getType(void);				   ///< get the RayAiming Type
 
+protected:
+  typeRayAiming mType;    ///< Type of RayAiming
 };
 
 #endif

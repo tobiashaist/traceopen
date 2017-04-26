@@ -32,7 +32,7 @@ Parameter<Type>::Parameter(const Type a) : mValue(a)
 /// \param a Value to be set
 //////////////////////////////////////////////////////////////////////
 template <class Type>
-void Parameter<Type>::setValue(const Type a)
+void Parameter<Type>::set(const Type a)
 {
   mValue = a;
 }
@@ -42,7 +42,7 @@ void Parameter<Type>::setValue(const Type a)
 //////////////////////////////////////////////////////////////////////
 
 template <class Type>
-Type Parameter<Type>::getValue() const
+Type Parameter<Type>::get() const
 {
   return mValue;
 }

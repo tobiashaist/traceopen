@@ -20,10 +20,10 @@
 Light::Light(const typeLight t, const real lambda, const real intensity ) :
   mLightType(t), mAlive(true)
 {
-  mLambda.setValue(lambda);
-  mIntensity.setValue(intensity);
-  mCoherenceLength.setValue(0);
-  mOPD.setValue(0);
+  mLambda.set(lambda);
+  mIntensity.set(intensity);
+  mCoherenceLength.set(0);
+  mOPD.set(0);
 }
 
 //////////////////////////////////////////////////////////////////////

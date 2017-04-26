@@ -47,7 +47,8 @@ class MaterialIdeal : public Material
 {
   
 public:
-  MaterialIdeal(std::string name, Environment* env, real n,
+
+  MaterialIdeal(const std::string name, Environment* env, real n,
 		real dispersion=0, real absorption=0); ///< ctor
 
  virtual real getRefractiveIndex(real wavelength,

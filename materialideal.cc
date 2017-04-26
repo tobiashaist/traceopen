@@ -16,7 +16,8 @@
 ////////////////////////////////////////////////////////////
 /// \param n refractive index
 ////////////////////////////////////////////////////////////
-MaterialIdeal::MaterialIdeal(std::string name, Environment* env, real n, real dispersion,
+MaterialIdeal::MaterialIdeal(const std::string name,
+			     Environment* env, real n, real dispersion,
 			     real absorption) :
   Material(name, env, 0), mN(n), mDispersion(dispersion)
 {
@@ -34,5 +35,5 @@ real MaterialIdeal::getRefractiveIndex(real wavelength,
 				       std::complex<real> ex, std::complex<real> ey,
 				       std::complex<real> ez)
 {
-  return mN.getValue();
+  return mN.get();
 }

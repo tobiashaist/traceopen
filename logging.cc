@@ -1,7 +1,7 @@
 #include <iostream>
 #include "logging.h"
 
-void tloggerprint(std::string s)
+void tloggerprint(const std::string s)
 {
   std::string time_str;
   time_t raw_time;

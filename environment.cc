@@ -27,7 +27,7 @@ Environment::Environment(const real temperature, const real pressure) :
 ////////////////////////////////////////////////////////////
 real Environment::getTemperature() const 
 {
-  return mTemperature.getValue();
+  return mTemperature.get();
 }
 
 					       

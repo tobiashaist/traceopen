@@ -11,8 +11,8 @@
 #include "elementwithsurfaces.h"
 #include "surfacespherical.h"
 #include "opticalsystem.h"
-#include "tracing.h"
 #include "ray.h"
+#include "tracing.h"
 #include "wave.h"
 #include "logging.h"
 #include "traceopenerror.h"
@@ -37,13 +37,20 @@ try
   {
     Environment env(300, 1);
     Light *light;
-    Ray l1;
+    Ray l1;    
     Point p1(3,3,3);
+    Point p2(6,3,3);
+    
+    p2.X().set(7);
+    std::cout << p2.X().get() << std::endl;
     Direction d1(3,3,3);
 
     Ray l1b(633e-9, 1, &p1, &d1);
+    l1b.getDirCosX();
+    
+    Point ax = l1b.getPoint();
     Wave l2;
-  
+    std::cout << "Nun =  " << ax.X().get() << std::endl;
     if(argc == 1)
       light = &l1;   // Ray
     else
@@ -56,10 +63,10 @@ try
     a.setMaximum(7);
     Parameter<real> b(a);
     a.setMaximum(8);
-    std::cout << b.getValue() << "  " << b.getMaximum() << std::endl;
+    std::cout << b.get() << "  " << b.getMaximum() << std::endl;
     Parameter<real> c;
     c = a;
-    std::cout << c.getValue() << "  " << c.getMaximum() << std::endl;
+    std::cout << c.get() << "  " << c.getMaximum() << std::endl;
     // -----------------------------------------------------------
     
   // Ab jetzt kann man im Prinzip "tracing" benutzen.
@@ -109,7 +116,8 @@ try
  
  catch(TraceOpenError& e)
    {
-     std::cout << "Exception "<< e.what() << " ErrNo = " << e.errno << std::endl;
+     //     std::cout << "Exception "<< e.what() << " ErrNo = " << e.errno << std::endl;
+     std::cout << "Exception "<<  " ErrNo = " << e.mErrno << std::endl;
    }
  catch(std::exception& e)
    {

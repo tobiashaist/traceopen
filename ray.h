@@ -37,9 +37,28 @@ class Ray : public Light
 public:
   Ray(real lambda=500e-9, real intensity=1 ); ///< ctor
   Ray(real lambda, real intensity, Point* const p, Direction* const dir); ///< construction with global coordinates
+  Point& getPoint();	               ///< Access to current origin point of ray, arbitrary coordinate
+  void setPoint(Point point);    ///< set the current origin point of ray, arbitrary coordinates
 
+  real getX() const;           ///< get the x coordinate of the point of the ray, global coordinates
+  real getY() const;           ///< get the y coordinate of the point of the ray, global coordinates
+  real getZ() const;           ///< get the z coordinate of the point of the ray, global coordinates
+  void setX(real x );           ///< set the x coordinate of the point of the ray, global coordinates
+  void setY(real y );           ///< set the y coordinate of the point of the ray, global coordinates
+  void setZ(real z );           ///< set the z coordinate of the point of the ray, global coordinates
+  void setXYZ(real x, real y, real z );           ///< set the coordinates of the point of the ray, global coordinates
+
+  real getDirCosX() const; ///< get the direction cosine to the x-axis, global coordinates
+  real getDirCosY() const; ///< get the direction cosine to the y-axis, global coordinates
+  real getDirCosZ() const; ///< get the direction cosine to the z-axis, global coordinates
+  void setDirCosX(real x); ///< set the direction cosine to the x-axis, global coordinates
+  void setDirCosY(real y); ///< set the direction cosine to the y-axis, global coordinates
+  void setDirCosZ(real z); ///< set the direction cosine to the z-axis, global coordinates
+  void setDirCosXYZ(real x, real y, real z );        ///< set the coordinates of the directionCosines
+
+  
 protected:
-  Point mPoint;  		///< start point
+  Point mPoint;  		    ///< current origin point of ray
   Direction mDirection;         ///< Direction cosines
 };
 

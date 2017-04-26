@@ -19,5 +19,5 @@
 SurfaceSpherical::SurfaceSpherical(const real radius, const real diameter,
 				   const Point p) : Surface(p, Direction(0,0,0), diameter)
 {
-  mRadius.setValue(radius);
+  mRadius.set(radius);
 }

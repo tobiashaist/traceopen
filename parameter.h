@@ -47,8 +47,8 @@ class Parameter {
 public:
   Parameter();                          ///< std ctor
   Parameter(Type x);                    ///< construction with global coordinates
-  void setValue(Type x);                ///< set Value to x 
-  Type getValue() const;                      ///< get the Value
+  void set(Type x);                ///< set Value to x 
+  Type get() const;                      ///< get the Value
   void setMinimum(Type x);              ///< set the minimum value to x 
   Type getMinimum() const;                    ///< get the minimum Value
   void setMaximum(Type x);              ///< set the maximum value to x 

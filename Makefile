@@ -1,10 +1,10 @@
-OBJS := sampleSimple1.o element.o parameter.o light.o surface.o surfacespherical.o refraction.o refractionrays.o interaction.o tracing.o refractionwaves.o ray.o opticalsystem.o elementwithsurfaces.o wave.o point.o direction.o material.o jonesmatrix.o logging.o materialideal.o environment.o
+OBJS := sampleSimple1.o element.o parameter.o light.o surface.o surfacespherical.o refraction.o refractionrays.o interaction.o tracing.o refractionwaves.o ray.o opticalsystem.o elementwithsurfaces.o wave.o point.o direction.o material.o jonesmatrix.o logging.o materialideal.o environment.o rayaiming.o databaseopticalsystems.o entrydatabaseopticalsystems.o database.o entrydatabase.o
 
 # link
 proggie: $(OBJS)
 	g++ -g $(OBJS) -o sampleSimple1
 
-CFLAGS := -g
+CFLAGS := -g -std=c++11
 
 
 
