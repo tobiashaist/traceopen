@@ -52,7 +52,8 @@ public:
 		real thickness1, real thickness2,
 		Material* m1, Material*  m2,
 		real diameter = 0);      ///< create an achromat
-		    
+  Surface* getSurface(int surfacenr);    ///< get a pointer to the surface
+  
  protected:
   int mCntSurfaces;	   	        ///< number of surfaces
   

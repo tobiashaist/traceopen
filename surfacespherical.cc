@@ -21,3 +21,11 @@ SurfaceSpherical::SurfaceSpherical(const real radius, const real diameter,
 {
   mRadius.set(radius);
 }
+
+////////////////////////////////////////////////////////////
+/// \return pointer to the Parameter for radius
+////////////////////////////////////////////////////////////
+Parameter<real>* SurfaceSpherical::getRadiusPointer()
+{
+  return &mRadius;
+}

@@ -15,6 +15,7 @@
 #include "basicdefinitions.h"
 #include "interaction.h"
 #include "light.h"
+#include "ray.h"
 #include "opticalsystem.h"
 #include "rayaiming.h"
 
@@ -59,8 +60,8 @@ public:
   Tracing();			///< ctor
   ~Tracing();			///< dtor 
   void setInteraction(Interaction*  i);   ///< set the interation and RayAiming to i
-  void trace(Light* l, OpticalSystem* s) const;  ///< trace light through a complete system
-  void init(Light* const l);	  ///< init the interactions based on light model
+  void trace() const;  ///< trace light through a complete system
+  void init(Light* l, OpticalSystem* s);	  ///< init the interactions based on light model
   void computeElementDiameters(Ray* light, OpticalSystem* system); ///< compute all "Automatic" Diameters to let the marginal ray (!) through
 			       
   RayAiming* mRayAiming;         ///< methods and data for handling RayAiming 
@@ -68,6 +69,8 @@ public:
  protected:
   //  Propagation* mPropagation; ///< This is used for handling propagations
   Interaction* mInteraction;     ///< This is used for handling interactions
+  Light* mLight;                 ///< Pointer to light to be traced
+  OpticalSystem* mSystem;         ///< Pointer to the optical system
 };
 
 #endif

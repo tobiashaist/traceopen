@@ -15,6 +15,7 @@
 #include "tracing.h"
 #include "wave.h"
 #include "logging.h"
+#include "computedpickup.h"
 #include "traceopenerror.h"
 #include "materialideal.h"
 
@@ -55,8 +56,9 @@ try
       light = &l1;   // Ray
     else
       light = &l2;   // Scalar Wave
-    
-    tracing.init(light);
+
+    OpticalSystem sys;    
+    tracing.init(light, &sys );
 
     // --------------- Check copy und assignemnt OP
     Parameter<real> a(3.2);
@@ -96,15 +98,51 @@ try
 	      new MaterialIdeal("Testmat1", &env,1.57,50),
 	      new MaterialIdeal("Testmat2", &env,1.47,20), 10e-3);
 
-  OpticalSystem sys;
+
   sys.addElement(&e1);
-  sys.addElement(&e2);
+  int indexlinse2 = sys.addElement(&e2);
 
 #endif
 
   // ----- Und nun können wir da mal durchtracen ------------------
 
-  tracing.trace(light, &sys);
+  tracing.trace();
+
+
+  // ----- We come to a typical solve ----------------------
+
+  // Here we run now in a real problem!
+  // We get back something which IN GENERAL does not
+  // have a surface !
+  // Therefore how should that in general work ?! It cannot!
+  // So the typical solution would be to cast:
+  
+  Element* e = sys.getElement(indexlinse2);
+  Surface* s = static_cast<ElementWithSurfaces*>(e)->getSurface(2);
+
+  // This brings in a certain risk and the programmer definitely has to
+  // know what he is doing ! Not perfect.
+
+  // But how should we know otherwise get the Parameter?
+  // One option would be to get the Parameter right when creating ....
+
+  SurfaceSpherical sx1(3.2, 10e-3, Point(3,2,1));
+  SurfaceSpherical sx2(2.1,10e-3, Point(3,2,1));
+  MaterialIdeal m("test", &env, 1.57, 50);
+  ElementWithSurfaces ex;
+  
+  ex.addSurface(&sx1, new   MaterialIdeal("test", &env, 1.57, 50));
+  ex.addSurface(&sx2, &m);
+
+  // so now, I can of course directly use ex or even sx1 and do not have to cast:
+  // So that would be normally preferred ... and otherwise we would
+  // have to cast ....
+
+
+  Parameter<real>* para  = sx1.getRadiusPointer();
+  Parameter<real>* para2  = sx2.getRadiusPointer();
+
+  ComputedPickup computed(&tracing, para, para2, -3, 2 );
   std::cout << "Finished without crash" << std::endl;
   }
 

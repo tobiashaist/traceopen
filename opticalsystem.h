@@ -52,7 +52,7 @@ class OpticalSystem
   
 public:
   OpticalSystem();
-  void addElement(Element* e);     ///< add one Element at the end of the system
+  int addElement(Element* e);     ///< add one Element at the end of the system
   int setElement(Element* e, int nr);	 ///< replace Element number n 
   Element* const getElement(int nr) const;       ///< set the Element number n
 

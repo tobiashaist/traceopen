@@ -34,10 +34,10 @@ Tracing::~Tracing()
 /// \param l light to be traced
 /// \param s optical system through which we want to trace
 //////////////////////////////////////////////////////////////////////
-void Tracing::trace(Light* light, OpticalSystem* const osystem) const
+void Tracing::trace() const
 {
   LOG("Tracing starts");
-  mInteraction->mRefraction->perform(light, osystem->getElement(0));
+  mInteraction->mRefraction->perform(mLight, mSystem->getElement(0));
 }
 
 
@@ -72,8 +72,11 @@ void Tracing::computeElementDiameters(Ray* light, OpticalSystem* osystem)
 //////////////////////////////////////////////////////////////////////
 /// \param l light based on which all interactions are to be set
 //////////////////////////////////////////////////////////////////////
-void Tracing::init(Light* const light)
+void Tracing::init(Light* light, OpticalSystem* osystem) 
 {
+  mLight = light;
+  mSystem = osystem;
+  
   mInteraction->setGlobalInteractions(light);
   switch(light->getType())
     {

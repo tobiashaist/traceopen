@@ -39,6 +39,7 @@ class SurfaceSpherical : public Surface
 {
  public:
   SurfaceSpherical(real mRadius, real diameter, Point p); ///< ctor
+  Parameter<real>* getRadiusPointer(); /// Pointer to the radius
   
 protected:
   Parameter<real> mRadius;	///< Radius of curvature
