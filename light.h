@@ -36,6 +36,19 @@
 ///  "Light" is the base class for our light models. The class "Ray" e.g. is derived
 ///  from Light.
 ///
+///  Polarization: In general, simulation using polarization is more complicated than
+///  going without it (not matter if waves or rays).
+///  We have different options to reflect this in the code.
+///  Version 1: Subclasses (e.g. RayPolarized)
+///  Version 2: Strategy pattern (having in Ray a point to a "Polarization" subclass
+///     (but actually there are only two different variants ... with and without).
+///     Therefore, the cost associated with it, I guess, is not worth it.
+///  Version 3: Just straight forward definition of a flag (mUsesPolarization)
+///   and based on this flag the methods in interaction (and perhabs propagation)
+///   change their behavior.
+///
+///  The last version is - I think - the most simple and straight forward way to go.
+///
 ///  \date 07.4.2017
 ///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
 ////////////////////////////////////////////////////////////
@@ -49,6 +62,8 @@ public:
   void setPosition(Point p);    ///< sets the startposition of the light
   typeLight getType() const {return mLightType;}
   bool isAlive() const;	        ///< true -> Light is still alive (not vignetted)
+  bool isUsingPolarization() const; /// true -> we should use polarization
+  void setUsingPolarization(bool); ///< set/unset the usage of polarization
   
 protected:
   typeLight mLightType;		///< what kind of Light (subclass)
@@ -57,6 +72,7 @@ protected:
   Parameter<real> mIntensity;		///< power per m^2 = intensity in W/m^2
   Parameter<real> mOPD;			///< optical path difference
   bool mAlive;				///< true -> light still alive
+  bool mUsesPolarization;		///< true -> we should use polarization
 };
 
 #endif

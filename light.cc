@@ -18,7 +18,7 @@
 /// \param intensity intesity in W/m^2
 //////////////////////////////////////////////////////////////////////
 Light::Light(const typeLight t, const real lambda, const real intensity ) :
-  mLightType(t), mAlive(true)
+  mLightType(t), mAlive(true), mUsesPolarization(false)
 {
   mLambda.set(lambda);
   mIntensity.set(intensity);
@@ -32,4 +32,20 @@ Light::Light(const typeLight t, const real lambda, const real intensity ) :
 bool Light::isAlive() const
 {
   return mAlive;
+}
+
+//////////////////////////////////////////////////////////////////////
+/// \return true -> polarization should be used
+//////////////////////////////////////////////////////////////////////
+bool Light::isUsingPolarization() const
+{
+  return mUsesPolarization;
+}
+
+//////////////////////////////////////////////////////////////////////
+/// \return true -> polarization should be used
+//////////////////////////////////////////////////////////////////////
+void Light::setUsingPolarization(bool useit) 
+{
+  mUsesPolarization = useit;
 }

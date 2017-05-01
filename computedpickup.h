@@ -17,6 +17,8 @@
 
 #include <iostream>
 
+enum typePickup {typePickupLinear, typePickupQuadratic};
+
 ////////////////////////////////////////////////////////////
 ///  \brief ComputedPickup is a subclass of Computed and works for classical pickups
 ////////////////////////////////////////////////////////////
@@ -31,14 +33,20 @@ class ComputedPickup : public Computed
 {
 
 public:
-  ComputedPickup(Tracing* tracing, Parameter<real>* p1, Parameter<real>* p2,
-		 real offset, real multiplier);	///< ctor
+  ComputedPickup(Tracing* tracing, typePickup t, Parameter<real>* p1, Parameter<real>* p2,
+		 real offset, real multiplier, real const3=0, real const4=0);	//< ctor
+  void compute();				///< really do computation
   
 protected:
+  typePickup mType;             ///< Type of Computation (which equation);
   Parameter<real>* mP1;		///< Parameter 1
   Parameter<real>* mP2;		///< Parameter 2
   real mOffset;                 ///< Offset
   real mMultiplier;             ///< mMultiplier
+  real mConstant3;              ///< for some other equations
+  real mConstant4;              ///< for some other equations
+  
+
 };
 
 #endif

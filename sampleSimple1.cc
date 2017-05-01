@@ -18,6 +18,7 @@
 #include "computedpickup.h"
 #include "traceopenerror.h"
 #include "materialideal.h"
+#include "raybundle.h"
 
 
 #include <iostream>
@@ -142,14 +143,11 @@ try
   Parameter<real>* para  = sx1.getRadiusPointer();
   Parameter<real>* para2  = sx2.getRadiusPointer();
 
-  ComputedPickup computed(&tracing, para, para2, -3, 2 );
+  ComputedPickup pickup1(&tracing, typePickupLinear, para, para2, -3, 2 );
   std::cout << "Finished without crash" << std::endl;
+
+  RayBundle();
   }
-
-
-
-
-
 
  
  catch(TraceOpenError& e)
