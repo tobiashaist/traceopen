@@ -75,7 +75,7 @@ class Computed
 {
 
 public:
-  Computed(Tracing* tracing);	///< ctor
+  explicit Computed(Tracing* tracing);	///< ctor
   
 protected:
   Tracing* mTracing;              ///< The Light (typically a Ray) and System used for the comput.

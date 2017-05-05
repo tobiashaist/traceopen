@@ -56,7 +56,8 @@
 class Point {
 
 public:
-  Point(real x=0, real y=0, real z=0);    ///< construction with global coordinates
+  /// explicit already helped to remove an error :)
+  explicit Point(real x=0, real y=0, real z=0);    ///< construction with global coordinates
   Parameter<real>& X(void) {return mX;}  ///< get reference onto point x global coordinate
   Parameter<real>& Y(void) {return mY;}  ///< get reference onto point y global coordinate
   Parameter<real>& Z(void) {return mZ;}  ///< get reference onto point z global coordinate

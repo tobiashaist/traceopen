@@ -52,7 +52,7 @@ class DatabaseOpticalSystems : public Database
 {
     
  public:
-  DatabaseOpticalSystems(const std::string name);  ///< ctor
+  explicit DatabaseOpticalSystems(const std::string name);  ///< ctor
   ~DatabaseOpticalSystems(); ///dtor
   
   /// load and save to be done !

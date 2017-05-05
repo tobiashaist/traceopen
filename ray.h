@@ -35,7 +35,7 @@ class Ray : public Light
 {
 
 public:
-  Ray(real lambda=500e-9, real intensity=1 ); ///< ctor
+  explicit Ray(real lambda=500e-9, real intensity=1 ); ///< ctor
   Ray(real lambda, real intensity, Point* const p, Direction* const dir); ///< construction with global coordinates
   Point& getPoint();	               ///< Access to current origin point of ray, arbitrary coordinate
   void setPoint(Point point);    ///< set the current origin point of ray, arbitrary coordinates

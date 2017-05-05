@@ -27,7 +27,7 @@ class EntryDatabaseOpticalSystems : public EntryDatabase
 {
     
  public:
-  EntryDatabaseOpticalSystems(OpticalSystem* system);  ///< ctor
+  explicit EntryDatabaseOpticalSystems(OpticalSystem* system);  ///< ctor
   virtual ~EntryDatabaseOpticalSystems();
 
   /// load and save to be done !

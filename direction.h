@@ -37,7 +37,7 @@
 class Direction {
 
 public:
-  Direction(real alpha=0, real beta=0, real gamma=0);  ///< construction with global coordinates
+  explicit Direction(real alpha=0, real beta=0, real gamma=0);  ///< construction with global coordinates
 
   Parameter<real>& dirCosX(void) {return mDirCosX;}  ///< get reference onto point x global coordinate
   Parameter<real>& dirCosY(void) {return mDirCosY;}  ///< get reference onto point y global coordinate

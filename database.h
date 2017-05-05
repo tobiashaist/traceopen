@@ -56,7 +56,7 @@ class Database
 {
     
  public:
-  Database(const std::string databasename);  ///< ctor
+  explicit Database(const std::string databasename);  ///< ctor
   virtual ~Database() = 0;
   
  protected:

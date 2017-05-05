@@ -49,7 +49,7 @@ class Material
   
 public:
 
-  Material(std::string name, Environment* env=0, real specificicWeight=0);  ///< ctor
+  explicit Material(std::string name, Environment* env=0, real specificicWeight=0);  ///< ctor
   virtual ~Material();			///< dtor
   virtual real getRefractiveIndex(real wavelength,
 				 std::complex<real> ex, std::complex<real> ey,
