@@ -35,6 +35,13 @@
 ///  Array (of pointers) e.g. with 10.000 entries for every ElementWithSurfaces.
 ///  Therefore we use a container  ( vector<Surface*> )(
 /// 
+///  Here, it is clear that the class OWNs the surfaces.
+///  Therefore, if we want (in general) access them
+///  (e.g. we first created an achromat and later want to change the
+///  radius of the third surface) we have to really do it by getting
+///  a pointer to the surface and the call the set function
+///  for that surface
+/// 
 ///  \date 07.4.2017
 ///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
 ////////////////////////////////////////////////////////////
@@ -43,7 +50,11 @@ class ElementWithSurfaces : public Element
   
 public:
   ElementWithSurfaces();	///< ctor
+  ElementWithSurfaces(ElementWithSurfaces& element); ///< copy ctor
+  
   ~ElementWithSurfaces();	///< dtor
+  virtual ElementWithSurfaces* copy();         ///< deep copy the current lens and set smart ptr
+  
   void addSurface(Surface* s, Material*  m);  ///< add a surface at the end of mSurfaces
   void standardLens(real r1, real r2,
 		    real thickness, Material* material,

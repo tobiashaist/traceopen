@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////
-///     \file opticalsystem.h
+///  \file opticalsystem.h
 ///  \brief include file for class Surface
 ///  \date 07.04.2017
 ///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
@@ -19,6 +19,7 @@
 
 #include <vector>
 #include <iostream>
+#include <memory>
 
 
 // TODO
@@ -57,7 +58,8 @@ public:
   Element* const getElement(int nr) const;       ///< set the Element number n
 
  protected:
-  std::vector<Element*> mElements;     ///< Here, the elements are stored
+  std::vector<std::unique_ptr<Element>> mElements; ///< Here, the elements are stored
+
   Parameter<double> mPrice;       ///< Price of the optical system
   // etc.
   Surface* mStop;                 ///< for classic optical design we need a stop SURFACE

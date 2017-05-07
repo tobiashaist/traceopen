@@ -22,3 +22,9 @@ Element::~Element()
 {
 
 }
+
+////////////////////////////////////////////////////////////
+Element* Element::copy() 
+{
+  return this;
+}

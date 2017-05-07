@@ -16,6 +16,7 @@
 #include "refraction.h"
 
 #include <iostream>
+#include "logging.h"
 
 
 ////////////////////////////////////////////////////////////
@@ -33,7 +34,12 @@ class RefractionRays : public Refraction
 {
   
 public:
-  virtual void perform(Light* light , Element* element); ///< perform refraction of rays through element
+  RefractionRays()
+    {
+      LOG("CTOR RefractionRays");
+    }
+  
+      virtual void perform(Light* light , Element* element); ///< perform refraction of rays through element
   
 protected:
 

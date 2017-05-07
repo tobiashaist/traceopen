@@ -17,7 +17,7 @@
 
 
 //////////////////////////////////////////////////////////////////////
-Tracing::Tracing() : mInteraction(NULL), mRayAiming(NULL)
+Tracing::Tracing() : mRayAiming(NULL)
 {
 
 }
@@ -36,8 +36,10 @@ Tracing::~Tracing()
 //////////////////////////////////////////////////////////////////////
 void Tracing::trace() const
 {
-  LOG("Tracing starts");
-  mInteraction->mRefraction->perform(mLight, mSystem->getElement(0));
+  LOG("Tracing::trace");
+  // TOOD: bisher natürlich Mist
+  mInteractionModel.mRefraction->perform(mLight, mSystem->getElement(0));
+  LOG("Tracing ends");
 }
 
 
@@ -69,26 +71,26 @@ void Tracing::computeElementDiameters(Ray* light, OpticalSystem* osystem)
   
 }
 
+
+
 //////////////////////////////////////////////////////////////////////
 /// \param l light based on which all interactions are to be set
 //////////////////////////////////////////////////////////////////////
 void Tracing::init(Light* light, OpticalSystem* osystem) 
 {
+  mInteractionModel.setGlobalInteractions(light);
+  LOG("Done setGlobalInteractions");
+
   mLight = light;
   mSystem = osystem;
-  
-  mInteraction->setGlobalInteractions(light);
+  // The following will crash because mInteraction is not set suitable
+#if 0
   switch(light->getType())
     {
     case typeLightRay:
       mRayAiming = new RayAiming;   // standard Ray-based RayAiming
     }
+  #endif
 }
 
-//////////////////////////////////////////////////////////////////////
-/// \param i interaction that will be used for tracing through
-//////////////////////////////////////////////////////////////////////
-void Tracing::setInteraction(Interaction* const i)
-{
-  mInteraction = i;
-};
+

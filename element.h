@@ -18,6 +18,7 @@
 #include "jonesmatrix.h"
 
 #include <iostream>
+#include <memory>
 
 
 ////////////////////////////////////////////////////////////
@@ -39,8 +40,11 @@ class Element
 public:
   Element();			///< ctor
   virtual ~Element();		///< dtor
+  virtual Element* copy();      ///< copies the Element and sets the pointer to mSmartPtrElement
+  std::unique_ptr<Element> mSmartPtrElement; // just very short in use (see above for explanation)
   
 protected:
+
   Parameter<real> mWeight;	///< Weight of element in g
   Parameter<real> mPrice;	///< Price of element in Euro
   JonesMatrix* mJonesMatrix;    ///< Pointer to a Jones Matrix or NULL

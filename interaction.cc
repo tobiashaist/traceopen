@@ -28,21 +28,3 @@ Interaction::~Interaction()
     delete mRefraction;
 }
 
-//////////////////////////////////////////////////////////////////////
-/// \param light light model to be used for global interactions
-//////////////////////////////////////////////////////////////////////
-void Interaction::setGlobalInteractions(Light* const light)
-{   
-  switch(light->getType())
-    {
-    case typeLightRay:
-      mRefraction = new RefractionRays;
-      break;
-    case typeWaveScalar:
-      mRefraction = new RefractionWaves;
-      break;
-    default:
-      throw TraceOpenError("wrong light type inf setGlobalInteraction", 0);
-    }
-}
-

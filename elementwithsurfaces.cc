@@ -11,10 +11,12 @@
 
 #include "elementwithsurfaces.h"
 #include "surfacespherical.h"
+#include "logging.h"
 
 //////////////////////////////////////////////////////////////////////
 ElementWithSurfaces::ElementWithSurfaces() : mCntSurfaces(0), mSurfaces(10), mMaterials(10)
 {
+  LOG("CTOR Element With Surfaces");
   for(int t=0; t< 10; t++)
     {
       mSurfaces[t] = NULL;
@@ -23,8 +25,18 @@ ElementWithSurfaces::ElementWithSurfaces() : mCntSurfaces(0), mSurfaces(10), mMa
 }
 
 //////////////////////////////////////////////////////////////////////
+ElementWithSurfaces::ElementWithSurfaces(ElementWithSurfaces& e) 
+{
+  LOG("COPY CTOR Element With Surfaces");
+  mSurfaces= e.mSurfaces;
+  mMaterials = e.mMaterials;
+  mCntSurfaces = e.mCntSurfaces;
+}
+
+//////////////////////////////////////////////////////////////////////
 ElementWithSurfaces::~ElementWithSurfaces()
 {
+  LOG("DTOR Element With Surfaces");
   for(int t=0; t< mSurfaces.size(); t++)
     if(mSurfaces[t] != NULL)
       delete mSurfaces[t];
@@ -36,9 +48,21 @@ ElementWithSurfaces::~ElementWithSurfaces()
 //////////////////////////////////////////////////////////////////////
 /// \param nr Surface number
 //////////////////////////////////////////////////////////////////////
+ElementWithSurfaces* ElementWithSurfaces::copy()
+{
+  mSmartPtrElement.reset(new ElementWithSurfaces(*this)); // here we generate
+  // a new Element and the mSmartPtrElement gets Ownership for that
+    
+  return dynamic_cast<ElementWithSurfaces*>(mSmartPtrElement.get());
+}
+
+//////////////////////////////////////////////////////////////////////
+/// \param nr Surface number
+//////////////////////////////////////////////////////////////////////
 Surface* ElementWithSurfaces::getSurface(int surfacenumber)
 {
   // TODO: error checks
+  LOG("ElementWithSurfaces::getSurface",surfacenumber);
   return mSurfaces[surfacenumber];
 }
 
@@ -48,6 +72,7 @@ Surface* ElementWithSurfaces::getSurface(int surfacenumber)
 //////////////////////////////////////////////////////////////////////
 void ElementWithSurfaces::addSurface(Surface* const s,  Material* const m)
 {
+  LOG("addSurface");
   if(mCntSurfaces < 10)
     {
       mSurfaces.push_back(s);
@@ -79,15 +104,15 @@ void ElementWithSurfaces::achromat(const real r1, const real r2, const real r3,
 				   Material* const m2,
 				   const real diameter)
 {
-  SurfaceSpherical* s = new SurfaceSpherical(r1, diameter, 0);
+  SurfaceSpherical* s = new SurfaceSpherical(r1, diameter, Point(0,0,0));
   mSurfaces[0] = s;
   mMaterials[0] = m1;
 
-  s = new SurfaceSpherical(r2, diameter, thickness1);
+  s = new SurfaceSpherical(r2, diameter, Point(0,0,thickness1));
   mSurfaces[1] = s;
   mMaterials[1]= m2;
 
-  s = new SurfaceSpherical(r3, diameter, thickness2);
+  s = new SurfaceSpherical(r3, diameter, Point(0,0,thickness2));
   mSurfaces[2] = s;
   mCntSurfaces = 3;
 }
@@ -103,10 +128,10 @@ void ElementWithSurfaces::achromat(const real r1, const real r2, const real r3,
 void ElementWithSurfaces::standardLens(real r1, real r2, real thickness,
 				       Material* const material, real diameter)
 {
-  SurfaceSpherical* s = new SurfaceSpherical(r1, diameter, 0);
+  SurfaceSpherical* s = new SurfaceSpherical(r1, diameter, Point(0,0,0));
   mSurfaces[0] = s;
   mMaterials[0] = material;
-  s = new SurfaceSpherical(r2, diameter, thickness);
+  s = new SurfaceSpherical(r2, diameter, Point(thickness,0,0));
   mSurfaces[1] = s;
   mCntSurfaces = 2;
 }

@@ -22,9 +22,11 @@
 
 
 #include <iostream>
+#include <vector>
 
 
 //////////////////////////////////////////////////////////////////////
+
 
 Tracing tracing;
 
@@ -37,30 +39,42 @@ int main(int argc, char* agrv[])
   // ----------------------------------------------------------
 try
   {
+
     Environment env(300, 1);
     Light *light;
-    Ray l1;    
-    Point p1(3,3,3);
-    Point p2(6,3,3);
+    //    Point p1(3,3,3);
+    //    Point p2(6,3,3);
     
-    p2.X().set(7);
-    std::cout << p2.X().get() << std::endl;
+    //    p2.X().set(7);
+    //    std::cout << p2.X().get() << std::endl;
     Direction d1(3,3,3);
 
-    Ray l1b(633e-9, 1, &p1, &d1);
-    l1b.getDirCosX();
+    //    Ray l1b(633e-9, 1, &p1, &d1);
+    //    l1b.getDirCosX();
     
-    Point ax = l1b.getPoint();
+    //    Point ax = l1b.getPoint();
+    //  std::cout << "Nun =  " << ax.X().get() << std::endl;
+
+
+    Ray l1;    
     Wave l2;
-    std::cout << "Nun =  " << ax.X().get() << std::endl;
+
     if(argc == 1)
       light = &l1;   // Ray
     else
       light = &l2;   // Scalar Wave
 
-    OpticalSystem sys;    
-    tracing.init(light, &sys );
+    LOG("A");
+    OpticalSystem sys;
+    
+    LOG("B");
 
+
+    
+    // We do not come out here !
+    LOG("C");
+
+#if 0    
     // --------------- Check copy und assignemnt OP
     Parameter<real> a(3.2);
     a.setMaximum(7);
@@ -77,6 +91,8 @@ try
   //
   // Ganz simpel: Mal zwei sphärische Oberflächen
   ////////////////////////////////////////////////////////////
+#endif
+    
 #if 0
   SurfaceSpherical s(3.2, 10e-3, Point(3,2,1));
   SurfaceSpherical s2(2.1,10e-3, Point(3,2,1));
@@ -89,7 +105,9 @@ try
   sys.addElement(&e);
   sys.addElement(&e);
 
-#else
+#endif
+
+#if 1 
   ElementWithSurfaces e1,e2;
 
   // r1, r2, thickness, Material, diameter
@@ -99,17 +117,19 @@ try
 	      new MaterialIdeal("Testmat1", &env,1.57,50),
 	      new MaterialIdeal("Testmat2", &env,1.47,20), 10e-3);
 
+  //
+  
+  //  ElementWithSurfaces* ep = dynamic_cast<ElementWithSurfaces*> (sys.addElement(&e1));
 
+  LOG("D");
   sys.addElement(&e1);
   int indexlinse2 = sys.addElement(&e2);
 
-#endif
-
   // ----- Und nun können wir da mal durchtracen ------------------
-
+  tracing.init(light, &sys );
+  LOG("E");
   tracing.trace();
-
-
+  LOG("F");
   // ----- We come to a typical solve ----------------------
 
   // Here we run now in a real problem!
@@ -118,9 +138,9 @@ try
   // Therefore how should that in general work ?! It cannot!
   // So the typical solution would be to cast:
   
-  Element* e = sys.getElement(indexlinse2);
-  Surface* s = static_cast<ElementWithSurfaces*>(e)->getSurface(2);
-
+  Element* e = sys.getElement(1);
+  LOG("G");
+  Surface* s = static_cast<ElementWithSurfaces*>(e)->getSurface(0);
   // This brings in a certain risk and the programmer definitely has to
   // know what he is doing ! Not perfect.
 
@@ -131,7 +151,7 @@ try
   SurfaceSpherical sx2(2.1,10e-3, Point(3,2,1));
   MaterialIdeal m("test", &env, 1.57, 50);
   ElementWithSurfaces ex;
-  
+  LOG("H");
   ex.addSurface(&sx1, new   MaterialIdeal("test", &env, 1.57, 50));
   ex.addSurface(&sx2, &m);
 
@@ -142,10 +162,10 @@ try
 
   Parameter<real>* para  = sx1.getRadiusPointer();
   Parameter<real>* para2  = sx2.getRadiusPointer();
-
+  LOG("I");
   ComputedPickup pickup1(&tracing, typePickupLinear, para, para2, -3, 2 );
+#endif
   std::cout << "Finished without crash" << std::endl;
-
   RayBundle();
   }
 

@@ -23,7 +23,7 @@ using namespace std;
 void RefractionRays::perform(Light* light, Element* const element)
 {
   // Todo: assert for rays
-  LOG("RefractionRays");
-  throw TraceOpenError("Test", 3);
+  LOG("RefractionRays::perform");
+  //  throw TraceOpenError("Test", 3);
 
 }

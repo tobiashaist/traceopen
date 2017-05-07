@@ -12,12 +12,13 @@
 #ifndef REFRACTION_HPP 
 #define REFRACTION_HPP
 
-class Interaction;
 
 #include "basicdefinitions.h"
 #include "light.h"
 #include "interaction.h"
 #include "element.h"
+#include "logging.h"
+#include "interaction.h"
 
 #include <iostream>
 
@@ -38,6 +39,10 @@ class Refraction : public Interaction
 {
   
 public:
+  Refraction()
+    {
+      LOG("CTOR Refraction");
+    }
   virtual ~Refraction();
   // TODO: sollte das nicht protected sein ?!?
   // Generell mal meine alten c++ Sachen durchgehen
