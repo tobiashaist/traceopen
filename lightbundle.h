@@ -61,7 +61,16 @@ public:
   
 protected:
   int mCntLights;		      ///< number of Rays
-  std::vector<Light*> mLights;    ///< the rays
+
+  // It would be an option to use here again smart pointers
+  // and to give ownership of these lights to mLights
+  // we would, however have to copy all the rays
+  // (compare our discussions in OpticalSystem with Elements)
+  // We think that here, perform issues might really lead to
+  // some problems when using smart pointers because
+  // we definitely need LOTS of light.
+  
+  std::vector<Light*> mLights;         ///< the rays
 };
 
 #endif

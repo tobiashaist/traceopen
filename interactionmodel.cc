@@ -26,12 +26,12 @@ void InteractionModel::setGlobalInteractions(Light* const light)
   switch(light->getType())
     {
     case typeLightRay:
-      mRefraction = new RefractionRays;
+      mRefraction.reset(new RefractionRays);
       LOG("Done RefractionRays ctor");
       
       break;
     case typeWaveScalar:
-      mRefraction = new RefractionWaves;
+      mRefraction.reset(new RefractionWaves);
       break;
     default:
       throw TraceOpenError("wrong light type inf setGlobalInteraction", 0);

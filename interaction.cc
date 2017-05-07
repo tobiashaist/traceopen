@@ -16,7 +16,7 @@
 
 
 //////////////////////////////////////////////////////////////////////
-Interaction::Interaction() : mRefraction(NULL)
+Interaction::Interaction() 
 {
   ;
 }
@@ -24,7 +24,6 @@ Interaction::Interaction() : mRefraction(NULL)
 //////////////////////////////////////////////////////////////////////
 Interaction::~Interaction()
 {
-  if(mRefraction != NULL)
-    delete mRefraction;
+
 }
 

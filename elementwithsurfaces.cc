@@ -13,23 +13,27 @@
 #include "surfacespherical.h"
 #include "logging.h"
 
+
 //////////////////////////////////////////////////////////////////////
-ElementWithSurfaces::ElementWithSurfaces() : mCntSurfaces(0), mSurfaces(10), mMaterials(10)
+ElementWithSurfaces::ElementWithSurfaces() : mCntSurfaces(0)
 {
   LOG("CTOR Element With Surfaces");
-  for(int t=0; t< 10; t++)
-    {
-      mSurfaces[t] = NULL;
-      mMaterials[t] = NULL;
-    }
 }
 
 //////////////////////////////////////////////////////////////////////
 ElementWithSurfaces::ElementWithSurfaces(ElementWithSurfaces& e) 
 {
   LOG("COPY CTOR Element With Surfaces");
-  mSurfaces= e.mSurfaces;
-  mMaterials = e.mMaterials;
+  // here, we cannot just copy the mSurfaces because that would
+  // just (try to) copy the pointers.
+  // Since these are unique pointers, it is anyway not
+  // allowed (and it would not make sense even if it would be)
+  //
+  // The same, of course, for Materials
+  // We actually have to perform a deep copy here !
+
+  //mSurfaces= e.mSurfaces;   
+  //  mMaterials = e.mMaterials;
   mCntSurfaces = e.mCntSurfaces;
 }
 
@@ -37,16 +41,12 @@ ElementWithSurfaces::ElementWithSurfaces(ElementWithSurfaces& e)
 ElementWithSurfaces::~ElementWithSurfaces()
 {
   LOG("DTOR Element With Surfaces");
-  for(int t=0; t< mSurfaces.size(); t++)
-    if(mSurfaces[t] != NULL)
-      delete mSurfaces[t];
-  for(int t=0; t< mMaterials.size(); t++)
-    if(mMaterials[t] != NULL)
-      delete mMaterials[t];
+
 }
 
 //////////////////////////////////////////////////////////////////////
 /// \param nr Surface number
+/// We need that for addElement within OpticalSystem
 //////////////////////////////////////////////////////////////////////
 ElementWithSurfaces* ElementWithSurfaces::copy()
 {
@@ -63,7 +63,8 @@ Surface* ElementWithSurfaces::getSurface(int surfacenumber)
 {
   // TODO: error checks
   LOG("ElementWithSurfaces::getSurface",surfacenumber);
-  return mSurfaces[surfacenumber];
+
+  return mSurfaces[surfacenumber].get();
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -72,18 +73,17 @@ Surface* ElementWithSurfaces::getSurface(int surfacenumber)
 //////////////////////////////////////////////////////////////////////
 void ElementWithSurfaces::addSurface(Surface* const s,  Material* const m)
 {
+#if 1
   LOG("addSurface");
-  if(mCntSurfaces < 10)
-    {
-      mSurfaces.push_back(s);
-      mMaterials.push_back(m);
-    }
-  else
-    {
-      mSurfaces[mCntSurfaces] = s;
-      mMaterials[mCntSurfaces] = m;
-    }
+  Surface* sc = s->copy();   // for lens this points to a newly created Lens !
+  mSurfaces.push_back(move(s->mSmartPtrSurface));  
+  //  std::cerr << "Number of Elements in mElements = " << mElements.size() << std::endl;
+
+  mMaterials.push_back(m);
   mCntSurfaces++;
+
+  //  return mSurfaces.size();
+#endif
 }
 
 
@@ -104,17 +104,18 @@ void ElementWithSurfaces::achromat(const real r1, const real r2, const real r3,
 				   Material* const m2,
 				   const real diameter)
 {
+#if 1
   SurfaceSpherical* s = new SurfaceSpherical(r1, diameter, Point(0,0,0));
-  mSurfaces[0] = s;
-  mMaterials[0] = m1;
+  addSurface(s,m1);
 
   s = new SurfaceSpherical(r2, diameter, Point(0,0,thickness1));
-  mSurfaces[1] = s;
-  mMaterials[1]= m2;
+  addSurface(s,m2);
 
   s = new SurfaceSpherical(r3, diameter, Point(0,0,thickness2));
-  mSurfaces[2] = s;
+  addSurface(s,m2);
+
   mCntSurfaces = 3;
+#endif
 }
 
 
@@ -128,10 +129,14 @@ void ElementWithSurfaces::achromat(const real r1, const real r2, const real r3,
 void ElementWithSurfaces::standardLens(real r1, real r2, real thickness,
 				       Material* const material, real diameter)
 {
+#if 1
   SurfaceSpherical* s = new SurfaceSpherical(r1, diameter, Point(0,0,0));
-  mSurfaces[0] = s;
-  mMaterials[0] = material;
+  addSurface(s, material);
+
   s = new SurfaceSpherical(r2, diameter, Point(thickness,0,0));
-  mSurfaces[1] = s;
+  addSurface(s, material);
   mCntSurfaces = 2;
+#endif
 }
+
+

@@ -12,7 +12,7 @@
 #include "element.h"
 
 ////////////////////////////////////////////////////////////
-Element::Element() : mJonesMatrix(NULL)
+Element::Element() 
 {
 
 }
@@ -26,5 +26,8 @@ Element::~Element()
 ////////////////////////////////////////////////////////////
 Element* Element::copy() 
 {
+  // Here something suitable should be used !
+  // actually a deep copy !
+  
   return this;
 }

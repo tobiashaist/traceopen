@@ -17,6 +17,7 @@
 #include "basicdefinitions.h"
 #include "interaction.h"
 #include <iostream>
+#include <memory>
 
 
 
@@ -36,9 +37,9 @@ class InteractionModel
 public:
   void setGlobalInteractions( Light* light); ///< set global interactions according to light modell
 
-  Interaction* mRefraction;	///< this is what we call when refraction occurs
+  std::unique_ptr<Interaction> mRefraction;	///< this is what we call when refraction occurs
 
- //  Reflection* mReflection;	///< this is what we call when refraction occurs  
+ //  mReflection;	///< this is what we call when refraction occurs  
 };
 
 #endif

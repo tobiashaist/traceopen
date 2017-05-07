@@ -64,12 +64,24 @@ public:
 		Material* m1, Material*  m2,
 		real diameter = 0);      ///< create an achromat
   Surface* getSurface(int surfacenr);    ///< get a pointer to the surface
+
+
+
+
   
  protected:
   int mCntSurfaces;	   	        ///< number of surfaces
   
-  std::vector<Surface*> mSurfaces;   ///< All surfaces that make the element
+  std::vector<std::unique_ptr<Surface>> mSurfaces; ///< All surfaces that make the element
 
+  // Here we have an important question. Should the materials also be owned by
+  // the element ? Or should they stored just globally in the MaterialsDatabase
+  // so that we just have to use ordinary pointers to them.
+  // In principle in most cases, this database approach is the right thing.
+  // However: When optimizing materials then, it is not so perfect.
+  // Anyway, I think the database approach is more logically than the
+  // way to always copy the material.
+  
   std::vector<Material*> mMaterials; ///< Material between successive surfaces
 };
 

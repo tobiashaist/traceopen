@@ -39,8 +39,8 @@ public:
   
 protected:
   typePickup mType;             ///< Type of Computation (which equation);
-  Parameter<real>* mP1;		///< Parameter 1
-  Parameter<real>* mP2;		///< Parameter 2
+  Parameter<real>* mP1;		///< Parameter 1, Beware mP1 points to an object which is not owned by this class
+  Parameter<real>* mP2;		///< Parameter 2, Beware mP1 points to an object which is not owned by this class
   real mOffset;                 ///< Offset
   real mMultiplier;             ///< mMultiplier
   real mConstant3;              ///< for some other equations

@@ -18,6 +18,7 @@
 #include "parameter.h"
 
 #include <iostream>
+#include <memory>
 
 
 ////////////////////////////////////////////////////////////
@@ -45,9 +46,13 @@ class Surface
   
 public:
   Surface(Point pos, Direction dir, real diameter); ///< ctor
+  Surface(const Surface& surf);                           ///< copy ctor
   virtual ~Surface();                               ///< dtor
+  virtual Surface* copy();   ///< copies the Surface and sets the pointer to mSmartPtrSurface
+  std::unique_ptr<Surface> mSmartPtrSurface; // just very short in use (see above for expl.)
   
 protected:
+
   Point mPosition;		///< Position in Space (global coordinates)
   Direction mOrientation;	///< orientation in Space (global coordinates)
   Parameter<real> mDiameter;	///< Diameter of usable surface (inner circle)

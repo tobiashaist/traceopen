@@ -15,6 +15,7 @@
 #include <iostream>
 #include "entrydatabase.h"
 #include <vector>
+#include <memory>
 
 
 ////////////////////////////////////////////////////////////
@@ -60,9 +61,9 @@ class Database
   virtual ~Database() = 0;
   
  protected:
-  std::string mName;                            ///< Name of Database
-  std::vector<EntryDatabase*> mEntries;         ///< all our entries
-  int mCntEntries;                              ///< Number of systems
+  std::string mName;                                            ///< Name of Database
+  std::vector<std::unique_ptr<EntryDatabase>> mEntries;         ///< all our entries
+  int mCntEntries;                                              ///< Number of systems
 };
 
 #endif

@@ -47,7 +47,7 @@ protected:
 
   Parameter<real> mWeight;	///< Weight of element in g
   Parameter<real> mPrice;	///< Price of element in Euro
-  JonesMatrix* mJonesMatrix;    ///< Pointer to a Jones Matrix or NULL
+  std::unique_ptr<JonesMatrix>  mJonesMatrix;    ///< Pointer to a Jones Matrix or NULL
 };
 
 #endif

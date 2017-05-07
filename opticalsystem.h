@@ -62,6 +62,10 @@ public:
 
   Parameter<double> mPrice;       ///< Price of the optical system
   // etc.
+
+  // I am unsure if we should take mStop as a unique_ptr .... might be better.
+  // Again a question of ownership !
+  
   Surface* mStop;                 ///< for classic optical design we need a stop SURFACE
 };
 
