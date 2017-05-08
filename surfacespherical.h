@@ -39,6 +39,10 @@ class SurfaceSpherical : public Surface
 {
  public:
   SurfaceSpherical(real mRadius, real diameter, Point p); ///< ctor
+  SurfaceSpherical(const SurfaceSpherical& surface); ///< copy ctor
+  void swap(SurfaceSpherical& surface1);      /// swap operation
+  SurfaceSpherical& operator=( SurfaceSpherical& surface);
+  
   Parameter<real>* getRadiusPointer(); /// Pointer to the radius
   
 protected:

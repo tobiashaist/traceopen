@@ -21,3 +21,12 @@ Point::Point(const real x, const real y, const real z) : mX(x), mY(y), mZ(z)
   ;
 }
 
+
+//////////////////////////////////////////////////////////////////////
+void Point::swap(Point& point1)
+{
+  std::swap(mX, point1.mX);
+  std::swap(mY, point1.mY);
+  std::swap(mZ, point1.mZ);
+}
+

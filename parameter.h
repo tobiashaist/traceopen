@@ -57,6 +57,7 @@ public:
   Type getStdDev() const;                     ///< get the standard deviation of Value
   void setModifier(typeModifier x);     ///< set the modifier
   typeModifier getModifier() const;           ///< get the modifier
+  void swap(Parameter& para1);          ///< swap functionality
   
 protected:
   Type mValue;			///< (mean) value of parameter

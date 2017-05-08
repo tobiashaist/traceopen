@@ -61,7 +61,8 @@ public:
   Parameter<real>& X(void) {return mX;}  ///< get reference onto point x global coordinate
   Parameter<real>& Y(void) {return mY;}  ///< get reference onto point y global coordinate
   Parameter<real>& Z(void) {return mZ;}  ///< get reference onto point z global coordinate
-
+  void swap(Point& point1);              ///< swap functionality
+  
   const Parameter<real>& getX(void) const {return mX;} ///< get reference onto point x global coordinate
   const Parameter<real>& getY(void) const {return mY;} ///< get reference onto point x global coordinate
   const Parameter<real>& getZ(void) const {return mZ;} ///< get reference onto point x global coordinate

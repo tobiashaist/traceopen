@@ -53,6 +53,10 @@ public:
   ElementWithSurfaces(ElementWithSurfaces& element); ///< copy ctor
   
   ~ElementWithSurfaces();	///< dtor
+  void swap(ElementWithSurfaces& element);                   ///< swap operation
+  ElementWithSurfaces& operator=(ElementWithSurfaces& element);
+
+
   virtual ElementWithSurfaces* copy();         ///< deep copy the current lens and set smart ptr
   
   void addSurface(Surface* s, Material*  m);  ///< add a surface at the end of mSurfaces
@@ -64,10 +68,7 @@ public:
 		Material* m1, Material*  m2,
 		real diameter = 0);      ///< create an achromat
   Surface* getSurface(int surfacenr);    ///< get a pointer to the surface
-
-
-
-
+  void show();
   
  protected:
   int mCntSurfaces;	   	        ///< number of surfaces

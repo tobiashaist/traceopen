@@ -23,7 +23,7 @@ ElementWithSurfaces::ElementWithSurfaces() : mCntSurfaces(0)
 //////////////////////////////////////////////////////////////////////
 ElementWithSurfaces::ElementWithSurfaces(ElementWithSurfaces& e) 
 {
-  LOG("COPY CTOR Element With Surfaces");
+  LOG("COPY CTOR Element With Surfaces, #surfaces = ", static_cast<int>(e.mSurfaces.size()));
   // here, we cannot just copy the mSurfaces because that would
   // just (try to) copy the pointers.
   // Since these are unique pointers, it is anyway not
@@ -34,6 +34,13 @@ ElementWithSurfaces::ElementWithSurfaces(ElementWithSurfaces& e)
 
   //mSurfaces= e.mSurfaces;   
   //  mMaterials = e.mMaterials;
+
+  for(int t=0; t < e.mSurfaces.size(); ++t)
+    {
+      LOG("Vor add surface");
+      e.mSurfaces[t].get()->show();
+      addSurface(e.mSurfaces[t].get(), e.mMaterials[t]);
+    }
   mCntSurfaces = e.mCntSurfaces;
 }
 
@@ -52,6 +59,7 @@ ElementWithSurfaces* ElementWithSurfaces::copy()
 {
   mSmartPtrElement.reset(new ElementWithSurfaces(*this)); // here we generate
   // a new Element and the mSmartPtrElement gets Ownership for that
+
     
   return dynamic_cast<ElementWithSurfaces*>(mSmartPtrElement.get());
 }
@@ -87,6 +95,16 @@ void ElementWithSurfaces::addSurface(Surface* const s,  Material* const m)
 }
 
 
+////////////////////////////////////////////////////////////
+void ElementWithSurfaces::show()
+{
+  Element::show();  // parent
+  
+  LOG("SHOW ELEMENTWITHSURFACES: number of Surfaces", mCntSurfaces);
+  for(int t=0; t < mCntSurfaces; ++t)
+    mSurfaces[t]->show();
+  
+}
 
 //////////////////////////////////////////////////////////////////////
 /// \param r1 radius of curvature surface 1
@@ -140,3 +158,21 @@ void ElementWithSurfaces::standardLens(real r1, real r2, real thickness,
 }
 
 
+
+////////////////////////////////////////////////////////////
+/// \param surface pointer to the surface
+////////////////////////////////////////////////////////////
+ElementWithSurfaces& ElementWithSurfaces::operator=(ElementWithSurfaces& element) 
+{
+  ElementWithSurfaces temp(element);
+  swap(element);
+  return* this;
+}
+
+////////////////////////////////////////////////////////////
+void ElementWithSurfaces::swap(ElementWithSurfaces& element) 
+{
+  std::swap(mCntSurfaces, element.mCntSurfaces);
+  std::swap(mSurfaces, element.mSurfaces);
+  std::swap(mMaterials, element.mMaterials);
+}

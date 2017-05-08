@@ -33,15 +33,15 @@
 ///  components are encountered by the light. These things are handled
 ///  in the propagation and interaction classes. 
 ///  However, the hardware of the whole optical system (consisting of
-///  lenses, surfaces, materials etc. is stored and managed in this class
+///  lenses, surfaces, materials etc.) is stored and managed in this class
 ///  (and the important subclass Element). 
 ///
 ///  Mainly the optical system consists of Elements (and additional information)
 ///  And of course, Elements consist of Surfaces, Materials, Coatings etc.
 ///
-///  The class never creates or destructs elements (or surfaces)
-///  (otherwise we would have to use smartpointer or something similar)
-///
+///  When elements are added/inserted into the system, they will be (deeply)
+///  copied. So OpticalSystem owns verything which is stored in mElements. 
+///  
 ///  \date 07.4.2017
 ///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
 ////////////////////////////////////////////////////////////
@@ -56,7 +56,8 @@ public:
   int addElement(Element* e);     ///< add one Element at the end of the system
   int setElement(Element* e, int nr);	 ///< replace Element number n 
   Element* const getElement(int nr) const;       ///< set the Element number n
-
+  void show();
+  
  protected:
   std::vector<std::unique_ptr<Element>> mElements; ///< Here, the elements are stored
 

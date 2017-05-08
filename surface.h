@@ -46,9 +46,13 @@ class Surface
   
 public:
   Surface(Point pos, Direction dir, real diameter); ///< ctor
-  Surface(const Surface& surf);                           ///< copy ctor
-  virtual ~Surface();                               ///< dtor
+  Surface(const Surface& surf);                   ///< copy ctor
+  void swap(Surface& surface1);                   ///< swap operation
+  virtual ~Surface();                            ///< dtor
   virtual Surface* copy();   ///< copies the Surface and sets the pointer to mSmartPtrSurface
+  Surface& operator=(Surface& surface);           ///< assignment operator
+  void show();
+  
   std::unique_ptr<Surface> mSmartPtrSurface; // just very short in use (see above for expl.)
   
 protected:

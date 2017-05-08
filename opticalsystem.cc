@@ -101,3 +101,12 @@ int OpticalSystem::setElement(Element* const e, const int nr)
   // TODO: This has to be changed !
   return nr;
 }
+
+////////////////////////////////////////////////////////////
+void OpticalSystem::show()
+{
+  LOG("SHOW OPTICALSYSTEM", static_cast<int>(mElements.size()));
+  for(int t=0; t < mElements.size(); ++t)
+    mElements[t]->show();
+  LOG("END OF SHOW OPTICALSYSTEM");
+}

@@ -32,6 +32,19 @@ Parameter<Type>::Parameter(const Type a) : mValue(a)
 /// \param a Value to be set
 //////////////////////////////////////////////////////////////////////
 template <class Type>
+void Parameter<Type>::swap(Parameter& para2)
+{
+  std::swap(mValue, para2.mValue);
+  std::swap(mMin, para2.mMin);
+  std::swap(mMax, para2.mMax);
+  std::swap(mStdDev, para2.mStdDev);
+  std::swap(mModifier, para2.mModifier);
+}
+
+//////////////////////////////////////////////////////////////////////
+/// \param a Value to be set
+//////////////////////////////////////////////////////////////////////
+template <class Type>
 void Parameter<Type>::set(const Type a)
 {
   mValue = a;

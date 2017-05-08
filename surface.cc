@@ -10,6 +10,7 @@
 /// 
 
 #include "surface.h"
+#include "logging.h"
 
 ////////////////////////////////////////////////////////////
 /// \param pos Position of Surface in global coordinates
@@ -27,7 +28,23 @@ Surface::Surface(const Point pos, const Direction dir, const real diameter) :
 ////////////////////////////////////////////////////////////
 Surface::Surface(const Surface& surf) 
 {
-  // TODO
+  LOG("COPY CTOR Surface");
+}
+
+
+////////////////////////////////////////////////////////////
+void Surface::show() 
+{
+  LOG("SHOW SURFACE");
+}
+
+////////////////////////////////////////////////////////////
+void Surface::swap(Surface& surf) 
+{
+  std::swap(mPosition, surf.mPosition);
+  std::swap(mOrientation, surf.mOrientation);
+  std::swap(mDiameter, surf.mDiameter);
+  std::swap(mSmartPtrSurface, surf.mSmartPtrSurface);  // TODO: to be checked
 }
 
 ////////////////////////////////////////////////////////////
@@ -47,4 +64,13 @@ Surface* Surface::copy()
   return dynamic_cast<Surface*>(mSmartPtrSurface.get());
 }
 
+////////////////////////////////////////////////////////////
+/// \param surface pointer to the surface
+////////////////////////////////////////////////////////////
+Surface& Surface::operator=(Surface& surface) 
+{
+  Surface temp(surface);
+  swap(surface);
+  return* this;
+}
 

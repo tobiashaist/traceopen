@@ -113,23 +113,31 @@ try
   // r1, r2, thickness, Material, diameter
   e1.standardLens(10e-3, -10e-3, 3e-3,
 		  new MaterialIdeal("Testmat1", &env, 1.57,50),10e-3);
+  Surface* surface = e1.getSurface(1);
   e2.achromat(10e-3, -10e-3, 20e-33, 2e-3, 1e-3,
 	      new MaterialIdeal("Testmat1", &env,1.57,50),
 	      new MaterialIdeal("Testmat2", &env,1.47,20), 10e-3);
-
+  //e2.show();
+  //  e1.show();
   //
   
   //  ElementWithSurfaces* ep = dynamic_cast<ElementWithSurfaces*> (sys.addElement(&e1));
 
   LOG("D");
   sys.addElement(&e1);
+  sys.show();
+
+  
   int indexlinse2 = sys.addElement(&e2);
+  surface = e2.getSurface(2);
+
 
   // ----- Und nun können wir da mal durchtracen ------------------
   tracing.init(light, &sys );
   LOG("E");
   tracing.trace();
   LOG("F");
+
   // ----- We come to a typical solve ----------------------
 
   // Here we run now in a real problem!
@@ -138,20 +146,23 @@ try
   // Therefore how should that in general work ?! It cannot!
   // So the typical solution would be to cast:
   
-  Element* e = sys.getElement(1);
+  ElementWithSurfaces* es = dynamic_cast<ElementWithSurfaces*>(sys.getElement(1));
   LOG("G");
-  Surface* s = static_cast<ElementWithSurfaces*>(e)->getSurface(0);
+  sys.show();
+  Surface* s = es->getSurface(0);
+
+
   // This brings in a certain risk and the programmer definitely has to
   // know what he is doing ! Not perfect.
 
   // But how should we know otherwise get the Parameter?
   // One option would be to get the Parameter right when creating ....
 
+  LOG("H");
   SurfaceSpherical sx1(3.2, 10e-3, Point(3,2,1));
   SurfaceSpherical sx2(2.1,10e-3, Point(3,2,1));
   MaterialIdeal m("test", &env, 1.57, 50);
   ElementWithSurfaces ex;
-  LOG("H");
   ex.addSurface(&sx1, new   MaterialIdeal("test", &env, 1.57, 50));
   ex.addSurface(&sx2, &m);
 
