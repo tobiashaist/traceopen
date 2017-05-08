@@ -54,7 +54,7 @@ public:
   
   ~ElementWithSurfaces();	///< dtor
   void swap(ElementWithSurfaces& element);                   ///< swap operation
-  ElementWithSurfaces& operator=(ElementWithSurfaces& element);
+  ElementWithSurfaces& operator=(ElementWithSurfaces& element); ///< assignment OP
 
 
   virtual ElementWithSurfaces* copy();         ///< deep copy the current lens and set smart ptr
@@ -71,7 +71,7 @@ public:
   Material* getMaterial(int surfacenr);  ///< get a pointer to the material
   real getZPosition(int surfacenr);      ///< get the z position of the surface
   
-  void show();
+  void show();                           ///< just for debugging
   
  protected:
   int mCntSurfaces;	   	        ///< number of surfaces

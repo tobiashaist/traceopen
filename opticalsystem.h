@@ -56,7 +56,7 @@ public:
   int addElement(Element* e);     ///< add one Element at the end of the system
   int setElement(Element* e, int nr);	 ///< replace Element number n 
   Element* const getElement(int nr) const;       ///< set the Element number n
-  void show();
+  void show();                   ///< just for debugging  
   
  protected:
   std::vector<std::unique_ptr<Element>> mElements; ///< Here, the elements are stored

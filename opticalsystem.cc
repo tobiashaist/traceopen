@@ -14,6 +14,7 @@
 
 ////////////////////////////////////////////////////////////
 /// \param e Pointer to Element to be added to end of list
+/// \return number of surfaces
 ////////////////////////////////////////////////////////////
 // TODO: Here we might run into typical pointer problems.
 // e.g. the main program which calls addElement might
@@ -71,6 +72,8 @@ int OpticalSystem::addElement(Element * const  e)
 }
 
 ////////////////////////////////////////////////////////////
+/// ctor
+////////////////////////////////////////////////////////////
 OpticalSystem::OpticalSystem() 
 {
     ELOG("ctor OpticalSystem");
@@ -98,10 +101,13 @@ int OpticalSystem::setElement(Element* const e, const int nr)
   if(nr > mElements.size())
     return -1;
 
-  // TODO: This has to be changed !
+  *mElements[nr] = *e;
+  // TODO: This has to be changed/checked !
   return nr;
 }
 
+////////////////////////////////////////////////////////////
+/// Just for debugging purposes
 ////////////////////////////////////////////////////////////
 void OpticalSystem::show()
 {

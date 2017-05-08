@@ -15,11 +15,16 @@
 
 
 //////////////////////////////////////////////////////////////////////
+/// ctor
+//////////////////////////////////////////////////////////////////////
 ElementWithSurfaces::ElementWithSurfaces() : mCntSurfaces(0)
 {
   ELOG("CTOR Element With Surfaces");
 }
 
+//////////////////////////////////////////////////////////////////////
+/// copy ctor
+/// param e ElementWithSurfaces used for construction
 //////////////////////////////////////////////////////////////////////
 ElementWithSurfaces::ElementWithSurfaces(ElementWithSurfaces& e) 
 {
@@ -44,6 +49,8 @@ ElementWithSurfaces::ElementWithSurfaces(ElementWithSurfaces& e)
 }
 
 //////////////////////////////////////////////////////////////////////
+/// dtor
+//////////////////////////////////////////////////////////////////////
 ElementWithSurfaces::~ElementWithSurfaces()
 {
   ELOG("DTOR Element With Surfaces");
@@ -51,7 +58,7 @@ ElementWithSurfaces::~ElementWithSurfaces()
 }
 
 //////////////////////////////////////////////////////////////////////
-/// \param nr Surface number
+/// \return Pointer to the element which has been newly created (and copied)
 /// We need that for addElement within OpticalSystem
 //////////////////////////////////////////////////////////////////////
 ElementWithSurfaces* ElementWithSurfaces::copy()
@@ -65,6 +72,7 @@ ElementWithSurfaces* ElementWithSurfaces::copy()
 
 //////////////////////////////////////////////////////////////////////
 /// \param nr Surface number
+/// \return a pointer to the desired surface
 //////////////////////////////////////////////////////////////////////
 Surface* ElementWithSurfaces::getSurface(int surfacenumber)
 {
@@ -80,7 +88,6 @@ Surface* ElementWithSurfaces::getSurface(int surfacenumber)
 //////////////////////////////////////////////////////////////////////
 void ElementWithSurfaces::addSurface(Surface* const s,  Material* const m)
 {
-#if 1
   ELOG("addSurface");
   Surface* sc = s->copy();   // for lens this points to a newly created Lens !
   mSurfaces.push_back(move(s->mSmartPtrSurface));  
@@ -88,12 +95,10 @@ void ElementWithSurfaces::addSurface(Surface* const s,  Material* const m)
 
   mMaterials.push_back(m);
   mCntSurfaces++;
-
-  //  return mSurfaces.size();
-#endif
 }
 
-
+////////////////////////////////////////////////////////////
+/// just for debugging
 ////////////////////////////////////////////////////////////
 void ElementWithSurfaces::show()
 {
@@ -102,7 +107,6 @@ void ElementWithSurfaces::show()
   ELOG("SHOW ELEMENTWITHSURFACES: number of Surfaces", mCntSurfaces);
   for(int t=0; t < mCntSurfaces; ++t)
     mSurfaces[t]->show();
-  
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -121,7 +125,6 @@ void ElementWithSurfaces::achromat(const real r1, const real r2, const real r3,
 				   Material* const m2,
 				   const real diameter)
 {
-#if 1
   SurfaceSpherical* s = new SurfaceSpherical(r1, diameter, Point(0,0,0));
   addSurface(s,m1);
 
@@ -132,7 +135,6 @@ void ElementWithSurfaces::achromat(const real r1, const real r2, const real r3,
   addSurface(s,m2);
 
   mCntSurfaces = 3;
-#endif
 }
 
 
@@ -146,7 +148,6 @@ void ElementWithSurfaces::achromat(const real r1, const real r2, const real r3,
 void ElementWithSurfaces::standardLens(real r1, real r2, real thickness,
 				       Material* const material, real diameter)
 {
-#if 1
   ELOG("standard lens");
   SurfaceSpherical* s = new SurfaceSpherical(r1, diameter, Point(0,0,0));
   addSurface(s, material);
@@ -155,11 +156,11 @@ void ElementWithSurfaces::standardLens(real r1, real r2, real thickness,
   //  LOG("Thickness = ", thickness);
   addSurface(s, material);
   mCntSurfaces = 2;
-#endif
 }
 
 ////////////////////////////////////////////////////////////
-/// \return pointer to Material
+/// \param index of the surface
+/// \return pointer to Material after surface
 ////////////////////////////////////////////////////////////
 Material* ElementWithSurfaces::getMaterial(int index)
 {
@@ -167,6 +168,7 @@ Material* ElementWithSurfaces::getMaterial(int index)
 }
 
 ////////////////////////////////////////////////////////////
+/// \param index of the surface
 /// \return surface position z
 ////////////////////////////////////////////////////////////
 real ElementWithSurfaces::getZPosition(int index)
@@ -174,9 +176,9 @@ real ElementWithSurfaces::getZPosition(int index)
   return mSurfaces[index]->getPosition()->getZ().get();
 }
 
-
 ////////////////////////////////////////////////////////////
-/// \param surface pointer to the surface
+/// assignment operator
+/// \param element element to be assigned to this ElementWithSurfaces
 ////////////////////////////////////////////////////////////
 ElementWithSurfaces& ElementWithSurfaces::operator=(ElementWithSurfaces& element) 
 {
@@ -185,6 +187,8 @@ ElementWithSurfaces& ElementWithSurfaces::operator=(ElementWithSurfaces& element
   return* this;
 }
 
+////////////////////////////////////////////////////////////
+/// \param element element to be swaped with this ElementWithSurfaces
 ////////////////////////////////////////////////////////////
 void ElementWithSurfaces::swap(ElementWithSurfaces& element) 
 {

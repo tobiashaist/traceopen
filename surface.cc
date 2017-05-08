@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////
 /// \file surface.cc
-/// \brief class Element
+/// \brief class Surface
 ///  \date 07.04.2017
 ///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
 ///  Institute of Applied Optics, University of Stuttgart ITO 
@@ -25,18 +25,19 @@ Surface::Surface(const Point pos, const Direction dir, const real diameter) :
 }
 
 ////////////////////////////////////////////////////////////
-
+/// copy ctor
+/// \param surface surface to be used for initialization
 ////////////////////////////////////////////////////////////
-Surface::Surface(const Surface& surf) 
+Surface::Surface(const Surface& surface) 
 {
   ELOG("COPY CTOR Surface");
-  mPosition = surf.mPosition;
-  mOrientation = surf.mOrientation;
-  mDiameter = surf.mDiameter;
+  mPosition = surface.mPosition;
+  mOrientation = surface.mOrientation;
+  mDiameter = surface.mDiameter;
 }
 
-
-
+////////////////////////////////////////////////////////////
+/// just for debugging
 ////////////////////////////////////////////////////////////
 void Surface::show() 
 {
@@ -44,14 +45,18 @@ void Surface::show()
 }
 
 ////////////////////////////////////////////////////////////
-void Surface::swap(Surface& surf) 
+/// \param surface surface to be swaped with this surface
+////////////////////////////////////////////////////////////
+void Surface::swap(Surface& surface) 
 {
-  std::swap(mPosition, surf.mPosition);
-  std::swap(mOrientation, surf.mOrientation);
-  std::swap(mDiameter, surf.mDiameter);
-  std::swap(mSmartPtrSurface, surf.mSmartPtrSurface);  // TODO: to be checked
+  std::swap(mPosition, surface.mPosition);
+  std::swap(mOrientation, surface.mOrientation);
+  std::swap(mDiameter, surface.mDiameter);
+  std::swap(mSmartPtrSurface, surface.mSmartPtrSurface);  // TODO: to be checked
 }
 
+////////////////////////////////////////////////////////////
+/// dtor
 ////////////////////////////////////////////////////////////
 Surface::~Surface()
 {
@@ -60,6 +65,7 @@ Surface::~Surface()
 
 //////////////////////////////////////////////////////////////////////
 /// \param nr Surface number
+/// \return raw pointer to the surface that we generated and copied.
 //////////////////////////////////////////////////////////////////////
 Surface* Surface::copy()
 {
@@ -70,6 +76,7 @@ Surface* Surface::copy()
 }
 
 ////////////////////////////////////////////////////////////
+/// assignment operator
 /// \param surface pointer to the surface
 ////////////////////////////////////////////////////////////
 Surface& Surface::operator=(Surface& surface) 
@@ -97,7 +104,7 @@ Direction* Surface::getOrientation()
 }
 
 ////////////////////////////////////////////////////////////
-/// \return pointer to Position in space
+/// \return pointer to Orientation in space
 ////////////////////////////////////////////////////////////
 Parameter<real>* Surface::getDiameter()
 {

@@ -27,6 +27,7 @@ SurfaceSpherical::SurfaceSpherical(const real radius, const real diameter,
 
 //////////////////////////////////////////////////////////////////////
 /// \param nr Surface number
+/// \return newly created (and copied) Surface
 //////////////////////////////////////////////////////////////////////
 SurfaceSpherical* SurfaceSpherical::copy()
 {
@@ -46,16 +47,16 @@ void SurfaceSpherical::swap(SurfaceSpherical& surface)
 }
 
 ////////////////////////////////////////////////////////////
-/// \param surface pointer to the surface
+/// Just for debugging
 ////////////////////////////////////////////////////////////
 void SurfaceSpherical::show()
 {
   ELOG("SHOW SURFACESPHERICAL");
 }
 
-
 ////////////////////////////////////////////////////////////
-/// \param surface pointer to the surface
+/// assignment operator
+/// \param surface pointer to the surface to be assigned
 ////////////////////////////////////////////////////////////
 SurfaceSpherical& SurfaceSpherical::operator=(SurfaceSpherical& surface) 
 {
@@ -76,7 +77,7 @@ SurfaceSpherical::SurfaceSpherical(const SurfaceSpherical& surface) :
 
 
 ////////////////////////////////////////////////////////////
-/// \return pointer to the Parameter for radius
+/// \return pointer to the Parameter for radius of curvature
 ////////////////////////////////////////////////////////////
 Parameter<real>* SurfaceSpherical::getRadiusPointer()
 {
@@ -84,7 +85,7 @@ Parameter<real>* SurfaceSpherical::getRadiusPointer()
 }
 
 ////////////////////////////////////////////////////////////
-/// \return pointer to the Parameter for radius
+/// \return directly get the radius of curvature
 ////////////////////////////////////////////////////////////
 real SurfaceSpherical::getRadius()
 {

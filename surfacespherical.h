@@ -12,13 +12,10 @@
 #ifndef SURFACESPHERICAL_HPP 
 #define SURFACESPHERICAL_HPP
 
+#include <iostream>
 #include "basicdefinitions.h"
 #include "surface.h"
-
-
-#include <iostream>
 #include "parameter.h"
-
 
 
 ////////////////////////////////////////////////////////////
@@ -39,16 +36,16 @@ class SurfaceSpherical : public Surface
 {
  public:
   SurfaceSpherical(real mRadius, real diameter, Point p); ///< ctor
-  SurfaceSpherical(const SurfaceSpherical& surface); ///< copy ctor
-  void swap(SurfaceSpherical& surface1);      /// swap operation
-  SurfaceSpherical& operator=( SurfaceSpherical& surface);
-  void show();
-  virtual SurfaceSpherical* copy();   ///< copies the Surface and sets the pointer to mSmartPtrSurface
-  Parameter<real>* getRadiusPointer(); /// Pointer to the radius
-  real getRadius();                    ///< get directly the radius
+  SurfaceSpherical(const SurfaceSpherical& surface);      ///< copy ctor
+  void swap(SurfaceSpherical& surface1);                  ///< swap operation
+SurfaceSpherical& operator=( SurfaceSpherical& surface);  ///< assignment operator
+  void show();                          ///< just for debugging
+  virtual SurfaceSpherical* copy();     ///< copies the Surface and sets the pointer to mSmartPtrSurface
+  Parameter<real>* getRadiusPointer();  ///< Pointer to the radius
+  real getRadius();                     ///< get directly the radius
   
 protected:
-  Parameter<real> mRadius;	///< Radius of curvature
+  Parameter<real> mRadius;	        ///< Radius of curvature
 };
 
 #endif

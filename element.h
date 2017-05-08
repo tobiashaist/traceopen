@@ -41,18 +41,21 @@ public:
   Element();			///< ctor
   Element(const Element& element);	///< copy ctor
   virtual ~Element();		///< dtor
-  virtual Element* copy();      ///< copies the Element and sets the pointer to mSmartPtrElement
+
   void swap(Element& element);                   ///< swap operation
-  virtual void show();
-  Element& operator=(Element& element);
+  virtual void show();				 ///< just for debugging purposes
+  Element& operator=(Element& element);          ///< assignment OP
   
   std::unique_ptr<Element> mSmartPtrElement; // just very short in use (see above for explanation)
-  
+
+  virtual Element* copy();      ///< copies the Element and sets the pointer to mSmartPtrElement
+
 protected:
 
   Parameter<real> mWeight;	///< Weight of element in g
   Parameter<real> mPrice;	///< Price of element in Euro
   std::unique_ptr<JonesMatrix>  mJonesMatrix;    ///< Pointer to a Jones Matrix or NULL
+
 };
 
 #endif
