@@ -68,6 +68,9 @@ public:
 		Material* m1, Material*  m2,
 		real diameter = 0);      ///< create an achromat
   Surface* getSurface(int surfacenr);    ///< get a pointer to the surface
+  Material* getMaterial(int surfacenr);  ///< get a pointer to the material
+  real getZPosition(int surfacenr);      ///< get the z position of the surface
+  
   void show();
   
  protected:

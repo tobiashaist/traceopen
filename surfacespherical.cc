@@ -10,6 +10,7 @@
 /// 
 
 #include "surfacespherical.h"
+#include "logging.h"
 
 ////////////////////////////////////////////////////////////
 /// \param radius radius of curvature
@@ -19,9 +20,21 @@
 SurfaceSpherical::SurfaceSpherical(const real radius, const real diameter,
 				   const Point p) : Surface(p, Direction(0,0,0), diameter)
 {
+  ELOG("CTOR SURFACESPHERICAL");
   mRadius.set(radius);
 }
 
+
+//////////////////////////////////////////////////////////////////////
+/// \param nr Surface number
+//////////////////////////////////////////////////////////////////////
+SurfaceSpherical* SurfaceSpherical::copy()
+{
+  mSmartPtrSurface.reset(new SurfaceSpherical(*this)); // here we generate
+  // a new Element and the mSmartPtrSurface gets Ownership for that
+    
+  return dynamic_cast<SurfaceSpherical*>(mSmartPtrSurface.get());
+}
 
 ////////////////////////////////////////////////////////////
 /// \param surface pointer to the surface
@@ -31,6 +44,15 @@ void SurfaceSpherical::swap(SurfaceSpherical& surface)
   Surface::swap(surface);
   std::swap(mRadius, surface.mRadius);
 }
+
+////////////////////////////////////////////////////////////
+/// \param surface pointer to the surface
+////////////////////////////////////////////////////////////
+void SurfaceSpherical::show()
+{
+  ELOG("SHOW SURFACESPHERICAL");
+}
+
 
 ////////////////////////////////////////////////////////////
 /// \param surface pointer to the surface
@@ -48,7 +70,7 @@ SurfaceSpherical& SurfaceSpherical::operator=(SurfaceSpherical& surface)
 SurfaceSpherical::SurfaceSpherical(const SurfaceSpherical& surface) :
   Surface(surface), mRadius(surface.mRadius)
 {
-
+  ELOG("COPY CTOR SURFACESPHERICAL");
 }
 
 
@@ -59,4 +81,12 @@ SurfaceSpherical::SurfaceSpherical(const SurfaceSpherical& surface) :
 Parameter<real>* SurfaceSpherical::getRadiusPointer()
 {
   return &mRadius;
+}
+
+////////////////////////////////////////////////////////////
+/// \return pointer to the Parameter for radius
+////////////////////////////////////////////////////////////
+real SurfaceSpherical::getRadius()
+{
+  return mRadius.get();
 }

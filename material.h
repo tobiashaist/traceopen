@@ -54,6 +54,7 @@ public:
   virtual real getRefractiveIndex(real wavelength,
 				 std::complex<real> ex, std::complex<real> ey,
 				  std::complex<real> ez) = 0;  ///< get refractiveIndex
+  std::string& getName();      ///< get the Name of the Material
   
  protected:
   std::string mName;			///< name of Material

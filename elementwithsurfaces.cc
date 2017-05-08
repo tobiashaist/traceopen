@@ -17,13 +17,13 @@
 //////////////////////////////////////////////////////////////////////
 ElementWithSurfaces::ElementWithSurfaces() : mCntSurfaces(0)
 {
-  LOG("CTOR Element With Surfaces");
+  ELOG("CTOR Element With Surfaces");
 }
 
 //////////////////////////////////////////////////////////////////////
 ElementWithSurfaces::ElementWithSurfaces(ElementWithSurfaces& e) 
 {
-  LOG("COPY CTOR Element With Surfaces, #surfaces = ", static_cast<int>(e.mSurfaces.size()));
+  ELOG("COPY CTOR Element With Surfaces, #surfaces = ", static_cast<int>(e.mSurfaces.size()));
   // here, we cannot just copy the mSurfaces because that would
   // just (try to) copy the pointers.
   // Since these are unique pointers, it is anyway not
@@ -37,7 +37,6 @@ ElementWithSurfaces::ElementWithSurfaces(ElementWithSurfaces& e)
 
   for(int t=0; t < e.mSurfaces.size(); ++t)
     {
-      LOG("Vor add surface");
       e.mSurfaces[t].get()->show();
       addSurface(e.mSurfaces[t].get(), e.mMaterials[t]);
     }
@@ -47,7 +46,7 @@ ElementWithSurfaces::ElementWithSurfaces(ElementWithSurfaces& e)
 //////////////////////////////////////////////////////////////////////
 ElementWithSurfaces::~ElementWithSurfaces()
 {
-  LOG("DTOR Element With Surfaces");
+  ELOG("DTOR Element With Surfaces");
 
 }
 
@@ -70,7 +69,7 @@ ElementWithSurfaces* ElementWithSurfaces::copy()
 Surface* ElementWithSurfaces::getSurface(int surfacenumber)
 {
   // TODO: error checks
-  LOG("ElementWithSurfaces::getSurface",surfacenumber);
+  ELOG("ElementWithSurfaces::getSurface",surfacenumber);
 
   return mSurfaces[surfacenumber].get();
 }
@@ -82,7 +81,7 @@ Surface* ElementWithSurfaces::getSurface(int surfacenumber)
 void ElementWithSurfaces::addSurface(Surface* const s,  Material* const m)
 {
 #if 1
-  LOG("addSurface");
+  ELOG("addSurface");
   Surface* sc = s->copy();   // for lens this points to a newly created Lens !
   mSurfaces.push_back(move(s->mSmartPtrSurface));  
   //  std::cerr << "Number of Elements in mElements = " << mElements.size() << std::endl;
@@ -100,7 +99,7 @@ void ElementWithSurfaces::show()
 {
   Element::show();  // parent
   
-  LOG("SHOW ELEMENTWITHSURFACES: number of Surfaces", mCntSurfaces);
+  ELOG("SHOW ELEMENTWITHSURFACES: number of Surfaces", mCntSurfaces);
   for(int t=0; t < mCntSurfaces; ++t)
     mSurfaces[t]->show();
   
@@ -148,15 +147,32 @@ void ElementWithSurfaces::standardLens(real r1, real r2, real thickness,
 				       Material* const material, real diameter)
 {
 #if 1
+  ELOG("standard lens");
   SurfaceSpherical* s = new SurfaceSpherical(r1, diameter, Point(0,0,0));
   addSurface(s, material);
 
-  s = new SurfaceSpherical(r2, diameter, Point(thickness,0,0));
+  s = new SurfaceSpherical(r2, diameter, Point(0,0,thickness));
+  //  LOG("Thickness = ", thickness);
   addSurface(s, material);
   mCntSurfaces = 2;
 #endif
 }
 
+////////////////////////////////////////////////////////////
+/// \return pointer to Material
+////////////////////////////////////////////////////////////
+Material* ElementWithSurfaces::getMaterial(int index)
+{
+  return mMaterials[index];
+}
+
+////////////////////////////////////////////////////////////
+/// \return surface position z
+////////////////////////////////////////////////////////////
+real ElementWithSurfaces::getZPosition(int index)
+{
+  return mSurfaces[index]->getPosition()->getZ().get();
+}
 
 
 ////////////////////////////////////////////////////////////

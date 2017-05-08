@@ -63,7 +63,7 @@
 // 
 int OpticalSystem::addElement(Element * const  e)
 {
-  LOG("addElement");
+  ELOG("addElement");
   Element* ec = e->copy();   // for lens this points to a newly created Lens !
   mElements.push_back(move(e->mSmartPtrElement));  
   std::cerr << "Number of Elements in mElements = " << mElements.size() << std::endl;
@@ -73,7 +73,7 @@ int OpticalSystem::addElement(Element * const  e)
 ////////////////////////////////////////////////////////////
 OpticalSystem::OpticalSystem() 
 {
-    LOG("ctor OpticalSystem");
+    ELOG("ctor OpticalSystem");
 }
 
 ////////////////////////////////////////////////////////////
@@ -82,7 +82,7 @@ OpticalSystem::OpticalSystem()
 ////////////////////////////////////////////////////////////
 Element* const OpticalSystem::getElement(const int nr) const
 {
-  LOG("getElement");
+  ELOG("getElement");
   std::cerr << "Number of Elements in mElements = " << mElements.size() << std::endl;
   return mElements[nr].get();
 }
@@ -94,7 +94,7 @@ Element* const OpticalSystem::getElement(const int nr) const
 ////////////////////////////////////////////////////////////
 int OpticalSystem::setElement(Element* const e, const int nr)
 {
-  LOG("setElement");
+  ELOG("setElement");
   if(nr > mElements.size())
     return -1;
 
@@ -105,8 +105,8 @@ int OpticalSystem::setElement(Element* const e, const int nr)
 ////////////////////////////////////////////////////////////
 void OpticalSystem::show()
 {
-  LOG("SHOW OPTICALSYSTEM", static_cast<int>(mElements.size()));
+  ELOG("SHOW OPTICALSYSTEM", static_cast<int>(mElements.size()));
   for(int t=0; t < mElements.size(); ++t)
     mElements[t]->show();
-  LOG("END OF SHOW OPTICALSYSTEM");
+  ELOG("END OF SHOW OPTICALSYSTEM");
 }

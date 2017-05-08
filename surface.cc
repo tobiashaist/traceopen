@@ -20,7 +20,8 @@
 Surface::Surface(const Point pos, const Direction dir, const real diameter) :
   mPosition(pos), mOrientation(dir), mDiameter(diameter)
 {
-
+  ELOG("CTOR Surface");
+  ELOG("point = ", pos.getZ().get());
 }
 
 ////////////////////////////////////////////////////////////
@@ -28,14 +29,18 @@ Surface::Surface(const Point pos, const Direction dir, const real diameter) :
 ////////////////////////////////////////////////////////////
 Surface::Surface(const Surface& surf) 
 {
-  LOG("COPY CTOR Surface");
+  ELOG("COPY CTOR Surface");
+  mPosition = surf.mPosition;
+  mOrientation = surf.mOrientation;
+  mDiameter = surf.mDiameter;
 }
+
 
 
 ////////////////////////////////////////////////////////////
 void Surface::show() 
 {
-  LOG("SHOW SURFACE");
+  ELOG("SHOW SURFACE");
 }
 
 ////////////////////////////////////////////////////////////
@@ -73,4 +78,30 @@ Surface& Surface::operator=(Surface& surface)
   swap(surface);
   return* this;
 }
+
+////////////////////////////////////////////////////////////
+/// \return pointer to Position in space
+////////////////////////////////////////////////////////////
+Point* Surface::getPosition()
+{
+  return &mPosition;
+}
+
+
+////////////////////////////////////////////////////////////
+/// \return pointer to Position in space
+////////////////////////////////////////////////////////////
+Direction* Surface::getOrientation()
+{
+  return &mOrientation;
+}
+
+////////////////////////////////////////////////////////////
+/// \return pointer to Position in space
+////////////////////////////////////////////////////////////
+Parameter<real>* Surface::getDiameter()
+{
+  return &mDiameter;
+}
+
 

@@ -42,8 +42,10 @@ class SurfaceSpherical : public Surface
   SurfaceSpherical(const SurfaceSpherical& surface); ///< copy ctor
   void swap(SurfaceSpherical& surface1);      /// swap operation
   SurfaceSpherical& operator=( SurfaceSpherical& surface);
-  
+  void show();
+  virtual SurfaceSpherical* copy();   ///< copies the Surface and sets the pointer to mSmartPtrSurface
   Parameter<real>* getRadiusPointer(); /// Pointer to the radius
+  real getRadius();                    ///< get directly the radius
   
 protected:
   Parameter<real> mRadius;	///< Radius of curvature
