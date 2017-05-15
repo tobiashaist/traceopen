@@ -56,16 +56,21 @@
 class Point {
 
 public:
+  /// ! also Copy Ctor and assignment operation work correctly (see test_003)
+  
   /// explicit already helped to remove an error :)
   explicit Point(real x=0, real y=0, real z=0);    ///< construction with global coordinates
-  Parameter<real>& X(void) {return mX;}  ///< get reference onto point x global coordinate
-  Parameter<real>& Y(void) {return mY;}  ///< get reference onto point y global coordinate
-  Parameter<real>& Z(void) {return mZ;}  ///< get reference onto point z global coordinate
+  Parameter<real>& x(void) {return mX;}  ///< get reference onto point x global coordinate
+  Parameter<real>& y(void) {return mY;}  ///< get reference onto point y global coordinate
+  Parameter<real>& z(void) {return mZ;}  ///< get reference onto point z global coordinate
+  const Parameter<real>& x_const(void) const {return mX;} ///< get reference onto point x global coordinate, const !
+  const Parameter<real>& y_const(void) const {return mY;} ///< get reference onto point x global coordinate, const !
+  const Parameter<real>& z_const(void) const {return mZ;} ///< get reference onto point x global coordinate, const !
   void swap(Point& point1);              ///< swap functionality
+  real xValue() const {return mX.get();} ///< get value x coordinate in global coordinates
+  real yValue() const {return mY.get();} ///< get value x coordinate in global coordinates
+  real zValue() const {return mZ.get();} ///< get value x coordinate in global coordinates
   
-  const Parameter<real>& getX(void) const {return mX;} ///< get reference onto point x global coordinate
-  const Parameter<real>& getY(void) const {return mY;} ///< get reference onto point x global coordinate
-  const Parameter<real>& getZ(void) const {return mZ;} ///< get reference onto point x global coordinate
   
  protected:
   Parameter<real> mX;			///< x coordinate in global coordinate system

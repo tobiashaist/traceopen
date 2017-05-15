@@ -37,16 +37,22 @@
 class Direction {
 
 public:
+  /// ! also Copy Ctor and assignment operation work correctly (see test_003)
+  
   explicit Direction(real alpha=0, real beta=0, real gamma=0);  ///< construction with global coordinates
 
   Parameter<real>& dirCosX(void) {return mDirCosX;}  ///< get reference onto point x global coordinate
   Parameter<real>& dirCosY(void) {return mDirCosY;}  ///< get reference onto point y global coordinate
   Parameter<real>& dirCosZ(void) {return mDirCosZ;}  ///< get reference onto point z global coordinate
 
-  const Parameter<real>& getDirCosX(void) const {return mDirCosX;} ///< get reference onto point x global coordinate
-  const Parameter<real>& getDirCosY(void) const {return mDirCosY;} ///< get reference onto point x global coordinate
-  const Parameter<real>& getDirCosZ(void) const {return mDirCosZ;} ///< get reference onto point x global coordinate
+  const Parameter<real>& dirCosX_const(void) const {return mDirCosX;} ///< get reference onto point x global coordinate
+  const Parameter<real>& dirCosY_const(void) const {return mDirCosY;} ///< get reference onto point x global coordinate
+  const Parameter<real>& dirCosZ_const(void) const {return mDirCosZ;} ///< get reference onto point x global coordinate
 
+  real dirCosXValue(void) {return mDirCosX.get();}  ///< get value of direction cosine x
+  real dirCosYValue(void) {return mDirCosY.get();}  ///< get value of direction cosine y
+  real dirCosZValue(void) {return mDirCosZ.get();}  ///< get value of direction cosine z
+  
 protected:
   Parameter<real> mDirCosX;    ///< direction cosine x-axis in global coordinate system
   Parameter<real> mDirCosY;    ///< direction cosine y-axis in global coordinate system
