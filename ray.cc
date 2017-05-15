@@ -19,7 +19,7 @@
 Ray::Ray(const real lambda, const real intensity) :
   Light(typeLightRay, lambda, intensity)
 {
-  LOG("Ray ctor A");
+  ELOG("Ray ctor A");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -31,7 +31,7 @@ Ray::Ray(const real lambda, const real intensity) :
 Ray::Ray(const real lambda, const real intensity, Point* const p, Direction* const dir) :
   Light(typeLightRay, lambda, intensity), mPoint(*p), mDirection(*dir)
 {
-  LOG("Ray ctor B");
+  ELOG("Ray ctor B");
 
 }
 
@@ -71,7 +71,7 @@ Point& Ray::getPoint()
 // besser const correct Lösung ein.
 real Ray::getX() const
 {
-  return mPoint.getX().get();
+  return mPoint.xValue();
 }
 
 ////////////////////////////////////////////////////////////
@@ -79,7 +79,7 @@ real Ray::getX() const
 ////////////////////////////////////////////////////////////
 real Ray::getY() const
 {
-  return mPoint.getY().get();
+  return mPoint.yValue();
 }
 
 ////////////////////////////////////////////////////////////
@@ -87,7 +87,7 @@ real Ray::getY() const
 ////////////////////////////////////////////////////////////
 real Ray::getZ() const
 {
-  return mPoint.getZ().get();
+  return mPoint.zValue();
 }
 
 
@@ -96,7 +96,7 @@ real Ray::getZ() const
 ////////////////////////////////////////////////////////////
 void Ray::setX(const real x) 
 {
-  mPoint.X().set(x);
+  mPoint.x().set(x);
 }
 
 
@@ -105,7 +105,7 @@ void Ray::setX(const real x)
 ////////////////////////////////////////////////////////////
 void Ray::setY(const real y) 
 {
-  mPoint.Y().set(y);
+  mPoint.y().set(y);
 }
 
 ////////////////////////////////////////////////////////////
@@ -113,7 +113,7 @@ void Ray::setY(const real y)
 ////////////////////////////////////////////////////////////
 void Ray::setZ(const real z) 
 {
-  mPoint.Z().set(z);
+  mPoint.z().set(z);
 }
 
 
@@ -122,9 +122,9 @@ void Ray::setZ(const real z)
 ////////////////////////////////////////////////////////////
 void Ray::setXYZ(const real x, const real y, const real z )
 {
-  mPoint.X().set(x);
-  mPoint.Y().set(y);
-  mPoint.Z().set(z);
+  mPoint.x().set(x);
+  mPoint.y().set(y);
+  mPoint.z().set(z);
 }
 
 
@@ -147,7 +147,7 @@ void Ray::setDirCosXYZ(const real x, const real y, const real z )
 ////////////////////////////////////////////////////////////
 real Ray::getDirCosX() const
 {
-  return mDirection.getDirCosX().get();
+  return mDirection.dirCosX_const().get();
 }
 
 ////////////////////////////////////////////////////////////
@@ -155,7 +155,7 @@ real Ray::getDirCosX() const
 ////////////////////////////////////////////////////////////
 real Ray::getDirCosZ() const
 {
-  return mDirection.getDirCosZ().get();
+  return mDirection.dirCosZ_const().get();
 }
 
 ////////////////////////////////////////////////////////////
@@ -163,7 +163,7 @@ real Ray::getDirCosZ() const
 ////////////////////////////////////////////////////////////
 real Ray::getDirCosY() const
 {
-  return mDirection.getDirCosY().get();
+  return mDirection.dirCosY_const().get();
 }
 
 

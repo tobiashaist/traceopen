@@ -21,13 +21,13 @@
 //////////////////////////////////////////////////////////////////////
 void InteractionModel::setGlobalInteractions(Light* const light)
 {   
-  LOG("setGlobalInteractions");
+  ELOG("setGlobalInteractions");
 
   switch(light->getType())
     {
     case typeLightRay:
       mRefraction.reset(new RefractionRays);
-      LOG("Done RefractionRays ctor");
+      ELOG("Done RefractionRays ctor");
       
       break;
     case typeWaveScalar:

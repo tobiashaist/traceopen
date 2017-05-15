@@ -21,6 +21,8 @@
 #include <iostream>
 #include <memory>
 
+#define INIFNITY 1e30
+#define AIR 1.0
 
 // TODO
 // Variants
@@ -57,6 +59,8 @@ public:
   int setElement(Element* e, int nr);	 ///< replace Element number n 
   Element* const getElement(int nr) const;       ///< set the Element number n
   void show();                   ///< just for debugging  
+  void patentInput(int n, ...);         ///< Simplified fast input of a rot. sym. system
+  int getCntElements();          ///< return rhe number of elements
   
  protected:
   std::vector<std::unique_ptr<Element>> mElements; ///< Here, the elements are stored

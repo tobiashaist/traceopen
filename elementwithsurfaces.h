@@ -18,6 +18,8 @@
 #include "material.h"
 #include "point.h"
 
+class Tracing;
+
 #include <iostream>
 #include <vector>
 
@@ -55,7 +57,7 @@ public:
   ~ElementWithSurfaces();	///< dtor
   void swap(ElementWithSurfaces& element);                   ///< swap operation
   ElementWithSurfaces& operator=(ElementWithSurfaces& element); ///< assignment OP
-
+  void callInteraction(const Tracing* trace, Light* light);
 
   virtual ElementWithSurfaces* copy();         ///< deep copy the current lens and set smart ptr
   
@@ -70,6 +72,7 @@ public:
   Surface* getSurface(int surfacenr);    ///< get a pointer to the surface
   Material* getMaterial(int surfacenr);  ///< get a pointer to the material
   real getZPosition(int surfacenr);      ///< get the z position of the surface
+  int getCntSurfaces();                  ///< return the number of surfaces
   
   void show();                           ///< just for debugging
   

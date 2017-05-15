@@ -13,12 +13,11 @@
 #define TRACING_HPP
 
 #include "basicdefinitions.h"
-#include "interactionmodel.h"
 #include "light.h"
 #include "ray.h"
 #include "opticalsystem.h"
 #include "rayaiming.h"
-
+#include "interaction.h"
 #include <iostream>
 
 ////////////////////////////////////////////////////////////
@@ -61,10 +60,10 @@ public:
   void computeElementDiameters(Ray* light, OpticalSystem* system); ///< compute all "Automatic" Diameters to let the marginal ray (!) through
 			       
   RayAiming* mRayAiming;         ///< methods and data for handling RayAiming 
+  Interaction* mInteraction;   ///< This is used for handling interactions
 
  protected:
-  //  Propagation mPropagation; ///< This is used for handling propagations
-  InteractionModel mInteractionModel;     ///< This is used for handling interactions
+  //  Propagation mPropagation;      ///< This is used for handling propagations
   Light* mLight;                 ///< Pointer to light to be traced
   OpticalSystem* mSystem;         ///< Pointer to the optical system
 };

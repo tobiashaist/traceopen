@@ -41,7 +41,7 @@ class Refraction : public Interaction
 public:
   Refraction()
     {
-      LOG("CTOR Refraction");
+      ELOG("CTOR Refraction");
     }
   virtual ~Refraction();
   // TODO: sollte das nicht protected sein ?!?

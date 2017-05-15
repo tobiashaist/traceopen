@@ -59,6 +59,7 @@ class Light {
 
 public:
   Light(typeLight type, real lambda, real intensity);  ///< ctor
+  virtual ~Light()  = 0;     ///< dtor
   void setPosition(Point p);    ///< sets the startposition of the light
   typeLight getType() const {return mLightType;}
   bool isAlive() const;	        ///< true -> Light is still alive (not vignetted)

@@ -11,6 +11,10 @@
 
 #include "opticalsystem.h"
 #include "logging.h"
+#include "elementwithsurfaces.h"
+#include "surfacespherical.h"
+#include "materialideal.h"
+#include <cstdarg>
 
 ////////////////////////////////////////////////////////////
 /// \param e Pointer to Element to be added to end of list
@@ -67,7 +71,7 @@ int OpticalSystem::addElement(Element * const  e)
   ELOG("addElement");
   Element* ec = e->copy();   // for lens this points to a newly created Lens !
   mElements.push_back(move(e->mSmartPtrElement));  
-  std::cerr << "Number of Elements in mElements = " << mElements.size() << std::endl;
+  //  std::cerr << "Number of Elements in mElements = " << mElements.size() << std::endl;
   return mElements.size();
 }
 
@@ -85,8 +89,8 @@ OpticalSystem::OpticalSystem()
 ////////////////////////////////////////////////////////////
 Element* const OpticalSystem::getElement(const int nr) const
 {
-  ELOG("getElement");
-  std::cerr << "Number of Elements in mElements = " << mElements.size() << std::endl;
+  LOG("getElement");
+  //  std::cerr << "Number of Elements in mElements = " << mElements.size() << std::endl;
   return mElements[nr].get();
 }
 
@@ -115,4 +119,36 @@ void OpticalSystem::show()
   for(int t=0; t < mElements.size(); ++t)
     mElements[t]->show();
   ELOG("END OF SHOW OPTICALSYSTEM");
+}
+
+////////////////////////////////////////////////////////////
+int OpticalSystem::getCntElements()
+{
+  return mElements.size();
+}
+
+
+////////////////////////////////////////////////////////////
+void OpticalSystem::patentInput(int nsurfaces, ...)
+{
+ va_list ap;
+ va_start(ap, nsurfaces);
+ ElementWithSurfaces e;
+ SurfaceSpherical* s; 
+ real z = 0;
+ Environment dummyenv(300, 1);  // TODO
+ 
+ for(int t = 0; t < nsurfaces; t++)
+   {
+     real r = va_arg(ap, double);
+     real n = va_arg(ap, double);
+     real thickness = va_arg(ap, double);
+
+     s = new SurfaceSpherical(r, 10e-3, Point(0,0,z));
+     z += thickness;
+     // TODO: Hier noch Diameter auf Auto setzen
+     e.addSurface(s, new MaterialIdeal("AutoMaterial", &dummyenv, n, INFINITY));
+   }
+ addElement(&e);
+ va_end(ap);
 }

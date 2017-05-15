@@ -17,6 +17,8 @@
 #include "parameter.h"
 #include "jonesmatrix.h"
 
+class Tracing;
+
 #include <iostream>
 #include <memory>
 
@@ -49,8 +51,9 @@ public:
   std::unique_ptr<Element> mSmartPtrElement; // just very short in use (see above for explanation)
 
   virtual Element* copy();      ///< copies the Element and sets the pointer to mSmartPtrElement
+  virtual void callInteraction(const Tracing* trace, Light* light);
 
-protected:
+ protected:
 
   Parameter<real> mWeight;	///< Weight of element in g
   Parameter<real> mPrice;	///< Price of element in Euro

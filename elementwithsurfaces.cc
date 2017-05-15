@@ -12,6 +12,7 @@
 #include "elementwithsurfaces.h"
 #include "surfacespherical.h"
 #include "logging.h"
+#include "tracing.h"
 
 
 //////////////////////////////////////////////////////////////////////
@@ -42,7 +43,7 @@ ElementWithSurfaces::ElementWithSurfaces(ElementWithSurfaces& e)
 
   for(int t=0; t < e.mSurfaces.size(); ++t)
     {
-      e.mSurfaces[t].get()->show();
+      //      e.mSurfaces[t].get()->show();
       addSurface(e.mSurfaces[t].get(), e.mMaterials[t]);
     }
   mCntSurfaces = e.mCntSurfaces;
@@ -55,6 +56,12 @@ ElementWithSurfaces::~ElementWithSurfaces()
 {
   ELOG("DTOR Element With Surfaces");
 
+}
+
+//////////////////////////////////////////////////////////////////////
+int ElementWithSurfaces::getCntSurfaces()
+{
+  return mSurfaces.size();
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -83,6 +90,13 @@ Surface* ElementWithSurfaces::getSurface(int surfacenumber)
 }
 
 //////////////////////////////////////////////////////////////////////
+void ElementWithSurfaces::callInteraction(const Tracing* trace, Light* light)
+{
+  LOG("callInteraction ElementWithSurfaces");
+  trace->mInteraction->interactElementWithSurfaces(light, this);
+}
+
+//////////////////////////////////////////////////////////////////////
 /// \param s Pointer to surface
 /// \param m Pointer to material
 //////////////////////////////////////////////////////////////////////
@@ -106,9 +120,12 @@ void ElementWithSurfaces::show()
   
   ELOG("SHOW ELEMENTWITHSURFACES: number of Surfaces", mCntSurfaces);
   for(int t=0; t < mCntSurfaces; ++t)
-    mSurfaces[t]->show();
-}
+    {
+      //      LOG("Surface: ", t);
+      mSurfaces[t]->show();
 
+    }
+}
 //////////////////////////////////////////////////////////////////////
 /// \param r1 radius of curvature surface 1
 /// \param r2 radius of curvature surface 2
@@ -173,7 +190,7 @@ Material* ElementWithSurfaces::getMaterial(int index)
 ////////////////////////////////////////////////////////////
 real ElementWithSurfaces::getZPosition(int index)
 {
-  return mSurfaces[index]->getPosition()->getZ().get();
+  return mSurfaces[index]->getPosition()->z().get();
 }
 
 ////////////////////////////////////////////////////////////

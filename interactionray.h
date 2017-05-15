@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////
-/// \file interaction.h
-/// \brief include file for class Interaction
-///  \date 15.04.2017
+/// \file interactionray.h
+/// \brief include file for class InteractionRay
+///  \date 15.05.2017
 ///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
 ///  Institute of Applied Optics, University of Stuttgart ITO
 ///  Paffenwaldring 9
@@ -11,35 +11,34 @@
 
 
 
-#ifndef INTERACTION_HPP 
-#define INTERACTION_HPP
+#ifndef INTERACTIONRAY_HPP 
+
+#define INTERACTIONRAY_HPP
 
 #include "basicdefinitions.h"
 #include "light.h"
-#include "elementwithsurfaces.h"
+#include "element.h"
+#include "interaction.h"
 #include <iostream>
+
+
+
 
 ////////////////////////////////////////////////////////////
 ///  \brief Most optical components are made out of Surfaces
 ////////////////////////////////////////////////////////////
 ///  
-///  The abstract base class Interaction is the main class that
-///  is responsible for interactions like refraction, refraction etc.
-///  I thinks it is and will still be just an interface.
+///  InteractionRay is responsible for the interactions for rays.
 /// 
-///  \date 15.4.2017
+///  \date 15.5.2017
 ///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
 ////////////////////////////////////////////////////////////
 
-class Interaction 
+class InteractionRay : public Interaction
 {
   
 public:
- 
-  virtual ~Interaction();		    ///< dtor
-
- public:
-  virtual void interactElementWithSurfaces(Light* light, ElementWithSurfaces* element) = 0;
+  virtual void interactElementWithSurfaces(Light* light, ElementWithSurfaces* element);
 
 };
 

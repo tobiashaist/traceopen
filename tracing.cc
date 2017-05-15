@@ -11,7 +11,7 @@
 
 #include "ray.h"
 #include "tracing.h"
-#include "refraction.h"
+#include "interactionray.h"
 #include "logging.h"
 
 
@@ -36,10 +36,41 @@ Tracing::~Tracing()
 //////////////////////////////////////////////////////////////////////
 void Tracing::trace() const
 {
-  LOG("Tracing::trace");
-  // TOOD: bisher natürlich Mist
-  mInteractionModel.mRefraction->perform(mLight, mSystem->getElement(0));
-  LOG("Tracing ends");
+  // This is the main entry point for tracing light trough a complete
+  // optical system. It has to work with rays, raybundles, waves etc.
+  // and of course the optical system can contain whatever elements.
+  //
+  // We also have to take care of non-sequential issues !
+  //
+  // for the Moment: we just do sequential
+
+  ELOG("Tracing::trace");
+
+  // Dependend on the defined interaction per Surface we have to
+  // call the correct interaction function.
+  //
+  // But: One Element might have different interactions (e.g. one side
+  // a DOE the other refraction)
+  // But we can also not set this interaction to the surface because
+  // some elements might not have surfaces but would be more volumes.
+  // So, the only solution is that the element has the power to decide
+  // which interactions to use locally.
+  // But this means that tracing should give its interaction model
+  // (which more or less stores e.g. what KIND OF REFRACTION really would
+  // be used (more or less: ray based or wave based))
+  // to the element ?
+  // No. That would put all kind of code concerning optical simulation
+  // (waves, rays, etc ....) into the Element class. That would make
+  // this class too complicated.
+  // We need something better here !!!!
+
+  for(int t=0; t < mSystem->getCntElements(); t++)
+    {
+      LOG("trace", t);
+      mSystem->getElement(t)->callInteraction(this, mLight);
+    }
+  
+  ELOG("Tracing ends");
 }
 
 
@@ -78,9 +109,11 @@ void Tracing::computeElementDiameters(Ray* light, OpticalSystem* osystem)
 //////////////////////////////////////////////////////////////////////
 void Tracing::init(Light* light, OpticalSystem* osystem) 
 {
-  mInteractionModel.setGlobalInteractions(light);
-  LOG("Done setGlobalInteractions");
+  //  mInteractionModel.setGlobalInteractions(light);
+  ELOG("Done setGlobalInteractions");
 
+  mInteraction = new InteractionRay;
+  
   mLight = light;
   mSystem = osystem;
   // The following will crash because mInteraction is not set suitable

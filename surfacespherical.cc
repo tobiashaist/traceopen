@@ -51,7 +51,7 @@ void SurfaceSpherical::swap(SurfaceSpherical& surface)
 ////////////////////////////////////////////////////////////
 void SurfaceSpherical::show()
 {
-  ELOG("SHOW SURFACESPHERICAL");
+  LOG("spherical", mRadius.get(), mPosition.zValue());
 }
 
 ////////////////////////////////////////////////////////////

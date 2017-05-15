@@ -36,7 +36,7 @@ class RefractionRays : public Refraction
 public:
   RefractionRays()
     {
-      LOG("CTOR RefractionRays");
+      ELOG("CTOR RefractionRays");
     }
   
       virtual void perform(Light* light , Element* element); ///< perform refraction of rays through element
