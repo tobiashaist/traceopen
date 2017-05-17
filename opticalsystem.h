@@ -15,6 +15,7 @@
 #include "basicdefinitions.h"
 #include "element.h"
 #include "parameter.h"
+#include "paraxiallens.h"
 #include "surface.h"
 
 #include <vector>
@@ -60,6 +61,7 @@ public:
   Element* const getElement(int nr) const;       ///< set the Element number n
   void show();                   ///< just for debugging  
   void patentInput(int n, ...);         ///< Simplified fast input of a rot. sym. system
+  void paraxialSystem(int n, ...);     ///< Simplified fast input of a paraxial system
   int getCntElements();          ///< return rhe number of elements
   
  protected:

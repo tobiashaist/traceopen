@@ -89,7 +89,7 @@ OpticalSystem::OpticalSystem()
 ////////////////////////////////////////////////////////////
 Element* const OpticalSystem::getElement(const int nr) const
 {
-  LOG("getElement");
+  LOG("getElement", nr, mElements.size());
   //  std::cerr << "Number of Elements in mElements = " << mElements.size() << std::endl;
   return mElements[nr].get();
 }
@@ -151,4 +151,32 @@ void OpticalSystem::patentInput(int nsurfaces, ...)
    }
  addElement(&e);
  va_end(ap);
+}
+
+
+////////////////////////////////////////////////////////////
+void OpticalSystem::paraxialSystem(int nlenses, ...)
+{
+ va_list ap;
+ va_start(ap, nlenses);
+ ParaxialLens l;
+
+ real z = 0;
+ Environment dummyenv(300, 1);  // TODO
+ 
+ for(int t = 0; t < nlenses; t++)
+   {
+     real distance = va_arg(ap, double);
+     real focallength = va_arg(ap, double);
+     LOG("Focallength", focallength);
+     LOG("Distanz", distance);
+     l.setFocalLength(focallength);
+     l.getPosition()->z().set(z);
+     addElement(&l);
+     z += distance;
+     // TODO: Hier noch Diameter auf Auto setzen
+   }
+
+ va_end(ap);
+ LOG("Ende paraxialSystem");
 }

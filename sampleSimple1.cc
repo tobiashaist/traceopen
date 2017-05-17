@@ -60,15 +60,25 @@ try
 		new MaterialIdeal("Testmat2", &env,1.47,20), 10e-3);
     sys.addElement(&e1);
     sys.addElement(&e2);
-#else
+#endif
+
+#if 0    
     // r, n, thickness
     sys.patentInput(3,INFINITY, AIR, 100e-3,
 		   50e-3, 1.5, 5e-3,
 		   -50e-3, AIR, 100e-3
 		   );
+#else
+    LOG("vor paraxial system");
+    sys.paraxialSystem(3, 100e-3, 100e-3,
+		       10e-3, 100e-3,
+		       15e-3, 1000e-3
+		       );
+    LOG("nach paraxial system");
 #endif
 
-    sys.show();
+    
+    //    sys.show();
 
     // ----- Und nun können wir da mal durchtracen ------------------
     tracing.init(light, &sys );

@@ -18,6 +18,7 @@
 #include "basicdefinitions.h"
 #include "light.h"
 #include "element.h"
+#include "paraxiallens.h"
 #include "interaction.h"
 #include <iostream>
 
@@ -39,6 +40,7 @@ class InteractionRay : public Interaction
   
 public:
   virtual void interactElementWithSurfaces(Light* light, ElementWithSurfaces* element);
+  virtual void interactParaxialLens(Light* light, ParaxialLens* element);
 
 };
 

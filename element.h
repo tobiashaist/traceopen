@@ -16,6 +16,7 @@
 #include "light.h"
 #include "parameter.h"
 #include "jonesmatrix.h"
+#include "direction.h"
 
 class Tracing;
 
@@ -53,7 +54,13 @@ public:
   virtual Element* copy();      ///< copies the Element and sets the pointer to mSmartPtrElement
   virtual void callInteraction(const Tracing* trace, Light* light);
 
+  Point* getPosition();                      ///< get the Posiiton of the surface
+  Direction* getOrientation();               ///< get the Posiiton of the surface
+
  protected:
+
+  Point mPosition;		///< Position in Space (global coordinates)
+  Direction mOrientation;	///< orientation in Space (global coordinates)
 
   Parameter<real> mWeight;	///< Weight of element in g
   Parameter<real> mPrice;	///< Price of element in Euro

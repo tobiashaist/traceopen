@@ -66,11 +66,10 @@ void Tracing::trace() const
 
   for(int t=0; t < mSystem->getCntElements(); t++)
     {
-      LOG("trace", t);
-      mSystem->getElement(t)->callInteraction(this, mLight);
+      Element* e = mSystem->getElement(t);
+      e->show();
+      e->callInteraction(this, mLight);
     }
-  
-  ELOG("Tracing ends");
 }
 
 
