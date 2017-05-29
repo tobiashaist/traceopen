@@ -16,7 +16,7 @@
 
 #include "basicdefinitions.h"
 #include "light.h"
-#include "elementwithsurfaces.h"
+
 #include "paraxiallens.h"
 #include <iostream>
 
@@ -40,7 +40,7 @@ public:
   virtual ~Interaction();		    ///< dtor
 
  public:
-  virtual void interactElementWithSurfaces(Light* light, ElementWithSurfaces* element) = 0;
+  virtual void interactElement(Light* light, Element* element) = 0;
   virtual void interactParaxialLens(Light* light, ParaxialLens* element) = 0;
 
 };

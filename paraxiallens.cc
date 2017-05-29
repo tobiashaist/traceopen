@@ -55,6 +55,17 @@ ParaxialLens* ParaxialLens::copy()
 }
 
 
+//////////////////////////////////////////////////////////////////////
+Direction ParaxialLens::computeSurfaceNormal(Point& p)
+{
+  // Todo: Was sinnvolles !
+  
+  real a =0;
+  real b =0;
+  real c =1;
+  
+  return(Direction(a,b,c));
+}
 
 //////////////////////////////////////////////////////////////////////
 void ParaxialLens::callInteraction(const Tracing* trace, Light* light)

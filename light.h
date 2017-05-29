@@ -15,6 +15,7 @@
 #include "basicdefinitions.h"
 #include "parameter.h"
 #include "point.h"
+#include "material.h"
 
 #include <iostream>
 
@@ -52,6 +53,7 @@
 ///  \date 07.4.2017
 ///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
 ////////////////////////////////////////////////////////////
+///  TODO: CurrentMaterial
 
 enum typeLight {typeLightRay, typeWaveScalar, typeWaveVectorial, typeGaussian};
 
@@ -67,6 +69,7 @@ public:
   void setUsingPolarization(bool); ///< set/unset the usage of polarization
   
 protected:
+  Material* mCurrentMaterial;   ///< the current Material where we travel in.
   typeLight mLightType;		///< what kind of Light (subclass)
   Parameter<real> mLambda;			///< Wavelength in m
   Parameter<real> mCoherenceLength;	///< coherence length in m

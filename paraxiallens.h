@@ -42,9 +42,9 @@ public:
   
   ~ParaxialLens();	///< dtor
   virtual void callInteraction(const Tracing* trace, Light* light);
-
-  int getCntSurfaces();                   ///< return the number of surfaces
-  void show();                       ///< just for debugging
+  Direction computeSurfaceNormal(Point& p);
+  
+  void show();                            ///< just for debugging
   real getFocalLength();                  ///< return the focal length
   void setFocalLength(real f);            ///< sets the focal length
 

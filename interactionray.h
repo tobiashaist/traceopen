@@ -39,9 +39,10 @@ class InteractionRay : public Interaction
 {
   
 public:
-  virtual void interactElementWithSurfaces(Light* light, ElementWithSurfaces* element);
+  virtual void interactElement(Light* light, Element* element);
   virtual void interactParaxialLens(Light* light, ParaxialLens* element);
-
+  void computeIntersectionWithParaxialLens(Ray* ray, ParaxialLens* lens);
+  void doLocalInteraction(Ray* ray, Direction normal);
 };
 
 #endif

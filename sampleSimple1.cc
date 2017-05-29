@@ -9,7 +9,6 @@
 // 11.4.17 Tobias Haist
 // ------------------------------------------------------------------------
 #include "tracing.h"
-#include "elementwithsurfaces.h"
 #include "surfacespherical.h"
 #include "opticalsystem.h"
 #include "ray.h"
@@ -24,7 +23,6 @@
 
 #include <iostream>
 #include <vector>
-
 
 //////////////////////////////////////////////////////////////////////
 
@@ -52,12 +50,12 @@ try
 
     OpticalSystem sys;
 #if 0
-    ElementWithSurfaces e1,e2;
+    Element e1,e2;
     e1.standardLens(10e-3, -10e-3, 3e-3,
 		    new MaterialIdeal("Testmat1", &env, 1.57,50),10e-3);
     e2.achromat(10e-3, -10e-3, 20e-33, 2e-3, 1e-3,
-		new MaterialIdeal("Testmat1", &env,1.57,50),
-		new MaterialIdeal("Testmat2", &env,1.47,20), 10e-3);
+    	new MaterialIdeal("Testmat1", &env,1.57,50),
+    	new MaterialIdeal("Testmat2", &env,1.47,20), 10e-3);
     sys.addElement(&e1);
     sys.addElement(&e2);
 #endif
@@ -70,7 +68,7 @@ try
 		   );
 #else
     LOG("vor paraxial system");
-    sys.paraxialSystem(3, 100e-3, 100e-3,
+    sys.paraxialSystem(3, 100e-3, 100e-3,     /// jeweils: Brennweite, Abstand
 		       10e-3, 100e-3,
 		       15e-3, 1000e-3
 		       );

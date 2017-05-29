@@ -16,6 +16,7 @@
 #include "point.h"
 #include "direction.h"
 #include "parameter.h"
+#include "element.h"
 
 #include <iostream>
 #include <memory>
@@ -41,7 +42,7 @@
 // Aperture
 // SurfaceError
 
-class Surface 
+class Surface : public Element
 {
   
 public:
@@ -60,8 +61,6 @@ public:
   
 protected:
 
-  Point mPosition;		///< Position in Space (global coordinates)
-  Direction mOrientation;	///< orientation in Space (global coordinates)
   Parameter<real> mDiameter;	///< Diameter of usable surface (inner circle)
 
 #if 0

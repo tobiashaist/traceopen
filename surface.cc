@@ -18,10 +18,12 @@
 /// \param diameter diameter of surface
 ////////////////////////////////////////////////////////////
 Surface::Surface(const Point pos, const Direction dir, const real diameter) :
-  mPosition(pos), mOrientation(dir), mDiameter(diameter)
+mDiameter(diameter)
 {
   ELOG("CTOR Surface");
   ELOG("point = ", pos.getZ().get());
+  mPosition = pos;
+  mOrientation = dir;
 }
 
 ////////////////////////////////////////////////////////////

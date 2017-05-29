@@ -11,7 +11,6 @@
 
 #include "opticalsystem.h"
 #include "logging.h"
-#include "elementwithsurfaces.h"
 #include "surfacespherical.h"
 #include "materialideal.h"
 #include <cstdarg>
@@ -133,7 +132,7 @@ void OpticalSystem::patentInput(int nsurfaces, ...)
 {
  va_list ap;
  va_start(ap, nsurfaces);
- ElementWithSurfaces e;
+ Element e;
  SurfaceSpherical* s; 
  real z = 0;
  Environment dummyenv(300, 1);  // TODO
@@ -147,7 +146,7 @@ void OpticalSystem::patentInput(int nsurfaces, ...)
      s = new SurfaceSpherical(r, 10e-3, Point(0,0,z));
      z += thickness;
      // TODO: Hier noch Diameter auf Auto setzen
-     e.addSurface(s, new MaterialIdeal("AutoMaterial", &dummyenv, n, INFINITY));
+     e.addSubElement(s, new MaterialIdeal("AutoMaterial", &dummyenv, n, INFINITY));
    }
  addElement(&e);
  va_end(ap);
