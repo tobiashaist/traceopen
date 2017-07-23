@@ -18,6 +18,7 @@
 #include "parameter.h"
 
 
+
 ////////////////////////////////////////////////////////////
 ///  \brief Most optical components are made out of Surfaces
 ////////////////////////////////////////////////////////////
@@ -46,6 +47,7 @@ SurfaceSpherical& operator=( SurfaceSpherical& surface);  ///< assignment operat
   
 protected:
   Parameter<real> mRadius;	        ///< Radius of curvature
+  int mInternalSurfaceIndex;
 };
 
 #endif

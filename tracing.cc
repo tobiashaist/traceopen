@@ -67,6 +67,7 @@ void Tracing::trace() const
   for(int t=0; t < mSystem->getCntElements(); t++)
     {
       Element* e = mSystem->getElement(t);
+      LOG("in for loop bevor show and now tracing Element", t);
       e->show();
       e->callInteraction(this, mLight);
     }

@@ -13,10 +13,14 @@
 #include "logging.h"
 #include "surfacespherical.h"
 
+int gInternalElementIndex = 0;   // mainly for debugging / testing
+
 ////////////////////////////////////////////////////////////
 /// ctor
 Element::Element() 
 {
+  mInternalElementIndex = ++gInternalElementIndex;
+  LOG("Element::ctor with index", mInternalElementIndex);
   // Beware: on construction a Jones matrix is not necessarily created
 }
 
@@ -26,6 +30,8 @@ Element::Element()
 ////////////////////////////////////////////////////////////
 Element::Element(const Element& element) 
 {
+  mInternalElementIndex = ++gInternalElementIndex;
+  LOG("Element::ctor with index", mInternalElementIndex);
   mWeight =  element.mWeight;
   mPrice = element.mPrice;
   if(mJonesMatrix.get() != NULL)
@@ -40,7 +46,7 @@ Element::Element(const Element& element)
 ////////////////////////////////////////////////////////////
 Element::~Element() 
 {
-
+  LOG("Element::dtor");
 }
 
 ////////////////////////////////////////////////////////////
@@ -66,10 +72,16 @@ Direction* Element::getOrientation()
 ////////////////////////////////////////////////////////////
 Element* Element::copy() 
 {
-  // Here something suitable should/could be used !
-  // actually a deep copy !
+  LOG("Element::copy");
 
-  return this;
+  mSmartPtrElement.reset(new Element(*this)); // here we generate
+  // a new Element and the mSmartPtrElement gets Ownership for that
+
+  LOG("Element::copy teil 2");
+  return mSmartPtrElement.get();
+
+    // Here something suitable should/could be used !
+  // actually a deep copy !
 }
 
 ////////////////////////////////////////////////////////////
@@ -93,7 +105,11 @@ void Element::callInteraction(const Tracing* trace, Light* light)
 ////////////////////////////////////////////////////////////
 void Element::show()
 {
-  ELOG("SHOW ELEMENT");
+  LOG("Element::show having subelements: ", getCntSubElements(), mInternalElementIndex);
+  LOG(" .... now showing the content: ");
+  for(int t=0; t < getCntSubElements(); t++)
+    mSubElements[t]->show();
+  LOG(" ---- DONE showing element ");
 }
 
 ////////////////////////////////////////////////////////////
@@ -117,13 +133,15 @@ void Element::swap(Element& element)
 void Element::standardLens(real r1, real r2, real thickness,
 				       Material* const material, real diameter)
 {
-  ELOG("standard lens");
+  LOG("Element::standardLens");
   SurfaceSpherical* s = new SurfaceSpherical(r1, diameter, Point(0,0,0));
   addSubElement(s, material);
 
-  s = new SurfaceSpherical(r2, diameter, Point(0,0,thickness));
+  //  s = new SurfaceSpherical(r2, diameter, Point(0,0,thickness));
   //  LOG("Thickness = ", thickness);
-  addSubElement(s, material);
+  //  addSubElement(s, material);
+  LOG("Element::standardLens exit");
+  show();
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -132,13 +150,13 @@ void Element::standardLens(real r1, real r2, real thickness,
 //////////////////////////////////////////////////////////////////////
 void Element::addSubElement(Element* const e,  Material* const m)
 {
-  ELOG("addSubElementrface");
+  LOG("Element::addSubElement");
   Element* sc = e->copy();   // Copy of the Element is generated and ownership has
-                             // s->mSmartPtrSurface
-  
-  mSubElements.push_back(move(e->mSmartPtrElement));  
-  //  std::cerr << "Number of Elements in mElements = " << mElements.size() << std::endl;
+                             // sc->mSmartPtrSurface
+  LOG("Element::addSubElement done copy");
+  mSubElements.push_back(move(sc->mSmartPtrElement));  
 
+  LOG("Element::addSubElement done pushback");
   // TODO  mMaterials.push_back(m);
 }
 

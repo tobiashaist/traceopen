@@ -49,24 +49,27 @@ try
       light = &l2;   // Scalar Wave
 
     OpticalSystem sys;
-#if 0
+#if 1
     Element e1,e2;
     e1.standardLens(10e-3, -10e-3, 3e-3,
 		    new MaterialIdeal("Testmat1", &env, 1.57,50),10e-3);
-    e2.achromat(10e-3, -10e-3, 20e-33, 2e-3, 1e-3,
-    	new MaterialIdeal("Testmat1", &env,1.57,50),
-    	new MaterialIdeal("Testmat2", &env,1.47,20), 10e-3);
+    //    e2.achromat(10e-3, -10e-3, 20e-33, 2e-3, 1e-3,
+    //        	new MaterialIdeal("Testmat1", &env,1.57,50),
+    //        	new MaterialIdeal("Testmat2", &env,1.47,20), 10e-3);
+
+    e1.show();
     sys.addElement(&e1);
-    sys.addElement(&e2);
+    //    sys.addElement(&e2);
 #endif
 
-#if 0    
+#if 0
     // r, n, thickness
     sys.patentInput(3,INFINITY, AIR, 100e-3,
 		   50e-3, 1.5, 5e-3,
 		   -50e-3, AIR, 100e-3
 		   );
-#else
+#endif
+#if 0
     LOG("vor paraxial system");
     sys.paraxialSystem(3, 100e-3, 100e-3,     /// jeweils: Brennweite, Abstand
 		       10e-3, 100e-3,
@@ -75,8 +78,8 @@ try
     LOG("nach paraxial system");
 #endif
 
-    
-    //    sys.show();
+    LOG("----------------------------------------------");
+    sys.show();
 
     // ----- Und nun können wir da mal durchtracen ------------------
     tracing.init(light, &sys );

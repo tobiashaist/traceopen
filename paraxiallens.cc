@@ -70,7 +70,7 @@ Direction ParaxialLens::computeSurfaceNormal(Point& p)
 //////////////////////////////////////////////////////////////////////
 void ParaxialLens::callInteraction(const Tracing* trace, Light* light)
 {
-  LOG("callInteraction ParaxialLens");
+  LOG("ParaxialLens::callInteraction ParaxialLens");
   trace->mInteraction->interactParaxialLens(light, this);
 }
 

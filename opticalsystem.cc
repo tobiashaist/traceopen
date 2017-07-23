@@ -15,6 +15,8 @@
 #include "materialideal.h"
 #include <cstdarg>
 
+
+
 ////////////////////////////////////////////////////////////
 /// \param e Pointer to Element to be added to end of list
 /// \return number of surfaces
@@ -67,9 +69,15 @@
 // 
 int OpticalSystem::addElement(Element * const  e)
 {
-  ELOG("addElement");
+  LOG("OpticalSysten::addElement");
+  e->show();
   Element* ec = e->copy();   // for lens this points to a newly created Lens !
+  // and even more important: In the old object we have in e.mSmartPtrElement a
+  //  (smart) pointer to this newly created Element
+  // and in the following we transfer ownership for that to the mElements vector
+  
   mElements.push_back(move(e->mSmartPtrElement));  
+  LOG("OpticalSysten::addElement exit");
   //  std::cerr << "Number of Elements in mElements = " << mElements.size() << std::endl;
   return mElements.size();
 }
@@ -114,10 +122,10 @@ int OpticalSystem::setElement(Element* const e, const int nr)
 ////////////////////////////////////////////////////////////
 void OpticalSystem::show()
 {
-  ELOG("SHOW OPTICALSYSTEM", static_cast<int>(mElements.size()));
+  LOG("SHOW OPTICALSYSTEM", static_cast<int>(mElements.size()));
   for(int t=0; t < mElements.size(); ++t)
     mElements[t]->show();
-  ELOG("END OF SHOW OPTICALSYSTEM");
+  LOG("END OF SHOW OPTICALSYSTEM");
 }
 
 ////////////////////////////////////////////////////////////
@@ -132,7 +140,7 @@ void OpticalSystem::patentInput(int nsurfaces, ...)
 {
  va_list ap;
  va_start(ap, nsurfaces);
- Element e;
+
  SurfaceSpherical* s; 
  real z = 0;
  Environment dummyenv(300, 1);  // TODO
@@ -144,12 +152,15 @@ void OpticalSystem::patentInput(int nsurfaces, ...)
      real thickness = va_arg(ap, double);
 
      s = new SurfaceSpherical(r, 10e-3, Point(0,0,z));
+     s->show();
+  
      z += thickness;
      // TODO: Hier noch Diameter auf Auto setzen
-     e.addSubElement(s, new MaterialIdeal("AutoMaterial", &dummyenv, n, INFINITY));
+     LOG("OpticalSystem::patentInput within the loop");
+     addElement(s); // TODO new MaterialIdeal("AutoMaterial", &dummyenv, n, INFINITY));
    }
- addElement(&e);
  va_end(ap);
+ LOG("OpticalSystem::patentinput exit point");
 }
 
 

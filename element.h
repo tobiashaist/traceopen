@@ -98,7 +98,8 @@ public:
     
  // ---------------------------------------------------
  protected:
-
+  int mInternalElementIndex;
+  
   Point mPosition;		///< Position in Space (global coordinates)
   Direction mOrientation;	///< orientation in Space (global coordinates)
 

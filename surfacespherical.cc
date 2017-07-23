@@ -12,6 +12,7 @@
 #include "surfacespherical.h"
 #include "logging.h"
 
+int gInternalSurfaceIndex=0;  // TODO mal noch sinnvoller machen (static)
 ////////////////////////////////////////////////////////////
 /// \param radius radius of curvature
 /// \param diameter diameter of surface
@@ -20,7 +21,8 @@
 SurfaceSpherical::SurfaceSpherical(const real radius, const real diameter,
 				   const Point p) : Surface(p, Direction(0,0,0), diameter)
 {
-  ELOG("CTOR SURFACESPHERICAL");
+  mInternalSurfaceIndex = ++gInternalSurfaceIndex;
+  LOG("SurfaceSpherical::CTOR ", mInternalSurfaceIndex);
   mRadius.set(radius);
 }
 
@@ -31,6 +33,7 @@ SurfaceSpherical::SurfaceSpherical(const real radius, const real diameter,
 //////////////////////////////////////////////////////////////////////
 SurfaceSpherical* SurfaceSpherical::copy()
 {
+  LOG("SurfaceSpherical::copy", mInternalSurfaceIndex);
   mSmartPtrSurface.reset(new SurfaceSpherical(*this)); // here we generate
   // a new Element and the mSmartPtrSurface gets Ownership for that
     
@@ -42,6 +45,7 @@ SurfaceSpherical* SurfaceSpherical::copy()
 ////////////////////////////////////////////////////////////
 void SurfaceSpherical::swap(SurfaceSpherical& surface) 
 {
+  LOG("SurfaceSpherical::swap", mInternalSurfaceIndex);
   Surface::swap(surface);
   std::swap(mRadius, surface.mRadius);
 }
@@ -51,7 +55,7 @@ void SurfaceSpherical::swap(SurfaceSpherical& surface)
 ////////////////////////////////////////////////////////////
 void SurfaceSpherical::show()
 {
-  LOG("spherical", mRadius.get(), mPosition.zValue());
+  LOG("SurfaceSpherical::show", mInternalSurfaceIndex);
 }
 
 ////////////////////////////////////////////////////////////
@@ -71,7 +75,8 @@ SurfaceSpherical& SurfaceSpherical::operator=(SurfaceSpherical& surface)
 SurfaceSpherical::SurfaceSpherical(const SurfaceSpherical& surface) :
   Surface(surface), mRadius(surface.mRadius)
 {
-  ELOG("COPY CTOR SURFACESPHERICAL");
+  mInternalSurfaceIndex = ++gInternalSurfaceIndex;
+  LOG("SurfaceSpherical::CTOR copy contrutcor", mInternalSurfaceIndex);
 }
 
 

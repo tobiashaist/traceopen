@@ -11,12 +11,6 @@
 #define LOGFILE 0
 // -------------------------------------------------
 
-
-
-
-
-
-
 // Not very nice, not very professional but it works for our purpose.
 // Can be very much improved
 // T. Haist, April 2017
