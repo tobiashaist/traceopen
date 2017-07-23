@@ -78,8 +78,8 @@ public:
   
   std::unique_ptr<Element> mSmartPtrElement; // just very short in use (see above for explanation)
 
-  virtual Element* copy();      ///< copies the Element and sets the pointer to mSmartPtrElement
-  virtual void callInteraction(const Tracing* trace, Light* light);
+  virtual Element* copy(bool deep = true);      ///< creates and copies
+  virtual void callInteraction(Tracing* trace, Light* light);
 
   Point* getPosition();                      ///< get the Posiiton of the surface
   Direction* getOrientation();               ///< get the Posiiton of the surface
@@ -97,14 +97,15 @@ public:
   Element* getElement(int nr);
     
  // ---------------------------------------------------
- protected:
   int mInternalElementIndex;
+ protected:
   
   Point mPosition;		///< Position in Space (global coordinates)
   Direction mOrientation;	///< orientation in Space (global coordinates)
 
-
-  std::vector<std::unique_ptr<Element>> mSubElements;  ///< The Element consists of SubElements 
+  Material* mSurroundingMaterial;  // Pointer to the surroundingMaterial
+  
+  std::vector<Element*> mSubElements;  ///< The Element consists of SubElements 
   std::vector<std::vector<int>> mElementOrder;  ///< gives the order of the SubElements for tracing 
   
   Parameter<real> mWeight;	///< Weight of element in g

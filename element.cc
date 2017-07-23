@@ -20,7 +20,8 @@ int gInternalElementIndex = 0;   // mainly for debugging / testing
 Element::Element() 
 {
   mInternalElementIndex = ++gInternalElementIndex;
-  LOG("Element::ctor with index", mInternalElementIndex);
+  ELOG("Element::ctor with index", mInternalElementIndex);
+
   // Beware: on construction a Jones matrix is not necessarily created
 }
 
@@ -31,7 +32,7 @@ Element::Element()
 Element::Element(const Element& element) 
 {
   mInternalElementIndex = ++gInternalElementIndex;
-  LOG("Element::ctor with index", mInternalElementIndex);
+  ELOG("Element::copy ctor with index", mInternalElementIndex);
   mWeight =  element.mWeight;
   mPrice = element.mPrice;
   if(mJonesMatrix.get() != NULL)
@@ -46,7 +47,7 @@ Element::Element(const Element& element)
 ////////////////////////////////////////////////////////////
 Element::~Element() 
 {
-  LOG("Element::dtor");
+  ELOG("Element::dtor", mInternalElementIndex);
 }
 
 ////////////////////////////////////////////////////////////
@@ -70,18 +71,15 @@ Direction* Element::getOrientation()
 // TODO: This is not really used for anything in this base class
 // but it is necessary in the derived classes
 ////////////////////////////////////////////////////////////
-Element* Element::copy() 
+Element* Element::copy(bool deep) 
 {
-  LOG("Element::copy");
+  ELOG("Element::copy", mInternalElementIndex);
+  Element* e = new Element (*this);
 
-  mSmartPtrElement.reset(new Element(*this)); // here we generate
-  // a new Element and the mSmartPtrElement gets Ownership for that
-
-  LOG("Element::copy teil 2");
-  return mSmartPtrElement.get();
-
-    // Here something suitable should/could be used !
+  // Here something suitable should/could be used !
   // actually a deep copy !
+
+  return e;
 }
 
 ////////////////////////////////////////////////////////////
@@ -89,15 +87,16 @@ Element* Element::copy()
 ////////////////////////////////////////////////////////////
 Element& Element::operator=(Element& element) 
 {
+  ELOG("Element::operator=", mInternalElementIndex, element.mInternalElementIndex);
   Element temp(element);
   swap(element);
   return* this;
 }
 
 //////////////////////////////////////////////////////////////////////
-void Element::callInteraction(const Tracing* trace, Light* light)
+void Element::callInteraction(Tracing* trace, Light* light)
 {
-  LOG("callInteraction Element");
+  LOG("Element::callInteraction", mInternalElementIndex);
 }
 
 ////////////////////////////////////////////////////////////
@@ -105,11 +104,14 @@ void Element::callInteraction(const Tracing* trace, Light* light)
 ////////////////////////////////////////////////////////////
 void Element::show()
 {
-  LOG("Element::show having subelements: ", getCntSubElements(), mInternalElementIndex);
-  LOG(" .... now showing the content: ");
+  LOG("Element::show ", mInternalElementIndex); 
+  LOG("Having subelements: ", getCntSubElements());
   for(int t=0; t < getCntSubElements(); t++)
-    mSubElements[t]->show();
-  LOG(" ---- DONE showing element ");
+    {
+      LOG(" .... now showing the content for subelement ", t);
+      mSubElements[t]->show();
+    }
+
 }
 
 ////////////////////////////////////////////////////////////
@@ -117,6 +119,7 @@ void Element::show()
 ////////////////////////////////////////////////////////////
 void Element::swap(Element& element) 
 {
+  ELOG("Element::swap", mInternalElementIndex, element.mInternalElementIndex);
   std::swap(mWeight, element.mWeight);
   std::swap(mPrice, element.mPrice);
   std::swap(mJonesMatrix, element.mJonesMatrix);
@@ -129,37 +132,39 @@ void Element::swap(Element& element)
 /// \param thickness thickness between surface 1 and 2
 /// \param material Pointer to material 
 /// \param diameter lens diameter
+/// TODO: Wer ist eigentlich verantwortlich, um diese Surfaces, die
+/// so schön mit new angelegt werden, irgendwann mal wieder zu löschen
+/// (das war der ursprüngliche Sinn der Smart Pointers !!!)
 //////////////////////////////////////////////////////////////////////
 void Element::standardLens(real r1, real r2, real thickness,
 				       Material* const material, real diameter)
 {
-  LOG("Element::standardLens");
+  ELOG("Element::standardLens", mInternalElementIndex);
   SurfaceSpherical* s = new SurfaceSpherical(r1, diameter, Point(0,0,0));
-  addSubElement(s, material);
-
-  //  s = new SurfaceSpherical(r2, diameter, Point(0,0,thickness));
-  //  LOG("Thickness = ", thickness);
+  mSubElements.push_back(s);  
   //  addSubElement(s, material);
-  LOG("Element::standardLens exit");
-  show();
+  LOG("-----------------------");
+  s = new SurfaceSpherical(r2, diameter, Point(0,0,thickness));
+
+  mSubElements.push_back(s);  
+  //  addSubElement(s, material);
 }
 
 //////////////////////////////////////////////////////////////////////
-/// \param s Pointer to surface
-/// \param m Pointer to material
+/// Beachte: Das ist ein add mit Copy Funktionalität !!!!
+/// Vorsicht: Gut überlegen, ob ohne nicht besser ist !
 //////////////////////////////////////////////////////////////////////
 void Element::addSubElement(Element* const e,  Material* const m)
 {
-  LOG("Element::addSubElement");
-  Element* sc = e->copy();   // Copy of the Element is generated and ownership has
-                             // sc->mSmartPtrSurface
-  LOG("Element::addSubElement done copy");
-  mSubElements.push_back(move(sc->mSmartPtrElement));  
+  ELOG("Element::addSubElement",getCntSubElements(), mInternalElementIndex, e->mInternalElementIndex);
+  Element* sc = e->copy();   
+  mSubElements.push_back(sc);  
 
-  LOG("Element::addSubElement done pushback");
   // TODO  mMaterials.push_back(m);
 }
 
+
+// TODO: Materialien fehlen noch komplett !!!
 
 //////////////////////////////////////////////////////////////////////
 /// \param r1 radius of curvature surface 1
@@ -177,14 +182,18 @@ void Element::achromat(const real r1, const real r2, const real r3,
 				   Material* const m2,
 				   const real diameter)
 {
+  ELOG("Element::achromat", mInternalElementIndex);
   SurfaceSpherical* s = new SurfaceSpherical(r1, diameter, Point(0,0,0));
-  addSubElement(s,m1);
+  mSubElements.push_back(s);  
+  //  addSubElement(s,m1);
 
   s = new SurfaceSpherical(r2, diameter, Point(0,0,thickness1));
-  addSubElement(s,m2);
+  mSubElements.push_back(s);  
+  //  addSubElement(s,m2);
 
   s = new SurfaceSpherical(r3, diameter, Point(0,0,thickness2));
-  addSubElement(s,m2);
+  mSubElements.push_back(s);  
+  //  addSubElement(s,m2);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -195,5 +204,5 @@ Element* Element::getElement(int number)
 {
   ELOG("Element::getElement",number);
 
-  return mSubElements[number].get();
+  return mSubElements[number];
 }

@@ -11,8 +11,9 @@
 
 #include "surfacespherical.h"
 #include "logging.h"
+#include "tracing.h"
 
-int gInternalSurfaceIndex=0;  // TODO mal noch sinnvoller machen (static)
+extern int gInternalSurfaceIndex;
 ////////////////////////////////////////////////////////////
 /// \param radius radius of curvature
 /// \param diameter diameter of surface
@@ -21,52 +22,8 @@ int gInternalSurfaceIndex=0;  // TODO mal noch sinnvoller machen (static)
 SurfaceSpherical::SurfaceSpherical(const real radius, const real diameter,
 				   const Point p) : Surface(p, Direction(0,0,0), diameter)
 {
-  mInternalSurfaceIndex = ++gInternalSurfaceIndex;
-  LOG("SurfaceSpherical::CTOR ", mInternalSurfaceIndex);
+  LOG("SurfaceSpherical::CTOR ",  mInternalElementIndex);
   mRadius.set(radius);
-}
-
-
-//////////////////////////////////////////////////////////////////////
-/// \param nr Surface number
-/// \return newly created (and copied) Surface
-//////////////////////////////////////////////////////////////////////
-SurfaceSpherical* SurfaceSpherical::copy()
-{
-  LOG("SurfaceSpherical::copy", mInternalSurfaceIndex);
-  mSmartPtrSurface.reset(new SurfaceSpherical(*this)); // here we generate
-  // a new Element and the mSmartPtrSurface gets Ownership for that
-    
-  return dynamic_cast<SurfaceSpherical*>(mSmartPtrSurface.get());
-}
-
-////////////////////////////////////////////////////////////
-/// \param surface pointer to the surface
-////////////////////////////////////////////////////////////
-void SurfaceSpherical::swap(SurfaceSpherical& surface) 
-{
-  LOG("SurfaceSpherical::swap", mInternalSurfaceIndex);
-  Surface::swap(surface);
-  std::swap(mRadius, surface.mRadius);
-}
-
-////////////////////////////////////////////////////////////
-/// Just for debugging
-////////////////////////////////////////////////////////////
-void SurfaceSpherical::show()
-{
-  LOG("SurfaceSpherical::show", mInternalSurfaceIndex);
-}
-
-////////////////////////////////////////////////////////////
-/// assignment operator
-/// \param surface pointer to the surface to be assigned
-////////////////////////////////////////////////////////////
-SurfaceSpherical& SurfaceSpherical::operator=(SurfaceSpherical& surface) 
-{
-  SurfaceSpherical temp(surface);
-  swap(surface);
-  return* this;
 }
 
 ////////////////////////////////////////////////////////////
@@ -76,9 +33,62 @@ SurfaceSpherical::SurfaceSpherical(const SurfaceSpherical& surface) :
   Surface(surface), mRadius(surface.mRadius)
 {
   mInternalSurfaceIndex = ++gInternalSurfaceIndex;
-  LOG("SurfaceSpherical::CTOR copy contrutcor", mInternalSurfaceIndex);
+  LOG("SurfaceSpherical::CTOR copy contrutcor", 
+       mInternalElementIndex);
 }
 
+
+//////////////////////////////////////////////////////////////////////
+/// \param nr Surface number
+/// \return newly created (and copied) Surface
+//////////////////////////////////////////////////////////////////////
+SurfaceSpherical* SurfaceSpherical::copy(bool deep)
+{
+  ELOG("SurfaceSpherical::copy", mInternalElementIndex);
+  SurfaceSpherical* s = new SurfaceSpherical(*this);
+  s->mRadius = mRadius;
+  return s;
+}
+
+////////////////////////////////////////////////////////////
+/// \param surface pointer to the surface
+////////////////////////////////////////////////////////////
+void SurfaceSpherical::swap(SurfaceSpherical& surface) 
+{
+  ELOG("SurfaceSpherical::swap", mInternalSurfaceIndex);
+  Surface::swap(surface);
+  std::swap(mRadius, surface.mRadius);
+}
+
+////////////////////////////////////////////////////////////
+/// Just for debugging
+////////////////////////////////////////////////////////////
+void SurfaceSpherical::show()
+{
+  LOG("SurfaceSpherical::show", mInternalElementIndex, mRadius.get());
+}
+
+////////////////////////////////////////////////////////////
+/// assignment operator
+/// \param surface pointer to the surface to be assigned
+////////////////////////////////////////////////////////////
+SurfaceSpherical& SurfaceSpherical::operator=(SurfaceSpherical& surface) 
+{
+  ELOG("SurfaceSpherical::operator=", mInternalSurfaceIndex,
+       surface.mInternalSurfaceIndex);
+  SurfaceSpherical temp(surface);
+  swap(surface);
+  return* this;
+}
+
+
+//////////////////////////////////////////////////////////////////////
+void SurfaceSpherical::callInteraction(Tracing* trace, Light* light)
+{
+  LOG("SurfaceSpherical::callInteraction ", mInternalElementIndex);
+  light->show();
+  trace->mInteraction->interactSurfaceSpherical(light, this);
+}
 
 
 ////////////////////////////////////////////////////////////

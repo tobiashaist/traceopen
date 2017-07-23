@@ -11,9 +11,9 @@
 
 
 
-#ifndef INTERACTIONRAY_HPP 
+#ifndef INTERACTIONWAVE_HPP 
 
-#define INTERACTIONRAY_HPP
+#define INTERACTIONWAVE_HPP
 
 #include "basicdefinitions.h"
 #include "light.h"
@@ -21,8 +21,6 @@
 #include "paraxiallens.h"
 #include "interaction.h"
 #include <iostream>
-
-
 
 
 ////////////////////////////////////////////////////////////
@@ -36,7 +34,7 @@
 ////////////////////////////////////////////////////////////
 class SphericalSurface;
 
-class InteractionRay : public Interaction
+class InteractionWave : public Interaction
 {
   
 public:
@@ -44,8 +42,7 @@ public:
   virtual void interactParaxialLens(Light* light, ParaxialLens* element);
   virtual void interactSurfaceSpherical(Light* light, SurfaceSpherical* element);
   
-  void computeIntersectionWithParaxialLens(Ray* ray, ParaxialLens* lens);
-  void doLocalInteraction(Ray* ray, Direction normal);
+
 };
 
 #endif

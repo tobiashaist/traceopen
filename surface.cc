@@ -12,6 +12,7 @@
 #include "surface.h"
 #include "logging.h"
 
+int gInternalSurfaceIndex=0;  // TODO mal noch sinnvoller machen (static)
 ////////////////////////////////////////////////////////////
 /// \param pos Position of Surface in global coordinates
 /// \param dir orientation of Surface with respect to global coordinate system
@@ -20,8 +21,8 @@
 Surface::Surface(const Point pos, const Direction dir, const real diameter) :
 mDiameter(diameter)
 {
-  ELOG("CTOR Surface");
-  ELOG("point = ", pos.getZ().get());
+  mInternalSurfaceIndex = ++gInternalSurfaceIndex;
+  ELOG("Surface::ctor", pos.z_const().get());
   mPosition = pos;
   mOrientation = dir;
 }
@@ -32,7 +33,8 @@ mDiameter(diameter)
 ////////////////////////////////////////////////////////////
 Surface::Surface(const Surface& surface) 
 {
-  ELOG("COPY CTOR Surface");
+  mInternalSurfaceIndex = ++gInternalSurfaceIndex;
+  ELOG("Surface::copy ctor Surface");
   mPosition = surface.mPosition;
   mOrientation = surface.mOrientation;
   mDiameter = surface.mDiameter;
@@ -43,7 +45,7 @@ Surface::Surface(const Surface& surface)
 ////////////////////////////////////////////////////////////
 void Surface::show() 
 {
-  LOG("Surface::show", mWeight.get());
+  LOG("Surface::show Element Index", mInternalElementIndex);
 }
 
 ////////////////////////////////////////////////////////////
@@ -54,7 +56,6 @@ void Surface::swap(Surface& surface)
   std::swap(mPosition, surface.mPosition);
   std::swap(mOrientation, surface.mOrientation);
   std::swap(mDiameter, surface.mDiameter);
-  std::swap(mSmartPtrSurface, surface.mSmartPtrSurface);  // TODO: to be checked
 }
 
 ////////////////////////////////////////////////////////////
@@ -62,20 +63,28 @@ void Surface::swap(Surface& surface)
 ////////////////////////////////////////////////////////////
 Surface::~Surface()
 {
-
+  ELOG("Surface::dtor");
 }
 
 //////////////////////////////////////////////////////////////////////
 /// \param nr Surface number
 /// \return raw pointer to the surface that we generated and copied.
 //////////////////////////////////////////////////////////////////////
-Surface* Surface::copy()
+Surface* Surface::copy(bool deep)
 {
-  mSmartPtrSurface.reset(new Surface(*this)); // here we generate
-  // a new Element and the mSmartPtrSurface gets Ownership for that
-    
-  return dynamic_cast<Surface*>(mSmartPtrSurface.get());
+  ELOG("Surface::copy");
+  Surface* s = new Surface(*this);
+  // TODO: Copying !
+  return s;
 }
+
+//////////////////////////////////////////////////////////////////////
+void Surface::callInteraction(Tracing* trace, Light* light)
+{
+  LOG("Surface::callInteraction", mInternalElementIndex);
+  
+}
+
 
 ////////////////////////////////////////////////////////////
 /// assignment operator
@@ -83,6 +92,7 @@ Surface* Surface::copy()
 ////////////////////////////////////////////////////////////
 Surface& Surface::operator=(Surface& surface) 
 {
+  LOG("Surface::operator=");
   Surface temp(surface);
   swap(surface);
   return* this;

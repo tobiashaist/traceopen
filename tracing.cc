@@ -10,11 +10,11 @@
 /// 
 
 #include "ray.h"
+#include "wave.h"
 #include "tracing.h"
 #include "interactionray.h"
+#include "interactionwave.h"
 #include "logging.h"
-
-
 
 //////////////////////////////////////////////////////////////////////
 Tracing::Tracing() : mRayAiming(NULL)
@@ -29,12 +29,11 @@ Tracing::~Tracing()
     delete mRayAiming;
 }
 
-
 //////////////////////////////////////////////////////////////////////
 /// \param l light to be traced
 /// \param s optical system through which we want to trace
 //////////////////////////////////////////////////////////////////////
-void Tracing::trace() const
+void Tracing::trace() 
 {
   // This is the main entry point for tracing light trough a complete
   // optical system. It has to work with rays, raybundles, waves etc.
@@ -67,8 +66,8 @@ void Tracing::trace() const
   for(int t=0; t < mSystem->getCntElements(); t++)
     {
       Element* e = mSystem->getElement(t);
-      LOG("in for loop bevor show and now tracing Element", t);
-      e->show();
+      LOG("in for loop bevor show and now tracing Element", mLight->getType());
+      //      e->show();
       e->callInteraction(this, mLight);
     }
 }
@@ -103,19 +102,21 @@ void Tracing::computeElementDiameters(Ray* light, OpticalSystem* osystem)
 }
 
 
-
 //////////////////////////////////////////////////////////////////////
 /// \param l light based on which all interactions are to be set
 //////////////////////////////////////////////////////////////////////
-void Tracing::init(Light* light, OpticalSystem* osystem) 
+void Tracing::init(Light* light, LowLevelSystem* system) 
 {
-  //  mInteractionModel.setGlobalInteractions(light);
   ELOG("Done setGlobalInteractions");
 
-  mInteraction = new InteractionRay;
+  if(light->getType() == typeLightRay)
+    mInteraction = new InteractionRay;
+  else
+    mInteraction = new InteractionWave;
   
   mLight = light;
-  mSystem = osystem;
+  mSystem = system;
+
   // The following will crash because mInteraction is not set suitable
 #if 0
   switch(light->getType())

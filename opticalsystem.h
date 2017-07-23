@@ -56,6 +56,7 @@ class OpticalSystem
   
 public:
   OpticalSystem();
+  int addElementWithCopy(Element* e);     ///< add one Element at the end of the system
   int addElement(Element* e);     ///< add one Element at the end of the system
   int setElement(Element* e, int nr);	 ///< replace Element number n 
   Element* const getElement(int nr) const;       ///< set the Element number n
@@ -65,7 +66,7 @@ public:
   int getCntElements();          ///< return rhe number of elements
   
  protected:
-  std::vector<std::unique_ptr<Element>> mElements; ///< Here, the elements are stored
+  std::vector<Element*> mElements; ///< Here, the elements are stored
 
   Parameter<double> mPrice;       ///< Price of the optical system
   // etc.

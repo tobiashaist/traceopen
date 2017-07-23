@@ -17,6 +17,7 @@
 #include "surface.h"
 #include "parameter.h"
 
+class Tracing;
 
 
 ////////////////////////////////////////////////////////////
@@ -39,15 +40,18 @@ class SurfaceSpherical : public Surface
   SurfaceSpherical(real mRadius, real diameter, Point p); ///< ctor
   SurfaceSpherical(const SurfaceSpherical& surface);      ///< copy ctor
   void swap(SurfaceSpherical& surface1);                  ///< swap operation
-SurfaceSpherical& operator=( SurfaceSpherical& surface);  ///< assignment operator
+  SurfaceSpherical& operator=( SurfaceSpherical& surface);  ///< assignment operator
+
   void show();                          ///< just for debugging
-  virtual SurfaceSpherical* copy();     ///< copies the Surface and sets the pointer to mSmartPtrSurface
+  void callInteraction( Tracing* trace, Light* light);
+
+  virtual SurfaceSpherical* copy(bool deep=true);     ///< copies the Surface 
   Parameter<real>* getRadiusPointer();  ///< Pointer to the radius
   real getRadius();                     ///< get directly the radius
   
 protected:
   Parameter<real> mRadius;	        ///< Radius of curvature
-  int mInternalSurfaceIndex;
+
 };
 
 #endif

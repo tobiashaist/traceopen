@@ -40,6 +40,9 @@ public:
   Point& getPoint();	               ///< Access to current origin point of ray, arbitrary coordinate
   void setPoint(Point point);    ///< set the current origin point of ray, arbitrary coordinates
 
+
+  virtual void show();
+  
   real getX() const;           ///< get the x coordinate of the point of the ray, global coordinates
   real getY() const;           ///< get the y coordinate of the point of the ray, global coordinates
   real getZ() const;           ///< get the z coordinate of the point of the ray, global coordinates

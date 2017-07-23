@@ -7,7 +7,7 @@
 // -------------------------------------------------
 // PLEASE DEFINE THE FOLLOWING
 #define LOGGING 1
-#define EXTREMELOGGING 0
+#define EXTREMELOGGING 1
 #define LOGFILE 0
 // -------------------------------------------------
 

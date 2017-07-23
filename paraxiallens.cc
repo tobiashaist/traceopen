@@ -14,15 +14,12 @@
 #include "logging.h"
 #include "tracing.h"
 
-
-
-
 //////////////////////////////////////////////////////////////////////
 /// ctor
 //////////////////////////////////////////////////////////////////////
 ParaxialLens::ParaxialLens(real f) 
 {
-  LOG("COPY CTOR ParaxialLens ");
+  ELOG("ParxialLens::ctor");
   mFocalLength.set(f);
 }
 
@@ -32,13 +29,13 @@ ParaxialLens::ParaxialLens(real f)
 //////////////////////////////////////////////////////////////////////
 ParaxialLens::~ParaxialLens()
 {
-  LOG("DTOR ParaxialLens");
-
+  ELOG("ParxialLens::dtor");
 }
+
 //////////////////////////////////////////////////////////////////////
 ParaxialLens::ParaxialLens(ParaxialLens& lens) 
 {
-  ELOG("COPY CTOR ParaxialLens");
+  ELOG("ParaxialLens::COPY CTOR");
   mFocalLength.set(lens.mFocalLength.get());
 }
 
@@ -48,12 +45,10 @@ ParaxialLens::ParaxialLens(ParaxialLens& lens)
 //////////////////////////////////////////////////////////////////////
 ParaxialLens* ParaxialLens::copy()
 {
-  mSmartPtrElement.reset(new ParaxialLens(*this)); // here we generate
-  // a new Element and the mSmartPtrElement gets Ownership for that
-    
-  return dynamic_cast<ParaxialLens*>(mSmartPtrElement.get());
+  ELOG("ParaxialLens::copy");
+  ParaxialLens* l = new ParaxialLens(*this); // here we generate
+  return l;
 }
-
 
 //////////////////////////////////////////////////////////////////////
 Direction ParaxialLens::computeSurfaceNormal(Point& p)
@@ -70,7 +65,7 @@ Direction ParaxialLens::computeSurfaceNormal(Point& p)
 //////////////////////////////////////////////////////////////////////
 void ParaxialLens::callInteraction(const Tracing* trace, Light* light)
 {
-  LOG("ParaxialLens::callInteraction ParaxialLens");
+  ELOG("ParaxialLens::callInteraction ParaxialLens");
   trace->mInteraction->interactParaxialLens(light, this);
 }
 
@@ -80,9 +75,7 @@ void ParaxialLens::callInteraction(const Tracing* trace, Light* light)
 ////////////////////////////////////////////////////////////
 void ParaxialLens::show()
 {
-  Element::show();  // parent
-  
-  LOG("SHOW ParaxialLens");
+  LOG("SHOW ParaxialLens", mInternalElementIndex, mFocalLength.get());
 }
 
 
@@ -93,6 +86,7 @@ void ParaxialLens::show()
 ////////////////////////////////////////////////////////////
 ParaxialLens& ParaxialLens::operator=(ParaxialLens& element) 
 {
+  ELOG("ParaxialLens::operator=");
   ParaxialLens temp(element);
   swap(element);
   return* this;
@@ -103,9 +97,9 @@ ParaxialLens& ParaxialLens::operator=(ParaxialLens& element)
 ////////////////////////////////////////////////////////////
 void ParaxialLens::swap(ParaxialLens& element) 
 {
+  ELOG("ParaxialLens::swap");
   std::swap(mFocalLength, element.mFocalLength);
 }
-
 
 
 ////////////////////////////////////////////////////////////

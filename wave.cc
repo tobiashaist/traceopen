@@ -10,10 +10,18 @@
 /// 
 
 #include "wave.h"
+#include "logging.h"
 
 
 Wave::Wave() : Light(typeWaveScalar, 633e-9, 1)
 {
 
   ;
+}
+
+
+////////////////////////////////////////////////////////////
+void Wave::show() 
+{
+  LOG("Light = Wave");
 }

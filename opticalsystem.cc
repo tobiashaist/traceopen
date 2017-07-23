@@ -66,19 +66,34 @@
 // 
 // Might lead to lots of casts ....
 // It might be also a (better ?) option to return then really the unique_ptr
-// 
+//
+// OK .. after having implemented things with SmartPointers and getting it
+// nearly to work correctly, I decided: It gets to complicated in this case
+// nobody will understand it. Just too much ....
+// Therefore: We might use another solution in the future.
+// Right now, I returned to raw pointers.
+// This of course is risky. It boils always down to the question
+// "who is or feals responsible to the created objects using new ?")
+//
+// Currently we do it like that: The class that created (using new) the
+// objects (mainly Elements (surfaces etc.)) will be responsible to
+// delete.
+// TODOe: Das ist noch nicht voll korrekt / durchdacht !
+
+int OpticalSystem::addElementWithCopy(Element * const  e)
+{
+  ELOG("OpticalSysten::addElementWithCopy");
+  Element* ec = e->copy();   // for lens this points to a newly created Lens 
+  
+  mElements.push_back(ec);  
+  return mElements.size();
+}
+
+
 int OpticalSystem::addElement(Element * const  e)
 {
-  LOG("OpticalSysten::addElement");
-  e->show();
-  Element* ec = e->copy();   // for lens this points to a newly created Lens !
-  // and even more important: In the old object we have in e.mSmartPtrElement a
-  //  (smart) pointer to this newly created Element
-  // and in the following we transfer ownership for that to the mElements vector
-  
-  mElements.push_back(move(e->mSmartPtrElement));  
-  LOG("OpticalSysten::addElement exit");
-  //  std::cerr << "Number of Elements in mElements = " << mElements.size() << std::endl;
+  ELOG("OpticalSysten::addElement");
+  mElements.push_back(e);  
   return mElements.size();
 }
 
@@ -98,7 +113,7 @@ Element* const OpticalSystem::getElement(const int nr) const
 {
   LOG("getElement", nr, mElements.size());
   //  std::cerr << "Number of Elements in mElements = " << mElements.size() << std::endl;
-  return mElements[nr].get();
+  return mElements[nr];
 }
 
 ////////////////////////////////////////////////////////////
@@ -182,7 +197,7 @@ void OpticalSystem::paraxialSystem(int nlenses, ...)
      LOG("Distanz", distance);
      l.setFocalLength(focallength);
      l.getPosition()->z().set(z);
-     addElement(&l);
+     addElementWithCopy(&l);
      z += distance;
      // TODO: Hier noch Diameter auf Auto setzen
    }

@@ -18,6 +18,7 @@
 #include "light.h"
 
 #include "paraxiallens.h"
+#include "surfacespherical.h"
 #include <iostream>
 
 ////////////////////////////////////////////////////////////
@@ -42,6 +43,7 @@ public:
  public:
   virtual void interactElement(Light* light, Element* element) = 0;
   virtual void interactParaxialLens(Light* light, ParaxialLens* element) = 0;
+  virtual void interactSurfaceSpherical(Light* light, SurfaceSpherical* element) = 0;
 
 };
 

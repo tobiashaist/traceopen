@@ -67,6 +67,7 @@ public:
   bool isAlive() const;	        ///< true -> Light is still alive (not vignetted)
   bool isUsingPolarization() const; /// true -> we should use polarization
   void setUsingPolarization(bool); ///< set/unset the usage of polarization
+  virtual void show() = 0;
   
 protected:
   Material* mCurrentMaterial;   ///< the current Material where we travel in.

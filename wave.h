@@ -35,7 +35,8 @@ class Wave: public Light
 
 public:
   Wave();                          ///< std ctor
-
+  virtual void show();
+  
 protected:
 
 };

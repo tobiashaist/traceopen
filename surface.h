@@ -50,17 +50,18 @@ public:
   Surface(const Surface& surf);                     ///< copy ctor
   void swap(Surface& surface1);                     ///< swap operation
   virtual ~Surface();                               ///< dtor
-  virtual Surface* copy();   ///< copies the Surface and sets the pointer to mSmartPtrSurface
+  virtual Surface* copy(bool deep=true);   ///< copies the Surface and sets the pointer to mSmartPtrSurface
   Surface& operator=(Surface& surface);             ///< assignment operator
+
   virtual void show();
-  
-  std::unique_ptr<Surface> mSmartPtrSurface; ///< just very short in use (see above for expl.)
+  virtual void callInteraction(Tracing* trace, Light* light);
+
   Point* getPosition();                      ///< get the Posiiton of the surface
   Direction* getOrientation();               ///< get the Posiiton of the surface
   Parameter<real>* getDiameter();            ///< get the Diameter
   
 protected:
-
+  int mInternalSurfaceIndex;
   Parameter<real> mDiameter;	///< Diameter of usable surface (inner circle)
 
 #if 0

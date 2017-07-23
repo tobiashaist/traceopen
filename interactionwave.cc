@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////
-/// \file interaction.cc
+/// \file interactionwave.cc
 /// \brief class Interaction
 ///  \date 15.04.2017
 ///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
@@ -39,8 +39,8 @@
 /// an end surface ....
 /// and at these surfaces we have refraction, scattering etc ....
 
-#include "ray.h"
-#include "interactionray.h"
+#include "wave.h"
+#include "interactionwave.h"
 #include "traceopenerror.h"
 #include "logging.h"
 
@@ -52,10 +52,10 @@
 // (selbst auf di Gefahr einer CodeVerdopplung hin) ist es also
 // das schön für jede Lichtklasse extra zu machen.
 
-void InteractionRay::interactElement(Light* light, Element* element)
+void InteractionWave::interactElement(Light* light, Element* element)
 {
-  Ray* li = dynamic_cast<Ray*>(light);
-  LOG("InteractionRay::interactElement");
+  Wave* li = dynamic_cast<Wave*>(light);
+  LOG("InteractionWave::interactElement");
   
   // TODO Hier kommt nun konkret das Raytracing von Ray durch komplettes element
   // wir machen mal zunächst sequential
@@ -108,54 +108,22 @@ void InteractionRay::interactElement(Light* light, Element* element)
 }
 
 
-////////////////////////////////////////////////////////////
-void InteractionRay::computeIntersectionWithParaxialLens(Ray* ray, ParaxialLens* lens)
-{
-  LOG("InteractionRay::computeIntersectionWithParaxialLens");
-  // TODO: Up till now, no shifts, tilts, ...
-  //    only axial (z) position .... not quite general :)
-  
-  // 1. Compute the intersection of Ray with surface
-  // (In other cases (elements, lighttypes) this corresponds to propagation
-  // For the computation, of course we have to check the different
-   // surface types
-
-  real zlens = lens->getPosition()->zValue();
-  real xangle = ray->getDirCosX();
-  real yangle = ray->getDirCosY();
-  real zangle = ray->getDirCosZ();
-  real x0 = ray->getX();
-  real z0 = ray->getZ();
-  real y0 = ray->getY();
-
-  // Now, we have to find the length of the ray between
-  // current start position and the plane of the paraxial lens.
-  real thickness = (zlens-z0)/zangle;
-
-  // Now we compute (vectorial): r' = r + distance * vec(k)
-  real y = y0 + thickness * yangle;
-  real x = x0 + thickness * xangle;
-  real z = z0 + thickness * zangle;
-  ray->setY(y);
-  ray->setX(x);
-  ray->setZ(z);
-}
 
 ////////////////////////////////////////////////////////////
-void InteractionRay::interactParaxialLens(Light* light, ParaxialLens* plens)
+void InteractionWave::interactParaxialLens(Light* light, ParaxialLens* plens)
 {
-  LOG("InteractionRay::interactParaxialLens");
-  Ray* ray = dynamic_cast<Ray*>(light);
+  LOG("InteractionWave::interactParaxialLens");
+  Wave* wave = dynamic_cast<Wave*>(light);
 
   // 1. Intersection
-  computeIntersectionWithParaxialLens(ray, plens);
+  //  computeIntersectionWithParaxialLens(wave, plens);
 
   // 2. Interaction
   // In general we need the local surface normal and of course the ray direction
   // to be able to compute the interaction
   // we compute this at the position of the Ray
 
-  Direction normal = plens->computeSurfaceNormal(ray->getPoint());
+  //  Direction normal = plens->computeSurfaceNormal(wave->getPoint());
 
   // Beware: Only For Ray Bundles we will generate more Rays in than out
   // Here (in the interactionRay class) one ray stays one ray.
@@ -163,24 +131,18 @@ void InteractionRay::interactParaxialLens(Light* light, ParaxialLens* plens)
   // which will be used during interaction.
   // This leading interaction can be set by the user (e.g. for ghost analysis by hand)
 
-  doLocalInteraction(ray, normal);
+  //  doLocalInteraction(wave, normal);
 		     
 }
 
 
 ////////////////////////////////////////////////////////////
-void InteractionRay::interactSurfaceSpherical(Light* light, SurfaceSpherical* surface)
+void InteractionWave::interactSurfaceSpherical(Light* light, SurfaceSpherical* surface)
 {
-  LOG("InteractionRay::interactSurfaceSpherical");
-  Ray* ray = dynamic_cast<Ray*>(light);
+  LOG("InteractionWave::interactSurfaceSpherical");
+  Wave* wave = dynamic_cast<Wave*>(light);
 
   //  doLocalInteraction(ray, normal);
 		     
 }
 
-////////////////////////////////////////////////////////////
-void InteractionRay::doLocalInteraction(Ray* ray, Direction normal)
-{
-
-
-}

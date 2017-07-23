@@ -19,6 +19,7 @@
 #include "materialideal.h"
 #include "raybundle.h"
 #include "interaction.h"
+#include "lowlevelsystem.h"
 
 
 #include <iostream>
@@ -50,17 +51,25 @@ try
 
     OpticalSystem sys;
 #if 1
-    Element e1,e2;
+    LOG("----------- STANDARD LENS -----------");
+    Element e1;
     e1.standardLens(10e-3, -10e-3, 3e-3,
 		    new MaterialIdeal("Testmat1", &env, 1.57,50),10e-3);
-    //    e2.achromat(10e-3, -10e-3, 20e-33, 2e-3, 1e-3,
-    //        	new MaterialIdeal("Testmat1", &env,1.57,50),
-    //        	new MaterialIdeal("Testmat2", &env,1.47,20), 10e-3);
 
-    e1.show();
+    //    e1.show();
+
     sys.addElement(&e1);
-    //    sys.addElement(&e2);
+
+    LOG("----------- ACHROMAT -----------");
+    Element e2;
+    e2.achromat(10e-3, -10e-3, 20e-33, 2e-3, 1e-3,
+          	new MaterialIdeal("Testmat1", &env,1.57,50),
+           	new MaterialIdeal("Testmat2", &env,1.47,20), 10e-3);
+
+    sys.addElement(&e2);
 #endif
+
+
 
 #if 0
     // r, n, thickness
@@ -78,11 +87,16 @@ try
     LOG("nach paraxial system");
 #endif
 
-    LOG("----------------------------------------------");
     sys.show();
+    LOG("----------------------------------------------");
+
 
     // ----- Und nun können wir da mal durchtracen ------------------
-    tracing.init(light, &sys );
+    LowLevelSystem lowlevel;
+    lowlevel.convertTo(&sys);
+    lowlevel.show();
+    
+    tracing.init(light, &lowlevel );
     tracing.trace();
 
   std::cout << "Finished without crash" << std::endl;
