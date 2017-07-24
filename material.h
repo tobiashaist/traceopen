@@ -19,7 +19,6 @@
 #include "environment.h"
 
 
-
 ////////////////////////////////////////////////////////////
 ///  \brief Material is an abstract base calls that represents all Materials  
 ////////////////////////////////////////////////////////////
@@ -59,7 +58,7 @@ public:
  protected:
   std::string mName;			///< name of Material
   Parameter<real> mSpecificWeight;	///< Dispersion
-  Environment* mEnvironment;              ///< Enviromental conditions (e.g. Temperature)
+  Environment* mEnvironment;            ///< Enviromental conditions (e.g. Temperature)
 };
 
 #endif

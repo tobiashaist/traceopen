@@ -14,7 +14,7 @@
 #include "refractionwaves.h"
 #include "traceopenerror.h"
 
-
+// TODO: I guess we do not need that anymore
 
 //////////////////////////////////////////////////////////////////////
 /// \param light light model to be used for global interactions

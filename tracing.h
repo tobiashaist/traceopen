@@ -25,7 +25,7 @@
 ///  The abstract base class Tracing is the main container for 
 ///  propagation and interaction.
 ///
-/// Unclear Design decision: RayAiming. In principle one would first think that
+/// TODO: Unclear Design decision: RayAiming. In principle one would first think that
 /// this is only necessary for Rays and RayBundles but that
 /// is (I think) wrong. Also for tracing e.g. waves some concept is
 /// necessary to "aim".

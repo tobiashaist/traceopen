@@ -44,46 +44,47 @@ class Tracing;
 ///  Most important: The Element itself consists of Elements ... and
 ///  a special case of Elements are surfaces
 ///
-///  Elements will have a boundingGeometry (Box) which we need for
-///  non-sequential tracing things
+///  Elements might have a boundingGeometry (Box) which we might need for
+///  non-sequential tracing things (but we can also do by hand ... we will see)
 ///
-///  Within an Element we (most often) will have sequential tracing
-///  and the user will say which SubElements (stored in mSubElements) will
-///  be interacted with after each other and which leading
-///  interaction should be followed.
-///  But: This order of SubElements will depend of the first Subelement
-///  that will be hit by the light.
-///  Therefore, if we have N SubElements we will need N x N entries
-///  (that's the most general case)
-///  and later re will write some code that help us to automatically
-///  create and fill this list.
+///  For the tracing we will only trace through elements without subelements
+///  For that the OpticalSystem consisting of Elements will be first converted
+///  to a LowLevelSystem which consists of Elements (without subElements).
 ///
 ///  \date 07.4.2017
 ///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
 ////////////////////////////////////////////////////////////
-// TODO: BoundingKram
-// TODO: mElementOrder to be filled
 
 class Element
 {
-  
 public:
-  Element();			///< ctor
-  Element(const Element& element);	///< copy ctor
-  virtual ~Element();		///< dtor
+  explicit Element(Element* parent = NULL);      ///< ctor
+  Element(const Element& element);	         ///< copy ctor
+  virtual ~Element();		                 ///< dtor
 
   void swap(Element& element);                   ///< swap operation
-  virtual void show();				 ///< just for debugging purposes
   Element& operator=(Element& element);          ///< assignment OP
+  virtual Element* copy(bool deep = true);       ///< creates and copies
   
-  std::unique_ptr<Element> mSmartPtrElement; // just very short in use (see above for explanation)
+  virtual void show();				 ///< just for debugging purposes
 
-  virtual Element* copy(bool deep = true);      ///< creates and copies
   virtual void callInteraction(Tracing* trace, Light* light);
 
+  void setPosition(real x, real y, real z);  ///< Position relativ to ParentElement
+  void setOrientation(real alpha, real beta, real gamma);  ///< orientation relativ to Par
   Point* getPosition();                      ///< get the Posiiton of the surface
   Direction* getOrientation();               ///< get the Posiiton of the surface
-
+  void addSubElement(Element* const e,  Material* const m);
+  int getCntSubElements() {return mSubElements.size();}
+  Element* getElement(int nr);               ///< get subElement nr
+  void setWeight(real weight);		     ///< set the weight in g
+  real getWeight();		             ///< get the weight in g
+  void setPrice(real price);		     ///< set the price in Euro
+  real getPrice();		             ///< get the price in Euro
+  void setMaterials(Material* m1, Material* m2); ///< set the materials
+  Material* getMaterialLeft();			 ///< get the left material
+  Material* getMaterialRight();			 ///< get the left material
+  
   void standardLens(real r1, real r2,
 		    real thickness, Material* material,
 		    real diameter = 0);   ///< create a standard lens
@@ -92,20 +93,17 @@ public:
 		Material* m1, Material*  m2,
 		real diameter = 0);      ///< create an achromat
 
-  void addSubElement(Element* const e,  Material* const m);
-  int getCntSubElements() {return mSubElements.size();}
-  Element* getElement(int nr);
-    
  // ---------------------------------------------------
-  int mInternalElementIndex;
+  int mInternalElementIndex;   ///< for internal bookkeeping (but not really used)
+
  protected:
-  
+  Element*  mParent;    ///< we need that for the relative position/orientation
   Point mPosition;		///< Position in Space (global coordinates)
   Direction mOrientation;	///< orientation in Space (global coordinates)
+  Material* mMaterialLeft;      ///< The Material left of surface
+  Material* mMaterialRight;     ///< The Material right of surface
 
-  Material* mSurroundingMaterial;  // Pointer to the surroundingMaterial
-  
-  std::vector<Element*> mSubElements;  ///< The Element consists of SubElements 
+  std::vector<Element*> mSubElements;  ///< The Element (might) consist of SubElements 
   std::vector<std::vector<int>> mElementOrder;  ///< gives the order of the SubElements for tracing 
   
   Parameter<real> mWeight;	///< Weight of element in g

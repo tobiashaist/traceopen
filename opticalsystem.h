@@ -22,11 +22,10 @@
 #include <iostream>
 #include <memory>
 
-#define INIFNITY 1e30
+#define INIFNITY 1e30    // TODO: Do we need that and where would be best position ?
 #define AIR 1.0
 
-// TODO
-// Variants
+// TODO: Variants
 
 ////////////////////////////////////////////////////////////
 ///  \brief Describes the complete optical system
@@ -44,7 +43,11 @@
 ///
 ///  When elements are added/inserted into the system, they will be (deeply)
 ///  copied. So OpticalSystem owns verything which is stored in mElements. 
-///  
+///
+///  OpticalSystem is our general container for the OpticalSystem.
+///  (We also have LowLevelSystem which is filled by the content of OpticalSystem
+///  and then used for the real tracing.)
+///
 ///  \date 07.4.2017
 ///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
 ////////////////////////////////////////////////////////////
@@ -61,8 +64,8 @@ public:
   int setElement(Element* e, int nr);	 ///< replace Element number n 
   Element* const getElement(int nr) const;       ///< set the Element number n
   void show();                   ///< just for debugging  
-  void patentInput(int n, ...);         ///< Simplified fast input of a rot. sym. system
-  void paraxialSystem(int n, ...);     ///< Simplified fast input of a paraxial system
+  void patentInput(int n, ...);       ///< Simplified fast input of a rot. sym. system
+  void paraxialSystem(int n, ...);    ///< Simplified fast input of a paraxial system
   int getCntElements();          ///< return rhe number of elements
   
  protected:
@@ -71,10 +74,10 @@ public:
   Parameter<double> mPrice;       ///< Price of the optical system
   // etc.
 
-  // I am unsure if we should take mStop as a unique_ptr .... might be better.
+  // TODO: I am unsure if we should take mStop as a unique_ptr .... might be better.
   // Again a question of ownership !
   
-  Surface* mStop;                 ///< for classic optical design we need a stop SURFACE
+  Surface* mStop;          ///< for classic optical design we need a stop SURFACE
 };
 
 #endif

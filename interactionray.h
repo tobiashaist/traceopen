@@ -22,14 +22,12 @@
 #include "interaction.h"
 #include <iostream>
 
-
-
+// TODO: Extension for a lot useful things
+// TODO: global functions for coordinate transform (or put it into Point or Direction)
 
 ////////////////////////////////////////////////////////////
-///  \brief Most optical components are made out of Surfaces
-////////////////////////////////////////////////////////////
+///  \brief InteractionRay is responsible for the interactions for rays.
 ///  
-///  InteractionRay is responsible for the interactions for rays.
 /// 
 ///  \date 15.5.2017
 ///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
@@ -38,7 +36,6 @@ class SphericalSurface;
 
 class InteractionRay : public Interaction
 {
-  
 public:
   virtual void interactElement(Light* light, Element* element);
   virtual void interactParaxialLens(Light* light, ParaxialLens* element);

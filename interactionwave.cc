@@ -8,36 +8,6 @@
 ///  70569 Stuttgart
 ///  Germany
 /// 
-/// Important: For some elements (most important: ElementWithSurfaces and Paraxial)
-/// we mix propagation and interaction. Interaction then means that rays
-/// will first travels until the intersection and we decide about the
-/// concrete interactions. Actually, since this is the most often used case,
-/// it is something like a standard case.... on the other hand, it is
-/// not ! Reason for doing this: Speed.
-///
-/// Beware: In contrast to Zemax an Paraxial lens or a spherical surface is not given by
-/// lens AND THEN DISTANCE TO THE NEXT ELEMENT
-/// But by the position of the lens.
-/// For the raytracing this means that we FIRST propagate and then have the interaction
-///
-/// 
-/// What interactions do we have to take care of ?
-/// - Refraction
-/// - Paraxial Refraction
-/// - Scattering
-/// - Absorption
-/// - Reflection
-/// - Diffraction
-///
-/// (All these things are different with polarization turned on.)
-///
-/// Now ... of course some elements have multiple interfaces or volumes and
-/// and therefore we can have multiple interactions going on ....
-/// So: For such elements (especially conventional lenses) we have to do
-/// the interactions on a surface by surface basis
-/// Anyway, most elements (even GRIN lenses) have a least a start and
-/// an end surface ....
-/// and at these surfaces we have refraction, scattering etc ....
 
 #include "wave.h"
 #include "interactionwave.h"
@@ -45,12 +15,11 @@
 #include "logging.h"
 
 
-
-//////////////////////////////////////////////////////////////////////
-// Denkbar, das die folgende Funktion auch in der Basisklasse Interaction
-// sein könnte. Allerdings ist das fraglich. Zunächst straight forward
-// (selbst auf di Gefahr einer CodeVerdopplung hin) ist es also
-// das schön für jede Lichtklasse extra zu machen.
+// TODO: Up till now just copied (old) things out of InteractionRay
+// and changed the names ... does not make any sense and just shows
+// that it compiles and the correct functions are called.
+// So: clear the unnecessary things out (it will only bemuse the reader)
+//
 
 void InteractionWave::interactElement(Light* light, Element* element)
 {

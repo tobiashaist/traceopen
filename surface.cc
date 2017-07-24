@@ -12,7 +12,12 @@
 #include "surface.h"
 #include "logging.h"
 
+// TODO: Check for alle Ctors and copies if the base class is/should
+// be also copied.
+// TODO: Testcases to be written
+
 int gInternalSurfaceIndex=0;  // TODO mal noch sinnvoller machen (static)
+
 ////////////////////////////////////////////////////////////
 /// \param pos Position of Surface in global coordinates
 /// \param dir orientation of Surface with respect to global coordinate system
@@ -33,6 +38,7 @@ mDiameter(diameter)
 ////////////////////////////////////////////////////////////
 Surface::Surface(const Surface& surface) 
 {
+  // TODO: not enough
   mInternalSurfaceIndex = ++gInternalSurfaceIndex;
   ELOG("Surface::copy ctor Surface");
   mPosition = surface.mPosition;
@@ -53,6 +59,7 @@ void Surface::show()
 ////////////////////////////////////////////////////////////
 void Surface::swap(Surface& surface) 
 {
+  // TODO: Not enough
   std::swap(mPosition, surface.mPosition);
   std::swap(mOrientation, surface.mOrientation);
   std::swap(mDiameter, surface.mDiameter);
@@ -74,7 +81,7 @@ Surface* Surface::copy(bool deep)
 {
   ELOG("Surface::copy");
   Surface* s = new Surface(*this);
-  // TODO: Copying !
+  // TODO: Copying ! Deep !
   return s;
 }
 
@@ -82,7 +89,8 @@ Surface* Surface::copy(bool deep)
 void Surface::callInteraction(Tracing* trace, Light* light)
 {
   LOG("Surface::callInteraction", mInternalElementIndex);
-  
+  // TODO: Do we really need this function ? Can we use this ?
+  // As a general thing ?
 }
 
 
@@ -92,6 +100,7 @@ void Surface::callInteraction(Tracing* trace, Light* light)
 ////////////////////////////////////////////////////////////
 Surface& Surface::operator=(Surface& surface) 
 {
+  // TOOD: Check if correct
   LOG("Surface::operator=");
   Surface temp(surface);
   swap(surface);
@@ -113,6 +122,8 @@ Point* Surface::getPosition()
 Direction* Surface::getOrientation()
 {
   return &mOrientation;
+  // TODO: In general how do we generall do access to Directions, Positions
+  // and Parameters
 }
 
 ////////////////////////////////////////////////////////////

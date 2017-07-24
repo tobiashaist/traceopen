@@ -54,12 +54,13 @@
 ///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
 ////////////////////////////////////////////////////////////
 ///  TODO: CurrentMaterial
-
+///  TODO: A LOT of things ... up till now just the most basic things
+///  Please rethink and extend
 enum typeLight {typeLightRay, typeWaveScalar, typeWaveVectorial, typeGaussian};
 
 class Light {
 
-public:
+ public:
   Light(typeLight type, real lambda, real intensity);  ///< ctor
   virtual ~Light()  = 0;     ///< dtor
   void setPosition(Point p);    ///< sets the startposition of the light

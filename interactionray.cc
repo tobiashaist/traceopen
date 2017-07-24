@@ -44,14 +44,20 @@
 #include "traceopenerror.h"
 #include "logging.h"
 
-
-
+// TODO: Doxygen
+// TODO: Testcases
+// TODO: Rethink what should go in the base class Interaction and
+// what we want to have only for rays
 //////////////////////////////////////////////////////////////////////
 // Denkbar, das die folgende Funktion auch in der Basisklasse Interaction
 // sein könnte. Allerdings ist das fraglich. Zunächst straight forward
-// (selbst auf di Gefahr einer CodeVerdopplung hin) ist es also
+// (selbst auf die Gefahr einer CodeVerdopplung hin) ist es also
 // das schön für jede Lichtklasse extra zu machen.
 
+// TODO: Very unsure if we still need the following
+// Anyway: Some basic thoughts might be useful.
+// In the current stage more or less nothing is done and only
+// the structure shows that it is possible to do it that way.
 void InteractionRay::interactElement(Light* light, Element* element)
 {
   Ray* li = dynamic_cast<Ray*>(light);
@@ -90,10 +96,9 @@ void InteractionRay::interactElement(Light* light, Element* element)
          -> ray vernichten und return
 
 
-
-      // so ... jetzt muss man aber die eigentliche Unterscheidung
-      // in SurfaceTypen hinkriegen !!!
-
+	      
+      //  In the past we thought that we have to do something like this here ...
+      //  Now, we would rather replace with the individual functions 	      
       if(s->Type == sphericalSurface)
          interactionmodell.mRefraction(s, light);
       else if(s->Type == grating)
@@ -102,13 +107,13 @@ void InteractionRay::interactElement(Light* light, Element* element)
 
 #endif
 
-
    }
   
 }
 
 
 ////////////////////////////////////////////////////////////
+// TODO: Please recheck. I have major doubts if it is correct
 void InteractionRay::computeIntersectionWithParaxialLens(Ray* ray, ParaxialLens* lens)
 {
   LOG("InteractionRay::computeIntersectionWithParaxialLens");
@@ -141,6 +146,7 @@ void InteractionRay::computeIntersectionWithParaxialLens(Ray* ray, ParaxialLens*
   ray->setZ(z);
 }
 
+// TODO: Please recheck. I have major doubts if it is correct
 ////////////////////////////////////////////////////////////
 void InteractionRay::interactParaxialLens(Light* light, ParaxialLens* plens)
 {
@@ -167,7 +173,7 @@ void InteractionRay::interactParaxialLens(Light* light, ParaxialLens* plens)
 		     
 }
 
-
+// TODO: to be filled
 ////////////////////////////////////////////////////////////
 void InteractionRay::interactSurfaceSpherical(Light* light, SurfaceSpherical* surface)
 {
@@ -178,6 +184,7 @@ void InteractionRay::interactSurfaceSpherical(Light* light, SurfaceSpherical* su
 		     
 }
 
+// TODO: to be filled
 ////////////////////////////////////////////////////////////
 void InteractionRay::doLocalInteraction(Ray* ray, Direction normal)
 {

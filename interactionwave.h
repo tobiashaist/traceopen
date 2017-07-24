@@ -1,14 +1,13 @@
 ////////////////////////////////////////////////////////////
-/// \file interactionray.h
+/// \file interactionwave.h
 /// \brief include file for class InteractionRay
-///  \date 15.05.2017
+///  \date 22.07.2017
 ///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
 ///  Institute of Applied Optics, University of Stuttgart ITO
 ///  Paffenwaldring 9
 ///  70569 Stuttgart
 ///  Germany
 /// 
-
 
 
 #ifndef INTERACTIONWAVE_HPP 
@@ -24,12 +23,15 @@
 
 
 ////////////////////////////////////////////////////////////
-///  \brief Most optical components are made out of Surfaces
+///  \brief  InteractionWave is responsible for the interactions for Waves.
 ////////////////////////////////////////////////////////////
-///  
-///  InteractionRay is responsible for the interactions for rays.
 /// 
-///  \date 15.5.2017
+///  Up till now this class is not used at all, apart from showing that
+///  that it will work that way
+///  It is not planned to put any effort at the moment into the implementation.
+///  So just put in empty methods if necessary.
+///
+///  \date 22.7.2017
 ///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
 ////////////////////////////////////////////////////////////
 class SphericalSurface;
@@ -41,7 +43,6 @@ public:
   virtual void interactElement(Light* light, Element* element);
   virtual void interactParaxialLens(Light* light, ParaxialLens* element);
   virtual void interactSurfaceSpherical(Light* light, SurfaceSpherical* element);
-  
 
 };
 

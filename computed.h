@@ -46,7 +46,7 @@
 /// 
 /// Therefore, it might be necessary for some of the computational routines
 /// to get multiple Rays (even Lights ?) or specialized RayBundles in order
-/// to their work.
+/// to do their work.
 /// The best interface for that is up till now not clear to me.... but critical!
 /// 
 /// First approach: We change "Tracing" so that it first just stores Light* and 
@@ -71,6 +71,8 @@
 ///  \date 26.4.2017
 ///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
 ////////////////////////////////////////////////////////////
+/// TODO: a lot of things to do and to think about. Up till it is only clear that
+/// we need such a concept.
 class Computed
 {
 

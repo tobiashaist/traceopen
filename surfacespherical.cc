@@ -13,7 +13,12 @@
 #include "logging.h"
 #include "tracing.h"
 
-extern int gInternalSurfaceIndex;
+extern int gInternalSurfaceIndex;  // probably: useless (gInternalElementIndex instead)
+
+// TODO: Oxygen
+// TODO: Testcases
+// TODO: Const Correctness
+//
 ////////////////////////////////////////////////////////////
 /// \param radius radius of curvature
 /// \param diameter diameter of surface
@@ -86,7 +91,6 @@ SurfaceSpherical& SurfaceSpherical::operator=(SurfaceSpherical& surface)
 void SurfaceSpherical::callInteraction(Tracing* trace, Light* light)
 {
   LOG("SurfaceSpherical::callInteraction ", mInternalElementIndex);
-  light->show();
   trace->mInteraction->interactSurfaceSpherical(light, this);
 }
 

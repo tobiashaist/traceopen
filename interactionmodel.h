@@ -20,7 +20,7 @@
 #include <memory>
 
 
-
+// TODO: I guess we do not need that anymore
 
 ////////////////////////////////////////////////////////////
 ///  \brief Here, all global interactions (used for tracing etc.)

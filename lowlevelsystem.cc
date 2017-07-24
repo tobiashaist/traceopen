@@ -18,6 +18,9 @@
 #include <vector>
 
 
+/// TODO: Doxygen
+/// TODO: Rethink if everything necessary is included and makes sense
+/// 
 ////////////////////////////////////////////////////////////
 /// ctor
 ////////////////////////////////////////////////////////////
@@ -90,11 +93,12 @@ void LowLevelSystem::addElement(Element* element)
 
 ///////////////////////////////////////////////////////////
 /// convertTo
+/// TODO: Rethink: Does this always work ?
 ////////////////////////////////////////////////////////////
 void LowLevelSystem::convertTo(OpticalSystem* system) 
 {
   ELOG("LowLevelSysten::convertTo");
-  //  LOG("Anzahl Elemente = ",system->getCntElements()); 
+
   for(int t=0; t < system->getCntElements(); t++)
     {
       Element* e = system->getElement(t);

@@ -80,6 +80,8 @@
 // delete.
 // TODOe: Das ist noch nicht voll korrekt / durchdacht !
 
+// TODO: Doxygen
+
 int OpticalSystem::addElementWithCopy(Element * const  e)
 {
   ELOG("OpticalSysten::addElementWithCopy");
@@ -151,6 +153,7 @@ int OpticalSystem::getCntElements()
 
 
 ////////////////////////////////////////////////////////////
+// TODO: implement it correctly (and test it)
 void OpticalSystem::patentInput(int nsurfaces, ...)
 {
  va_list ap;
@@ -180,6 +183,7 @@ void OpticalSystem::patentInput(int nsurfaces, ...)
 
 
 ////////////////////////////////////////////////////////////
+// TODO: implement it correctly (and test it)
 void OpticalSystem::paraxialSystem(int nlenses, ...)
 {
  va_list ap;

@@ -35,8 +35,7 @@
 ///  \date 07.4.2017
 ///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
 ////////////////////////////////////////////////////////////
-
-// We should include
+// TODO: We should include
 // Coating
 // BRDF
 // Aperture
@@ -50,7 +49,7 @@ public:
   Surface(const Surface& surf);                     ///< copy ctor
   void swap(Surface& surface1);                     ///< swap operation
   virtual ~Surface();                               ///< dtor
-  virtual Surface* copy(bool deep=true);   ///< copies the Surface and sets the pointer to mSmartPtrSurface
+  virtual Surface* copy(bool deep=true);            ///< copies the Surface 
   Surface& operator=(Surface& surface);             ///< assignment operator
 
   virtual void show();
@@ -61,7 +60,7 @@ public:
   Parameter<real>* getDiameter();            ///< get the Diameter
   
 protected:
-  int mInternalSurfaceIndex;
+  int mInternalSurfaceIndex;	///< useless, I Guess
   Parameter<real> mDiameter;	///< Diameter of usable surface (inner circle)
 
 #if 0

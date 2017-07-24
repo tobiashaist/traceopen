@@ -47,12 +47,15 @@
 /// deleteEntry
 /// search Entry By Name,
 /// search Entry by index
+/// search based on complex things (like in Zemax)
 /// load
 /// save
 /// 
 ///  \date 25.4.2017
 ///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
 ////////////////////////////////////////////////////////////
+// TODO: More or less everything ! Also concerning entries and also concerning
+// the general concept and the implementation for OpticalSystems, Materials
 class Database
 {
     

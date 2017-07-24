@@ -43,7 +43,7 @@ class SurfaceSpherical : public Surface
   SurfaceSpherical& operator=( SurfaceSpherical& surface);  ///< assignment operator
 
   void show();                          ///< just for debugging
-  void callInteraction( Tracing* trace, Light* light);
+  void callInteraction( Tracing* trace, Light* light); ///< calling the interaction
 
   virtual SurfaceSpherical* copy(bool deep=true);     ///< copies the Surface 
   Parameter<real>* getRadiusPointer();  ///< Pointer to the radius

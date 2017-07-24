@@ -19,12 +19,13 @@
 
 
 
-
 ////////////////////////////////////////////////////////////
 ///  \brief Enviroment is responsible for storing/computing enviromental parameters  
 ////////////////////////////////////////////////////////////
 ///  
-///
+/// TODO: How do we really use that ? Beware for one optical
+/// system we might have several Environments !
+/// TODO: Extend it to everything useful (think about it)
 ////////////////////////////////////////////////////////////
 class Environment
 {

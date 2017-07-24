@@ -34,6 +34,11 @@
 /// Therefore, still we use the Element class for storing but do not
 /// use here the subElements !
 ///
+/// Later it might be useful to even derive (-> TODO: dtor) an even
+/// simpler representation for fast raytracing where we have something
+/// like lens editor in zemax (distances between surfaces) and
+/// where we do not care about decenters etc..
+///
 ///  \date 22.7.2017
 ///  \author Tobias Haist  (haist@ito.uni-stuttgart.de)
 ////////////////////////////////////////////////////////////
@@ -44,7 +49,7 @@ public:
   LowLevelSystem(); 		///< ctor
   Element* next();              ///< get the next Element (=surface)
   void reset();                 ///< reset
-  void show();
+  void show();			///< show it (text output) 
   void convertTo(OpticalSystem* system); ///< fill the LowLevel description
   int getCntElements();    ///< the number of Elements=surfaces
   int getCurrentIndex();        ///< the index of the current surface

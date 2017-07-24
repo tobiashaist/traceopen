@@ -13,11 +13,14 @@
 #include "logging.h"
 #include "surfacespherical.h"
 
-int gInternalElementIndex = 0;   // mainly for debugging / testing
+int gInternalElementIndex = 0;   // mainly for debugging / testing TODO: Static class
 
+// TODO: general doxygen docu for this file 
+// TODO: Implement the simple nonimplemented getter/sett functions
+// TODO: Write Testcases !
 ////////////////////////////////////////////////////////////
 /// ctor
-Element::Element() 
+Element::Element(Element* parent) : mParent(parent), mJonesMatrix(nullptr)
 {
   mInternalElementIndex = ++gInternalElementIndex;
   ELOG("Element::ctor with index", mInternalElementIndex);
@@ -35,7 +38,10 @@ Element::Element(const Element& element)
   ELOG("Element::copy ctor with index", mInternalElementIndex);
   mWeight =  element.mWeight;
   mPrice = element.mPrice;
-  if(mJonesMatrix.get() != NULL)
+
+  // TODO: Up till now, not correct. Copy everything
+  
+  if(mJonesMatrix.get() != nullptr)
     {
       // TOOD: 1) create a new Jones matrix, 2) Deep Copy it
     }
@@ -48,6 +54,8 @@ Element::Element(const Element& element)
 Element::~Element() 
 {
   ELOG("Element::dtor", mInternalElementIndex);
+  // TODO: Please check what really has to be deleted
+  // (I guess the subElements) ?
 }
 
 ////////////////////////////////////////////////////////////
@@ -76,17 +84,18 @@ Element* Element::copy(bool deep)
   ELOG("Element::copy", mInternalElementIndex);
   Element* e = new Element (*this);
 
-  // Here something suitable should/could be used !
+  // TODO: Here something suitable should/could be used !
   // actually a deep copy !
 
   return e;
 }
 
 ////////////////////////////////////////////////////////////
-/// \param surface pointer to the surface
+/// \param 
 ////////////////////////////////////////////////////////////
 Element& Element::operator=(Element& element) 
 {
+  // TODO: is this correct ?
   ELOG("Element::operator=", mInternalElementIndex, element.mInternalElementIndex);
   Element temp(element);
   swap(element);
@@ -97,6 +106,9 @@ Element& Element::operator=(Element& element)
 void Element::callInteraction(Tracing* trace, Light* light)
 {
   LOG("Element::callInteraction", mInternalElementIndex);
+  // TODO: Is the following correct ? Should we replace with Exception ?
+  // Normally this should not be really called for the
+  // the base class Element but only for derived classes
 }
 
 ////////////////////////////////////////////////////////////
@@ -104,6 +116,7 @@ void Element::callInteraction(Tracing* trace, Light* light)
 ////////////////////////////////////////////////////////////
 void Element::show()
 {
+  // TODO: could be done much nicer
   LOG("Element::show ", mInternalElementIndex); 
   LOG("Having subelements: ", getCntSubElements());
   for(int t=0; t < getCntSubElements(); t++)
@@ -119,6 +132,8 @@ void Element::show()
 ////////////////////////////////////////////////////////////
 void Element::swap(Element& element) 
 {
+  // TODO: als Materials to be swapped (and perhaps other things), please
+  // check ! Also check anyway, if correct !
   ELOG("Element::swap", mInternalElementIndex, element.mInternalElementIndex);
   std::swap(mWeight, element.mWeight);
   std::swap(mPrice, element.mPrice);
@@ -143,7 +158,6 @@ void Element::standardLens(real r1, real r2, real thickness,
   SurfaceSpherical* s = new SurfaceSpherical(r1, diameter, Point(0,0,0));
   mSubElements.push_back(s);  
   //  addSubElement(s, material);
-  LOG("-----------------------");
   s = new SurfaceSpherical(r2, diameter, Point(0,0,thickness));
 
   mSubElements.push_back(s);  
@@ -152,7 +166,7 @@ void Element::standardLens(real r1, real r2, real thickness,
 
 //////////////////////////////////////////////////////////////////////
 /// Beachte: Das ist ein add mit Copy Funktionalität !!!!
-/// Vorsicht: Gut überlegen, ob ohne nicht besser ist !
+/// Vorsicht: Vor Anwendung gut überlegen, ob ohne nicht besser ist !
 //////////////////////////////////////////////////////////////////////
 void Element::addSubElement(Element* const e,  Material* const m)
 {
